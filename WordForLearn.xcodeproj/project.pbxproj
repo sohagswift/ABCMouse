@@ -15,6 +15,7 @@
 		CBA635D925B8334100AC52D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA635D725B8334100AC52D3 /* LaunchScreen.storyboard */; };
 		CBA635E225B9553C00AC52D3 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA635E125B9553B00AC52D3 /* CategoryRow.swift */; };
 		CBA635E525B9603400AC52D3 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA635E425B9603400AC52D3 /* CategoryView.swift */; };
+		CBA635E825B9662E00AC52D3 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA635E725B9662E00AC52D3 /* Sidebar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CBA635DA25B8334100AC52D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBA635E125B9553B00AC52D3 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		CBA635E425B9603400AC52D3 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		CBA635E725B9662E00AC52D3 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				CBA635D425B8334000AC52D3 /* Preview Content */,
 				CBA635E125B9553B00AC52D3 /* CategoryRow.swift */,
 				CBA635E425B9603400AC52D3 /* CategoryView.swift */,
+				CBA635E725B9662E00AC52D3 /* Sidebar.swift */,
 			);
 			path = WordForLearn;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				CBA635CF25B8333B00AC52D3 /* SceneDelegate.swift in Sources */,
 				CBA635E225B9553C00AC52D3 /* CategoryRow.swift in Sources */,
 				CBA635D125B8333B00AC52D3 /* ContentView.swift in Sources */,
+				CBA635E825B9662E00AC52D3 /* Sidebar.swift in Sources */,
 				CBA635E525B9603400AC52D3 /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
