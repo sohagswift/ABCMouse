@@ -13,6 +13,8 @@
 		CBA635D325B8334000AC52D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA635D225B8334000AC52D3 /* Assets.xcassets */; };
 		CBA635D625B8334000AC52D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBA635D525B8334000AC52D3 /* Preview Assets.xcassets */; };
 		CBA635D925B8334100AC52D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBA635D725B8334100AC52D3 /* LaunchScreen.storyboard */; };
+		CBA635E225B9553C00AC52D3 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA635E125B9553B00AC52D3 /* CategoryRow.swift */; };
+		CBA635E525B9603400AC52D3 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA635E425B9603400AC52D3 /* CategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		CBA635D525B8334000AC52D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CBA635D825B8334100AC52D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CBA635DA25B8334100AC52D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBA635E125B9553B00AC52D3 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		CBA635E425B9603400AC52D3 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				CBA635D725B8334100AC52D3 /* LaunchScreen.storyboard */,
 				CBA635DA25B8334100AC52D3 /* Info.plist */,
 				CBA635D425B8334000AC52D3 /* Preview Content */,
+				CBA635E125B9553B00AC52D3 /* CategoryRow.swift */,
+				CBA635E425B9603400AC52D3 /* CategoryView.swift */,
 			);
 			path = WordForLearn;
 			sourceTree = "<group>";
@@ -147,7 +153,9 @@
 			files = (
 				CBA635CD25B8333B00AC52D3 /* AppDelegate.swift in Sources */,
 				CBA635CF25B8333B00AC52D3 /* SceneDelegate.swift in Sources */,
+				CBA635E225B9553C00AC52D3 /* CategoryRow.swift in Sources */,
 				CBA635D125B8333B00AC52D3 /* ContentView.swift in Sources */,
+				CBA635E525B9603400AC52D3 /* CategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
