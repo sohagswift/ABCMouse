@@ -34,10 +34,10 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .preferredColorScheme(.light)
-        ContentView()
-            .preferredColorScheme(.dark)
-        ContentView().previewLayout(.fixed(width: 200.0, height: 200.0))
+//            .preferredColorScheme(.light)
+//        ContentView()
+//            .preferredColorScheme(.dark)
+//        ContentView().previewLayout(.fixed(width: 200.0, height: 200.0))
         
     }
 }

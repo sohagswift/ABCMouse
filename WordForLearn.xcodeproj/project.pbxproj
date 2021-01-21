@@ -16,6 +16,7 @@
 		CBA635E225B9553C00AC52D3 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA635E125B9553B00AC52D3 /* CategoryRow.swift */; };
 		CBA635E525B9603400AC52D3 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA635E425B9603400AC52D3 /* CategoryView.swift */; };
 		CBA635E825B9662E00AC52D3 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA635E725B9662E00AC52D3 /* Sidebar.swift */; };
+		CBA6365425B9A73B00AC52D3 /* CategoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA6365325B9A73B00AC52D3 /* CategoryDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		CBA635E125B9553B00AC52D3 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		CBA635E425B9603400AC52D3 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		CBA635E725B9662E00AC52D3 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		CBA635EA25B96C1900AC52D3 /* WordForLearn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WordForLearn.entitlements; sourceTree = "<group>"; };
+		CBA6365325B9A73B00AC52D3 /* CategoryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,7 @@
 		CBA635CB25B8333B00AC52D3 /* WordForLearn */ = {
 			isa = PBXGroup;
 			children = (
+				CBA635EA25B96C1900AC52D3 /* WordForLearn.entitlements */,
 				CBA635CC25B8333B00AC52D3 /* AppDelegate.swift */,
 				CBA635CE25B8333B00AC52D3 /* SceneDelegate.swift */,
 				CBA635D025B8333B00AC52D3 /* ContentView.swift */,
@@ -72,6 +76,7 @@
 				CBA635E125B9553B00AC52D3 /* CategoryRow.swift */,
 				CBA635E425B9603400AC52D3 /* CategoryView.swift */,
 				CBA635E725B9662E00AC52D3 /* Sidebar.swift */,
+				CBA6365325B9A73B00AC52D3 /* CategoryDetails.swift */,
 			);
 			path = WordForLearn;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			files = (
 				CBA635CD25B8333B00AC52D3 /* AppDelegate.swift in Sources */,
 				CBA635CF25B8333B00AC52D3 /* SceneDelegate.swift in Sources */,
+				CBA6365425B9A73B00AC52D3 /* CategoryDetails.swift in Sources */,
 				CBA635E225B9553C00AC52D3 /* CategoryRow.swift in Sources */,
 				CBA635D125B8333B00AC52D3 /* ContentView.swift in Sources */,
 				CBA635E825B9662E00AC52D3 /* Sidebar.swift in Sources */,
@@ -298,8 +304,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WordForLearn/WordForLearn.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WordForLearn/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WordForLearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -308,6 +318,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -318,8 +331,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WordForLearn/WordForLearn.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WordForLearn/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WordForLearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -328,6 +345,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
