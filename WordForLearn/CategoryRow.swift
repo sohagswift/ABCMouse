@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryRow: View {
     var body: some View {
         HStack{
-            Image(systemName: "greaterthan.circle.fill").imageScale(.large).foregroundColor(.black)
+            Image(systemName: "greaterthan.circle.fill").imageScale(.large).foregroundColor(.orange)
         
             VStack(alignment: .leading,spacing:2.0){
                 Text("শপথ নিলেন জো বাইডেন").font(.subheadline).bold()
