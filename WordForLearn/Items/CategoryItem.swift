@@ -1,15 +1,14 @@
 //
-//  ContentView.swift
+//  CategoryItem.swift
 //  WordForLearn
 //
-//  Created by Nazmul Hasan on 20/1/21.
+//  Created by Nazmul on 22/1/21.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct CategoryItem: View {
     var body: some View {
-      
         VStack(alignment: .leading, spacing: 0.4, content: {
             Spacer()
             HStack{
@@ -25,19 +24,11 @@ struct ContentView: View {
         .background(Color.blue)
         .cornerRadius(20.0)
         .shadow(radius: 20)
-        
-        
-          
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct CategoryItem_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-//            .preferredColorScheme(.light)
-//        ContentView()
-//            .preferredColorScheme(.dark)
-//        ContentView().previewLayout(.fixed(width: 200.0, height: 200.0))
-        
+        CategoryItem()
     }
 }
