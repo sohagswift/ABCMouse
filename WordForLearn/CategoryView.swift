@@ -8,9 +8,23 @@
 import SwiftUI
 
 struct CategoryView: View {
-  
+    @State var show = false
     var body: some View {
-        CategoryList()
+        ZStack{
+            CategoryItem().frame(width: 280, height: 230)
+            
+            VStack{
+                if show {
+                    CategoryItem()
+                        .transition(.move(edge: .bottom))
+                        .edgesIgnoringSafeArea(.all)
+                }
+            }
+        }
+        .onTapGesture{
+            show.toggle()
+        }
+        .animation(.spring())
     }
 }
 
