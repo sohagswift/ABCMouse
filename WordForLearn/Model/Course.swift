@@ -44,7 +44,7 @@ var courses = [
     Course(
         title: "সৌদি আরবের নেতৃত্বে",
         subtitle: "মার্কিন পররাষ্ট্রনীতিতে উল্লেখযোগ্য পরিবর্তন হলো সৌদি আরবের নেতৃত্বে ইয়েমেনের সঙ্গে যুদ্ধকে সমর্থন জানানো",
-        image: "Illustration6",
+        image: "Illustration3",
         color: Color(#colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)))
     
     

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CategoryItem: View {
     var course : Course =  courses[0]
+   
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0.4, content: {
             Spacer()

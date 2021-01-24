@@ -94,12 +94,12 @@
 				CBA635CE25B8333B00AC52D3 /* SceneDelegate.swift */,
 				38EC3ECE25BADCB30001B399 /* Navigation */,
 				38EC3ECF25BADD070001B399 /* Items */,
+				CBA6365A25BD7D7700AC52D3 /* Model */,
 				CBA635D225B8334000AC52D3 /* Assets.xcassets */,
 				CBA635D725B8334100AC52D3 /* LaunchScreen.storyboard */,
 				CBA635DA25B8334100AC52D3 /* Info.plist */,
 				CBA635D425B8334000AC52D3 /* Preview Content */,
 				CBA635E425B9603400AC52D3 /* CategoryView.swift */,
-				CBA6365725BD63A100AC52D3 /* Course.swift */,
 				38EC3ED125BADE1E0001B399 /* CategoryList.swift */,
 				CBA6365325B9A73B00AC52D3 /* CategoryDetails.swift */,
 			);
@@ -112,6 +112,14 @@
 				CBA635D525B8334000AC52D3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CBA6365A25BD7D7700AC52D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CBA6365725BD63A100AC52D3 /* Course.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

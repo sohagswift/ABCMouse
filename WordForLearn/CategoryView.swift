@@ -10,24 +10,44 @@ import SwiftUI
 struct CategoryView: View {
     @State var show = false
     @Namespace var namespace
+    @State var selectedItem: Course? = nil
+    @State var isDisable = false
     var body: some View {
         ZStack{
             ScrollView{
                 VStack(spacing:20){
                     ForEach(courses) { item in
                         CategoryItem(course: item)
-                            .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show).frame(width: 280, height: 230)
+                            .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
+                            .frame(width: 280, height: 230)
+                            .onTapGesture{
+                                withAnimation(.spring()){
+                                    show.toggle()
+                                    selectedItem = item
+                                    isDisable = true
+                                }
+                            }
+                            .disabled(isDisable)
                     }
 //                    CategoryItem()
 //                        .frame(width: 280, height: 230)
                 }.frame(maxWidth:.infinity)
             }
             
-            if show {
+            if selectedItem != nil {
                 ScrollView {
-                    CategoryItem(course: courses[2])
-                        .matchedGeometryEffect(id: courses[2].id, in: namespace)
+                    CategoryItem(course: selectedItem!)
+                        .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                         .frame(height:300)
+                        .onTapGesture{
+                            withAnimation(.spring()){
+                                show.toggle()
+                                selectedItem = nil
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                    self.isDisable = false
+                                })
+                            }
+                        }
                     VStack{
                         ForEach(0 ..< 5) { item in
                             CategoryRow()
@@ -47,14 +67,11 @@ struct CategoryView: View {
                                     .animation(Animation.spring()))
                 )
                 .edgesIgnoringSafeArea(.all)
+
             }
             
         }
-        .onTapGesture{
-            withAnimation(.spring()){
-                show.toggle()
-            }
-        }
+       
         //  .animation(.spring())
     }
 }
