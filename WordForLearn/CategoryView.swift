@@ -21,7 +21,7 @@ struct CategoryView: View {
                             .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                             .frame(width: 280, height: 230)
                             .onTapGesture{
-                                withAnimation(.spring()){
+                                withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                     show.toggle()
                                     selectedItem = item
                                     isDisable = true
@@ -40,7 +40,7 @@ struct CategoryView: View {
                         .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                         .frame(height:300)
                         .onTapGesture{
-                            withAnimation(.spring()){
+                            withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                 show.toggle()
                                 selectedItem = nil
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
@@ -60,7 +60,7 @@ struct CategoryView: View {
                     .asymmetric(insertion:
                                     AnyTransition
                                     .opacity
-                                    .animation(Animation.spring().delay(0.3)),
+                                    .animation(Animation.spring().delay(0.1)),
                                 removal:
                                     AnyTransition
                                     .opacity

@@ -43,41 +43,48 @@ struct ItemPlayView: View {
             .zIndex(1)
             
             if selectedItem != nil {
-                VStack {
-                    ScrollView {
-                        CategoryItem(course: selectedItem!)
-                            .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
-                            .frame(height:300)
-                            .onTapGesture{
-                                withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
-                                    show.toggle()
-                                    selectedItem = nil
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                                        self.isDisable = false
-                                    })
+                ZStack(alignment: .topTrailing) {
+                    VStack {
+                        ScrollView {
+                            CategoryItem(course: selectedItem!)
+                                .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
+                                .frame(height:300)
+                                
+                            VStack{
+                                ForEach(0 ..< 5) { item in
+                                    CategoryRow()
                                 }
                             }
-                        VStack{
-                            ForEach(0 ..< 5) { item in
-                                CategoryRow()
-                            }
+                            
                         }
                         
-                    }
+                    }.background(Color.white)
+                    .matchedGeometryEffect(id: "container\(selectedItem!.id)", in: namespace)
+                    .transition(
+                        .asymmetric(insertion:
+                                        AnyTransition
+                                        .opacity
+                                        .animation(Animation.spring().delay(0.0)),
+                                    removal:
+                                        AnyTransition
+                                        .opacity
+                                        .animation(Animation.spring()))
+                    )
+                    .edgesIgnoringSafeArea(.all)
                     
-                }.background(Color.white)
-                .matchedGeometryEffect(id: "container\(selectedItem!.id)", in: namespace)
-                .transition(
-                    .asymmetric(insertion:
-                                    AnyTransition
-                                    .opacity
-                                    .animation(Animation.spring().delay(0.0)),
-                                removal:
-                                    AnyTransition
-                                    .opacity
-                                    .animation(Animation.spring()))
-                )
-                .edgesIgnoringSafeArea(.all)
+                    
+                    CloseButton()
+                        .padding(.trailing, 16)
+                        .onTapGesture{
+                        withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
+                            show.toggle()
+                            selectedItem = nil
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                self.isDisable = false
+                            })
+                        }
+                    }
+                }
                 .zIndex(2)
 
             }
