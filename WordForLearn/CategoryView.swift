@@ -9,22 +9,35 @@ import SwiftUI
 
 struct CategoryView: View {
     @State var show = false
+    @Namespace var namespace
     var body: some View {
         ZStack{
-            CategoryItem().frame(width: 280, height: 230)
             
-            VStack{
-                if show {
+            CategoryItem()
+                .matchedGeometryEffect(id: "card", in: namespace, isSource: !show).frame(width: 280, height: 230)
+
+            if show {
+                ScrollView {
                     CategoryItem()
-                        .transition(.move(edge: .bottom))
-                        .edgesIgnoringSafeArea(.all)
-                }
+                        .matchedGeometryEffect(id: "card", in: namespace)
+                        .frame(height:300)
+                    VStack{
+                        ForEach(0 ..< 5) { item in
+                            CategoryRow()
+                        }
+                    }
+                    
+                } .transition(.opacity)
+                .edgesIgnoringSafeArea(.all)
             }
+            
         }
         .onTapGesture{
-            show.toggle()
+            withAnimation(.spring()){
+                show.toggle()
+            }
         }
-        .animation(.spring())
+        //  .animation(.spring())
     }
 }
 
