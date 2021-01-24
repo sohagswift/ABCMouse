@@ -12,10 +12,15 @@ struct CategoryView: View {
     @Namespace var namespace
     var body: some View {
         ZStack{
+            ScrollView{
+                VStack(spacing:20){
+                    CategoryItem()
+                        .matchedGeometryEffect(id: "card", in: namespace, isSource: !show).frame(width: 280, height: 230)
+                    CategoryItem()
+                        .frame(width: 280, height: 230)
+                }.frame(maxWidth:.infinity)
+            }
             
-            CategoryItem()
-                .matchedGeometryEffect(id: "card", in: namespace, isSource: !show).frame(width: 280, height: 230)
-
             if show {
                 ScrollView {
                     CategoryItem()
@@ -27,7 +32,18 @@ struct CategoryView: View {
                         }
                     }
                     
-                } .transition(.opacity)
+                }
+                .background(Color.white)
+                .transition(
+                    .asymmetric(insertion:
+                                    AnyTransition
+                                    .opacity
+                                    .animation(Animation.spring().delay(0.3)),
+                                removal:
+                                    AnyTransition
+                                    .opacity
+                                    .animation(Animation.spring()))
+                )
                 .edgesIgnoringSafeArea(.all)
             }
             
