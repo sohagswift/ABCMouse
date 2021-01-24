@@ -34,12 +34,12 @@ struct ItemPlayView: View {
                                 .disabled(isDisable)
                         }.matchedGeometryEffect(id: "container\(item.id)", in: namespace, isSource:!show)
                     }
-//                    CategoryItem()
-//                        .frame(width: 280, height: 230)
+                    //                    CategoryItem()
+                    //                        .frame(width: 280, height: 230)
                 }
                 .padding(16)
                 .frame(maxWidth:.infinity)
-           }
+            }
             .zIndex(1)
             
             if selectedItem != nil {
@@ -49,7 +49,7 @@ struct ItemPlayView: View {
                             CategoryItem(course: selectedItem!)
                                 .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                                 .frame(height:300)
-                                
+                            
                             VStack{
                                 ForEach(0 ..< 5) { item in
                                     CategoryRow()
@@ -76,21 +76,20 @@ struct ItemPlayView: View {
                     CloseButton()
                         .padding(.trailing, 16)
                         .onTapGesture{
-                        withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
-                            show.toggle()
-                            selectedItem = nil
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                                self.isDisable = false
-                            })
+                            withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
+                                show.toggle()
+                                selectedItem = nil
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                    self.isDisable = false
+                                })
+                            }
                         }
-                    }
                 }
                 .zIndex(2)
-
             }
             
         }
-       
+        
         //  .animation(.spring())
     }
 }
