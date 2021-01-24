@@ -14,17 +14,19 @@ struct CategoryView: View {
         ZStack{
             ScrollView{
                 VStack(spacing:20){
-                    CategoryItem()
-                        .matchedGeometryEffect(id: "card", in: namespace, isSource: !show).frame(width: 280, height: 230)
-                    CategoryItem()
-                        .frame(width: 280, height: 230)
+                    ForEach(courses) { item in
+                        CategoryItem(course: item)
+                            .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show).frame(width: 280, height: 230)
+                    }
+//                    CategoryItem()
+//                        .frame(width: 280, height: 230)
                 }.frame(maxWidth:.infinity)
             }
             
             if show {
                 ScrollView {
-                    CategoryItem()
-                        .matchedGeometryEffect(id: "card", in: namespace)
+                    CategoryItem(course: courses[2])
+                        .matchedGeometryEffect(id: courses[2].id, in: namespace)
                         .frame(height:300)
                     VStack{
                         ForEach(0 ..< 5) { item in

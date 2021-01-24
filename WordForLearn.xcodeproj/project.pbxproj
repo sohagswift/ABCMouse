@@ -19,6 +19,7 @@
 		CBA635E525B9603400AC52D3 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA635E425B9603400AC52D3 /* CategoryView.swift */; };
 		CBA635E825B9662E00AC52D3 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA635E725B9662E00AC52D3 /* Sidebar.swift */; };
 		CBA6365425B9A73B00AC52D3 /* CategoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA6365325B9A73B00AC52D3 /* CategoryDetails.swift */; };
+		CBA6365825BD63A100AC52D3 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA6365725BD63A100AC52D3 /* Course.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		CBA635E725B9662E00AC52D3 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		CBA635EA25B96C1900AC52D3 /* WordForLearn.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WordForLearn.entitlements; sourceTree = "<group>"; };
 		CBA6365325B9A73B00AC52D3 /* CategoryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetails.swift; sourceTree = "<group>"; };
+		CBA6365725BD63A100AC52D3 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				CBA635DA25B8334100AC52D3 /* Info.plist */,
 				CBA635D425B8334000AC52D3 /* Preview Content */,
 				CBA635E425B9603400AC52D3 /* CategoryView.swift */,
+				CBA6365725BD63A100AC52D3 /* Course.swift */,
 				38EC3ED125BADE1E0001B399 /* CategoryList.swift */,
 				CBA6365325B9A73B00AC52D3 /* CategoryDetails.swift */,
 			);
@@ -183,6 +186,7 @@
 			files = (
 				CBA635CD25B8333B00AC52D3 /* AppDelegate.swift in Sources */,
 				CBA635CF25B8333B00AC52D3 /* SceneDelegate.swift in Sources */,
+				CBA6365825BD63A100AC52D3 /* Course.swift in Sources */,
 				38EC3ECB25BADA190001B399 /* CategoryItem.swift in Sources */,
 				CBA6365425B9A73B00AC52D3 /* CategoryDetails.swift in Sources */,
 				CBA635E225B9553C00AC52D3 /* CategoryRow.swift in Sources */,

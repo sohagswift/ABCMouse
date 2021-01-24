@@ -8,22 +8,23 @@
 import SwiftUI
 
 struct CategoryItem: View {
+    var course : Course =  courses[0]
     var body: some View {
         VStack(alignment: .leading, spacing: 0.4, content: {
             Spacer()
             HStack{
                 Spacer()
-                Image("Illustration1").resizable().aspectRatio(contentMode: .fit)
+                Image(course.image).resizable().aspectRatio(contentMode: .fit)
                 Spacer()
             }
-            Text("SwiftUI for ios 14").fontWeight(.bold)
-            Text("20 Secton Spacer()   ").font(.footnote)
+            Text(course.title).fontWeight(.bold)
+            Text(course.subtitle).font(.footnote)
         })
        
         .padding(.all)
-        .background(Color.blue)
+        .background(course.color)
         .cornerRadius(20.0)
-        .shadow(radius: 20)
+        .shadow(color: course.color.opacity(0.3), radius: 20, x: 0.0, y: 10.0)
     }
 }
 
