@@ -49,7 +49,7 @@ struct CategoryView: View {
                             }
                         }
                     VStack{
-                        ForEach(0 ..< 5) { item in
+                        ForEach(categorySections) { item in
                             CategoryRow()
                         }
                     }
