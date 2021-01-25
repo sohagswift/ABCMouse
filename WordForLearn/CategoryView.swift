@@ -50,7 +50,8 @@ struct CategoryView: View {
                         }
                     VStack{
                         ForEach(categorySections) { item in
-                            CategoryRow()
+                            CategoryRow(item: item)
+                            Divider()
                         }
                     }
                     
