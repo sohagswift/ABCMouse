@@ -34,8 +34,6 @@ struct ItemPlayQuizView: View {
                                 .disabled(isDisable)
                         }.matchedGeometryEffect(id: "container\(item.id)", in: namespace, isSource:!show)
                     }
-                    //                    CategoryItem()
-                    //                        .frame(width: 280, height: 230)
                 }
                 .padding(16)
                 .frame(maxWidth:.infinity)
