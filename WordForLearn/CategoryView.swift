@@ -14,12 +14,22 @@ struct CategoryView: View {
     @State var isDisable = false
     var body: some View {
         ZStack{
+            
             ScrollView{
-                VStack(spacing:20){
+                VStack(alignment: .leading, spacing:16){
+                    
+                    VStack {
+                        Text("KidS WOrLd").font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
+                            .shadow(color: .gray, radius: 2, x: 0, y: 5)
+                    }.background(Image("Certificate3")
+                                    .resizable()
+                                    .scaledToFill())
                     ForEach(courses) { item in
                         CategoryItem(course: item)
                             .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
-                            .frame(width: 280, height: 230)
+                            .frame(height: 230)
+                            .padding(.trailing, 16)
+                            .padding(.leading, 16)
                             .onTapGesture{
                                 withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                     show.toggle()

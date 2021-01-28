@@ -42,35 +42,38 @@ struct HomeView: View {
     
     var body: some View {
         
-       
-       
-        VStack(alignment: .leading){
-            
-            VStack{
-                Text("KidS WOrLd").font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
-                    .shadow(color: .gray, radius: 2, x: 0, y: 5)
-            }.background(Image("Certificate3")
+        NavigationView{
+            VStack(alignment: .leading){
+                
+                VStack{
+                    Text("KidS WOrLd").font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
+                        .shadow(color: .gray, radius: 2, x: 0, y: 5)
+                }.background(Image("Certificate3")
+                                .resizable()
+                                .scaledToFill())
+                
+               
+              
+                  
+                    ScrollView {
+                 
+                      //  Divider().padding(.leading, 16)
+                        MoviesCarousel(categoryName: "Top Movies of 2020", movies: topMovies)
+                        Divider().padding(.leading, 16)
+                        MoviesCarousel(categoryName: "Animated Movies", movies: animationMovies)
+                        Divider().padding(.leading, 16)
+                        MoviesCarousel(categoryName: "Top Movies of 2020", movies: topMovies)
+                        Divider().padding(.leading, 16)
+                        MoviesCarousel(categoryName: "Animated Movies", movies: animationMovies)
+                        Divider().padding(.leading, 16)
+                    }
+            }.background(Image("HomeBackground")
                             .resizable()
                             .scaledToFill())
-            
-           
-          
-              
-                ScrollView {
-             
-                  //  Divider().padding(.leading, 16)
-                    MoviesCarousel(categoryName: "Top Movies of 2020", movies: topMovies)
-                    Divider().padding(.leading, 16)
-                    MoviesCarousel(categoryName: "Animated Movies", movies: animationMovies)
-                    Divider().padding(.leading, 16)
-                    MoviesCarousel(categoryName: "Top Movies of 2020", movies: topMovies)
-                    Divider().padding(.leading, 16)
-                    MoviesCarousel(categoryName: "Animated Movies", movies: animationMovies)
-                    Divider().padding(.leading, 16)
-                }
-        }.background(Image("HomeBackground")
-                        .resizable()
-                        .scaledToFill())
+            .navigationBarHidden(true)
+        }
+       
+        
        // .edgesIgnoringSafeArea(.all)
         
       
@@ -122,7 +125,7 @@ struct MoviesCarousel: View {
                     GeometryReader { proxy in
                         let scale = getScale(proxy: proxy)
                         NavigationLink(
-                            destination: MovieDetailsView(movie: num),
+                            destination: CategoryView() /*MovieDetailsView(movie: num)*/,
                             label: {
                                 VStack(spacing: 8) {
                                     Image(num.imageName)
