@@ -369,14 +369,14 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WordForLearn/Preview Content\"";
-				DEVELOPMENT_TEAM = 7BX2D9PSSQ;
+				DEVELOPMENT_TEAM = QUWV5QS83Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WordForLearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn54;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
@@ -396,14 +396,14 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WordForLearn/Preview Content\"";
-				DEVELOPMENT_TEAM = 7BX2D9PSSQ;
+				DEVELOPMENT_TEAM = QUWV5QS83Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WordForLearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn54;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";

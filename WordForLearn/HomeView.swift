@@ -125,7 +125,7 @@ struct MoviesCarousel: View {
                     GeometryReader { proxy in
                         let scale = getScale(proxy: proxy)
                         NavigationLink(
-                            destination: CategoryView() /*MovieDetailsView(movie: num)*/,
+                            destination: CategoryView() /*MovieDetailsView(movie: num)*/.navigationBarHidden(true),
                             label: {
                                 VStack(spacing: 8) {
                                     Image(num.imageName)
@@ -184,7 +184,7 @@ struct MovieDetailsView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().previewDevice(PreviewDevice(rawValue: "iPhone XS"))
+        HomeView().previewDevice(PreviewDevice(rawValue: "iPhone7"))
     }
 }
 

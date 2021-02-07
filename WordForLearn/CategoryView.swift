@@ -12,10 +12,14 @@ struct CategoryView: View {
     @Namespace var namespace
     @State var selectedItem: Course? = nil
     @State var isDisable = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         ZStack{
            
             ScrollView{
+                
+                
+                
                 VStack(alignment: .leading, spacing:18){
                     
                     HStack {
@@ -23,6 +27,9 @@ struct CategoryView: View {
                             .shadow(color: .gray, radius: 2, x: 0, y: 5)
                         CloseButton()
                             .padding(.trailing, 16)
+                            .onTapGesture{
+                                                             self.presentationMode.wrappedValue.dismiss()
+                                                         }
                         
                     }.background(Image("Certificate3")
                                     .resizable()
@@ -50,10 +57,13 @@ struct CategoryView: View {
             }
             
             if selectedItem != nil {
+                ZStack(alignment: .topTrailing){
                 ScrollView {
                     CategoryItem(course: selectedItem!)
-                        .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
+                        //.matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                         .frame(height:300)
+                    CloseButton()
+                        .padding(.trailing, 16)
                         .onTapGesture{
                             withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                 show.toggle()
@@ -63,12 +73,33 @@ struct CategoryView: View {
                                 })
                             }
                         }
-                    VStack{
-                        ForEach(categorySections) { item in
-                            CategoryRow(item: item)
-                            Divider()
+                  
+                     VStack{
+                        LazyVGrid(
+                            columns: [GridItem(),GridItem()],
+                            spacing: 16
+                        ){
+                            ForEach(courses) { item in
+                                VStack {
+                                    CategoryItem(course: item)
+                                        .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
+                                        .frame(height: 200)
+                                        .onTapGesture{
+                                            withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
+                                                show.toggle()
+                                                selectedItem = item
+                                                isDisable = true
+                                            }
+                                        }
+                                        .disabled(isDisable)
+                                }.matchedGeometryEffect(id: "container\(item.id)", in: namespace, isSource:!show)
+                            }
                         }
+                        .padding(16)
+                        .frame(maxWidth:.infinity)
                     }
+                    .zIndex(1)
+                   
                     
                 }
                 .background(Color.white)
@@ -86,8 +117,8 @@ struct CategoryView: View {
 
             }
             
+          }
         }
-       
         //  .animation(.spring())
     }
 }
