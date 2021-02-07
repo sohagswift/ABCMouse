@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryView: View {
     @State var show = false
     @Namespace var namespace
-    @State var selectedItem: Course? = nil
+    @State var selectedItem: CategorySectionContent? = nil
     @State var isDisable = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
@@ -36,8 +36,8 @@ struct CategoryView: View {
                                     .scaledToFill())
                     
                   
-                    ForEach(courses) { item in
-                        CategoryItem(course: item)
+                    ForEach(categorySectionContents) { item in
+                        CategoryItemSection(course: item)
                             .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                             .frame(height: 230)
                             .padding(.trailing, 16)
@@ -57,37 +57,42 @@ struct CategoryView: View {
             }
             
             if selectedItem != nil {
-                ZStack(alignment: .topTrailing){
+                VStack(){
                 ScrollView {
-                    CategoryItem(course: selectedItem!)
-                        //.matchedGeometryEffect(id: selectedItem!.id, in: namespace)
-                        .frame(height:300)
-                    CloseButton()
-                        .padding(.trailing, 16)
-                        .onTapGesture{
-                            withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
-                                show.toggle()
-                                selectedItem = nil
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                                    self.isDisable = false
-                                })
+                    
+                    ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
+                        CategoryItemSection(course: selectedItem!)
+                            //.matchedGeometryEffect(id: selectedItem!.id, in: namespace)
+                            .frame(height:200)
+                             CloseButton()
+                                .padding(.trailing, 16)
+                                .padding(.top, 16)
+                            .onTapGesture{
+                                withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
+                                    show.toggle()
+                                    selectedItem = nil
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                        self.isDisable = false
+                                    })
+                                }
                             }
-                        }
+                    }
+                   
                   
                      VStack{
                         LazyVGrid(
                             columns: [GridItem(),GridItem()],
                             spacing: 16
                         ){
-                            ForEach(courses) { item in
+                            ForEach(selectedItem!.items) { item in
                                 VStack {
-                                    CategoryItem(course: item)
+                                    CategoryItemPlay(item: item)
                                         .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                                         .frame(height: 200)
                                         .onTapGesture{
                                             withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                                 show.toggle()
-                                                selectedItem = item
+                                                //selectedItem = item
                                                 isDisable = true
                                             }
                                         }

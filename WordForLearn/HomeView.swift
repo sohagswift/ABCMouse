@@ -184,7 +184,7 @@ struct MovieDetailsView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView().previewDevice(PreviewDevice(rawValue: "iPhone7"))
+        HomeView()//.previewDevice(PreviewDevice(rawValue: "iPhone7"))
     }
 }
 
