@@ -17,15 +17,16 @@ import SwiftUI
 import SwiftUI
 
 public struct CategoryItemSection: View {
-    var course : CategorySectionContent =  categorySectionContents[0]
+    var course : CategorySectionContent =  categorySectionContents[1]
    
     
     public  var body: some View {
         VStack(alignment: .leading, spacing: 0.4, content: {
             Spacer()
             HStack{
-                Spacer()
-                //Image("kidsbackground").resizable().aspectRatio(contentMode: .fit)
+                Image(course.items[0].name.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
+                    .padding(.leading,32)
+                    .padding(.bottom,16)
                 Spacer()
             }
             Text(course.title).fontWeight(.bold)

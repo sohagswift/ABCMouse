@@ -16,7 +16,7 @@ struct CategoryItemPlay: View {
             Spacer()
             HStack{
                 Spacer()
-                Image(item.name).resizable().aspectRatio(contentMode: .fit)
+                Image(item.name.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
                 Spacer()
             }
             Text(item.name).fontWeight(.bold)
