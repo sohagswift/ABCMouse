@@ -102,7 +102,7 @@ struct latterToWordView: View {
                                             
                                             var str = item.name.lowercased()
                                             if str.count > 1 {
-                                                str =  "\(Array(item.name)[0].lowercased()), for \(item.name.lowercased())"
+                                                str =  "\(Array(item.name)[0].lowercased()), is for \(item.name.lowercased())"
                                             }
                                             let utterance = AVSpeechUtterance(string: str)
                                             utterance.pitchMultiplier = 1.5
