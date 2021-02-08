@@ -93,7 +93,7 @@ struct CategoryViewPicturePlay: View {
                                         .frame(height: 200)
                                         .onTapGesture{
                                             print("Double tapped!")
-                                            
+                                                
 //                                            withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
 ////                                                show.toggle()
 ////                                                //selectedItem = item
@@ -134,6 +134,6 @@ struct CategoryViewPicturePlay: View {
 
 struct CategoryViewPicturePlay_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView()
+        CategoryViewPicturePlay()
     }
 }
