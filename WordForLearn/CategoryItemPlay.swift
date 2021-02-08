@@ -19,7 +19,7 @@ struct CategoryItemPlay: View {
                 Image(item.name.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
                 Spacer()
             }
-            Text(item.name).fontWeight(.bold)
+            Text(item.name.capitalized).fontWeight(.bold)
             //Text(course.subtitle).font(.footnote)
         })
        

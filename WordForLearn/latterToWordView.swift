@@ -8,7 +8,7 @@
 import SwiftUI
 import AVFoundation
 
-struct CategoryView: View {
+struct latterToWordView: View {
     @State var show = false
     @Namespace var namespace
     @State var selectedItem: CategorySectionContent? = nil
@@ -99,7 +99,12 @@ struct CategoryView: View {
                                         .frame(height: 200)
                                         .onTapGesture{
                                             print("Hi, uh.. I'm a.. um kid!")
-                                            let utterance = AVSpeechUtterance(string: "\(item.name.lowercased())")
+                                            
+                                            var str = item.name.lowercased()
+                                            if str.count > 1 {
+                                                str =  "\(Array(item.name)[0].lowercased()), for \(item.name.lowercased())"
+                                            }
+                                            let utterance = AVSpeechUtterance(string: str)
                                             utterance.pitchMultiplier = 1.5
                                             utterance.rate = 0.3
                                             self.speaker.speak(utterance)
@@ -142,8 +147,8 @@ struct CategoryView: View {
     }
 }
 
-struct CategoryView_Previews: PreviewProvider {
+struct latterToWordView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView()
+        latterToWordView()
     }
 }

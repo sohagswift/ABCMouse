@@ -1,24 +1,18 @@
 //
-//  CategoryView.swift
+//  CategoryViewPicturePlay.swift
 //  WordForLearn
 //
 //  Created by Nazmul Hasan on 21/1/21.
 //
 
 import SwiftUI
-import AVFoundation
 
-struct CategoryView: View {
+struct CategoryViewPicturePlay: View {
     @State var show = false
     @Namespace var namespace
     @State var selectedItem: CategorySectionContent? = nil
     @State var isDisable = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    var speaker = AVSpeechSynthesizer()
-  
-    
-    
     var body: some View {
         ZStack{
            
@@ -90,20 +84,16 @@ struct CategoryView: View {
                             columns: [GridItem(),GridItem()],
                             spacing: 16
                         ){
-                            ForEach(selectedItem!.items) { item in
+                            ForEach(0..<4) { i in
                                
                                 VStack {
                                    
-                                    CategoryItemPlay(item: item)
-                                        .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
+                                    CategoryItemPlay(item: selectedItem!.items[i])
+                                        .matchedGeometryEffect(id: selectedItem!.items[i].id, in: namespace, isSource: !show)
                                         .frame(height: 200)
                                         .onTapGesture{
-                                            print("Hi, uh.. I'm a.. um kid!")
-                                            let utterance = AVSpeechUtterance(string: "\(item.name.lowercased())")
-                                            utterance.pitchMultiplier = 1.5
-                                            utterance.rate = 0.3
-                                            self.speaker.speak(utterance)
-                                           
+                                            print("Double tapped!")
+                                            
 //                                            withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
 ////                                                show.toggle()
 ////                                                //selectedItem = item
@@ -111,7 +101,7 @@ struct CategoryView: View {
 //                                            }
                                         }
                                         //.disabled(isDisable)
-                                }.matchedGeometryEffect(id: "container\(item.id)", in: namespace)
+                                }.matchedGeometryEffect(id: "container\(selectedItem!.items[i].id)", in: namespace)
                             }
                         }
                         .padding(16)
@@ -142,7 +132,7 @@ struct CategoryView: View {
     }
 }
 
-struct CategoryView_Previews: PreviewProvider {
+struct CategoryViewPicturePlay_Previews: PreviewProvider {
     static var previews: some View {
         CategoryView()
     }

@@ -95,19 +95,19 @@ var categorySectionContents = [
                            subtitle: "More than 100+",
                            image: "greaterthan.circle.fill",
                            color: Color(#colorLiteral(red: 0.6941176471, green: 0.8039215686, blue: 0.8392156863, alpha: 1)),
-                           items: ["ankle","beard","blood","brain","ear","elbow","eye-brow","eye","face","fat","finger","foot","hair","hand","head","knee","leg","lips","man","mouth","nail","nose","stomach","tear","teeth","tongue","tooth","women","ankle"]),
+                           items: ["ankle","beard","blood","brain","ear","elbow","eye-brow","eye","face","fat","finger","foot","hair","hand","head","knee","leg","lips","man","mouth","nail","nose","stomach","tear","teeth","tongue","tooth","women"]),
     
     CategorySectionContent(title: "ANIMALS",
                            subtitle: "More than 100+",
                            image: "greaterthan.circle.fill",
                            color: Color(#colorLiteral(red: 0.6941176471, green: 0.8039215686, blue: 0.8392156863, alpha: 1)),
-                           items: ["ant","bat", "bear", "bee", "bird", "butterfly", "camel", "cat", "cheetah","chick", "chicken", "cow","crab" ,"crocodile", "deer", "dog", "dolphin", "duck", "eagle", "elephant", "fish", "fly", "fox", "frog", "giraffe", "goat", "gorilla", "horse", "kangaroo", "lion", "lobster", "monkey", "mosquito", "ostrich","owl", "panda", "parrot","pigeon", "polar_bear", "rabbit", "rat","rooster", "shark", "sheep", "shrimp","snail", "snake","spider", "squirrel", "tiger","turkey", "turtle", "wolf","whale","zebra","ant"]),
+                           items: ["ant","bat", "bear", "bee", "bird", "butterfly", "camel", "cat", "cheetah","chick", "chicken", "cow","crab" ,"crocodile", "deer", "dog", "dolphin", "duck", "eagle", "elephant", "fish", "fly", "fox", "frog", "giraffe", "goat", "gorilla", "horse","impala","jackal","kangaroo", "lion", "lobster", "monkey", "mosquito", "ostrich","owl", "panda", "parrot","pigeon", "polar_bear", "rabbit", "rat","rooster", "shark", "sheep", "shrimp","snail", "snake","spider", "squirrel", "tiger","turkey", "turtle", "wolf","whale","zebra"]),
 
     CategorySectionContent(title: "FOODS",
                            subtitle: "More than 100+",
                            image: "greaterthan.circle.fill",
                            color: Color(#colorLiteral(red: 0.6941176471, green: 0.8039215686, blue: 0.8392156863, alpha: 1)),
-                           items: ["apple pie","beef","biscuit","bread","butter","cake","cheese","cheeseburger","chicken chop","chocolate_chip_cookie","chocolate","cracker","curry","delmonico's steak","egg","fish","french_fries","hamburger","hot dog","ice cream","ice","jelly","lamb","loaf","milk","nachos","noodles","oil","pizza","rice","salad","salmon","salt","sandwich","sausage","soup","spaguetti","steak","thanksgiving dinner","wheat","apple pie"]),
+                           items: ["apple pie","beef","biscuit","bread","butter","cake","cheese","cheeseburger","chicken chop","chocolate_chip_cookie","chocolate","cracker","curry","delmonico's steak","egg","fish","french_fries","hamburger","hot dog","ice cream","ice","jelly","lamb","loaf","milk","nachos","noodles","oil","pizza","rice","salad","salmon","salt","sandwich","sausage","soup","spaguetti","steak","thanksgiving dinner","wheat"]),
     
 ]
 
