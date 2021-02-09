@@ -125,7 +125,7 @@ struct MoviesCarousel: View {
                     GeometryReader { proxy in
                         let scale = getScale(proxy: proxy)
                         NavigationLink(
-                            destination: CategoryView() /*MovieDetailsView(movie: num)*/.navigationBarHidden(true),
+                            destination: CategoryViewPicturePlay() /*MovieDetailsView(movie: num)*/.navigationBarHidden(true),
                             label: {
                                 VStack(spacing: 8) {
                                     Image(num.imageName)

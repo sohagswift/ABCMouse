@@ -104,11 +104,11 @@ struct CategoryView: View {
                                             utterance.rate = 0.3
                                             self.speaker.speak(utterance)
                                            
-//                                            withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
-////                                                show.toggle()
-////                                                //selectedItem = item
-////                                                isDisable = true
-//                                            }
+                                            withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
+//                                                show.toggle()
+//                                                //selectedItem = item
+//                                                isDisable = true
+                                            }
                                         }
                                         //.disabled(isDisable)
                                 }.matchedGeometryEffect(id: "container\(item.id)", in: namespace)

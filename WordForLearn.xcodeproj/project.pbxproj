@@ -10,6 +10,8 @@
 		38EC3ECB25BADA190001B399 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC3ECA25BADA190001B399 /* CategoryItem.swift */; };
 		38EC3ED225BADE1E0001B399 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC3ED125BADE1E0001B399 /* CategoryList.swift */; };
 		CB6634E625D14EFA0019BAFA /* latterToWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6634E525D14EFA0019BAFA /* latterToWordView.swift */; };
+		CB6634EC25D25E970019BAFA /* PicturePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6634EB25D25E970019BAFA /* PicturePlayView.swift */; };
+		CB6634EF25D268950019BAFA /* WordPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6634EE25D268950019BAFA /* WordPlayView.swift */; };
 		CB8168EF25CFF4590007F669 /* CategoryItemPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8168EE25CFF4590007F669 /* CategoryItemPlay.swift */; };
 		CB8168F725CFFC5C0007F669 /* CategoryItemSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8168F625CFFC5C0007F669 /* CategoryItemSection.swift */; };
 		CB8168FD25D119BA0007F669 /* CategoryViewPicturePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8168FC25D119BA0007F669 /* CategoryViewPicturePlay.swift */; };
@@ -36,6 +38,8 @@
 		38EC3ECA25BADA190001B399 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		38EC3ED125BADE1E0001B399 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		CB6634E525D14EFA0019BAFA /* latterToWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = latterToWordView.swift; sourceTree = "<group>"; };
+		CB6634EB25D25E970019BAFA /* PicturePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePlayView.swift; sourceTree = "<group>"; };
+		CB6634EE25D268950019BAFA /* WordPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPlayView.swift; sourceTree = "<group>"; };
 		CB8168EE25CFF4590007F669 /* CategoryItemPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemPlay.swift; sourceTree = "<group>"; };
 		CB8168F625CFFC5C0007F669 /* CategoryItemSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemSection.swift; sourceTree = "<group>"; };
 		CB8168FC25D119BA0007F669 /* CategoryViewPicturePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewPicturePlay.swift; sourceTree = "<group>"; };
@@ -90,6 +94,16 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
+		CB6634E925D25D860019BAFA /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				CB8168FC25D119BA0007F669 /* CategoryViewPicturePlay.swift */,
+				CB6634EE25D268950019BAFA /* WordPlayView.swift */,
+				CB6634EB25D25E970019BAFA /* PicturePlayView.swift */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
 		CBA635C025B8333B00AC52D3 = {
 			isa = PBXGroup;
 			children = (
@@ -125,7 +139,7 @@
 				CB8168F625CFFC5C0007F669 /* CategoryItemSection.swift */,
 				CBA6366F25C16F9300AC52D3 /* HomeView.swift */,
 				CBA6366125BD95E600AC52D3 /* CloseButton.swift */,
-				CB8168FC25D119BA0007F669 /* CategoryViewPicturePlay.swift */,
+				CB6634E925D25D860019BAFA /* Play */,
 				CBA6365D25BD895100AC52D3 /* ItemPlayView.swift */,
 				CBA6366425BE9B4F00AC52D3 /* ItemPlayQuizView.swift */,
 				CBA6366725BE9EC800AC52D3 /* ItemPlayQuizDetails.swift */,
@@ -237,6 +251,8 @@
 				CBA6366525BE9B4F00AC52D3 /* ItemPlayQuizView.swift in Sources */,
 				CBA635D125B8333B00AC52D3 /* ContentView.swift in Sources */,
 				CBA635E825B9662E00AC52D3 /* Sidebar.swift in Sources */,
+				CB6634EF25D268950019BAFA /* WordPlayView.swift in Sources */,
+				CB6634EC25D25E970019BAFA /* PicturePlayView.swift in Sources */,
 				CBA6366B25BEAA9D00AC52D3 /* CategorySection.swift in Sources */,
 				CB6634E625D14EFA0019BAFA /* latterToWordView.swift in Sources */,
 				CBA6367025C16F9300AC52D3 /* HomeView.swift in Sources */,
@@ -385,14 +401,14 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WordForLearn/Preview Content\"";
-				DEVELOPMENT_TEAM = QUWV5QS83Q;
+				DEVELOPMENT_TEAM = 7BX2D9PSSQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WordForLearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn54;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
@@ -412,14 +428,14 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WordForLearn/Preview Content\"";
-				DEVELOPMENT_TEAM = QUWV5QS83Q;
+				DEVELOPMENT_TEAM = 7BX2D9PSSQ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WordForLearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn54;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";

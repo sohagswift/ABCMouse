@@ -6,11 +6,22 @@
 //
 
 import SwiftUI
-
+import AVFoundation
 struct CategoryViewPicturePlay: View {
+    var speaker = AVSpeechSynthesizer()
+    @State  var correctAnswer = Int.random(in: 0...3)
     @State var show = false
     @Namespace var namespace
-    @State var selectedItem: CategorySectionContent? = nil
+    @State var didSetFire = true // due to xcode bug
+    @State var selectedItem: CategorySectionContent? {
+        didSet{
+            if didSetFire {
+                print(selectedItem?.title)
+                askQustion()
+            }
+           
+        }
+    }
     @State var isDisable = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
@@ -61,12 +72,13 @@ struct CategoryViewPicturePlay: View {
                 ScrollView {
                     
                     ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
-                        CategoryItemSection(course: selectedItem!)
+                       
+                        PicturePlayView(course: selectedItem!)
                             //.matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                             .frame(height:200)
                              CloseButton()
                                 .padding(.trailing, 16)
-                                .padding(.top, 16)
+                                .padding(.top, 40)
                             .onTapGesture{
                                 withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                     show.toggle()
@@ -93,7 +105,8 @@ struct CategoryViewPicturePlay: View {
                                         .frame(height: 200)
                                         .onTapGesture{
                                             print("Double tapped!")
-                                                
+                                            self.flagTapped(i)
+                                     
 //                                            withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
 ////                                                show.toggle()
 ////                                                //selectedItem = item
@@ -106,6 +119,7 @@ struct CategoryViewPicturePlay: View {
                         }
                         .padding(16)
                         .frame(maxWidth:.infinity)
+                        .animation(.some(.linear))
                     }
                     .zIndex(1)
                    
@@ -128,7 +142,39 @@ struct CategoryViewPicturePlay: View {
             
           }
         }
+        
+       
         //  .animation(.spring())
+    }
+     func flagTapped(_ tag : Int){
+        if tag == correctAnswer{
+            textToSpeach("correct")
+            selectedItem?.items.shuffle()
+            correctAnswer = Int.random(in: 0...3)
+            askQustion()
+        }else{
+        
+            textToSpeach("wrong")
+        }
+    }
+    
+     func askQustion(){
+       print("we are working on it ")
+        DispatchQueue.main.async {
+            let name = selectedItem?.items[correctAnswer].name ?? ""
+            var qustion = "Which of these\nis,\(name)?".replacingOccurrences(of: ",", with: " ", options: NSString.CompareOptions.literal, range:nil)
+            self.selectedItem?.title = qustion
+            self.textToSpeach(qustion)
+            
+        }
+        didSetFire = false 
+    }
+    
+    func textToSpeach(_ str : String){
+        let utterance = AVSpeechUtterance(string: str)
+        utterance.pitchMultiplier = 1.5
+        utterance.rate = 0.3
+        self.speaker.speak(utterance)
     }
 }
 
