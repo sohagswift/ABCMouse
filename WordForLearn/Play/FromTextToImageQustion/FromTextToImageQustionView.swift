@@ -9,7 +9,7 @@ import SwiftUI
 
 
 
-public struct PicturePlayView: View {
+public struct FromTextToImageQustionView: View {
     var course : CategorySectionContent =  categorySectionContents[1]
    
     
@@ -50,9 +50,9 @@ public struct PicturePlayView: View {
     }
 }
 
-struct PicturePlayView_Previews: PreviewProvider {
+struct FromTextToImageQustionView_Previews: PreviewProvider {
     static var previews: some View {
-        PicturePlayView()
+        FromTextToImageQustionView()
     }
 }
 

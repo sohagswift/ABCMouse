@@ -9,7 +9,7 @@ import SwiftUI
 
 
 
-public struct WordPlayView: View {
+public struct ImageToTextQustionView: View {
     var course : CategorySectionContent =  categorySectionContents[1]
    
     
@@ -17,13 +17,14 @@ public struct WordPlayView: View {
         VStack(alignment: .leading, spacing: 0.4, content: {
             Spacer()
             HStack{
-                Image(course.items[0].name.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
+                Image(course.image.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
                     .padding(.leading,32)
                     .padding(.bottom,16)
+                    .padding(.top,16)
                 Spacer()
             }
             Text(course.title).fontWeight(.bold).font(.largeTitle)
-            Text(course.subtitle).font(.footnote)
+//            Text(course.subtitle).font(.footnote)
         }).background(Image("kidsbackground")
                         .resizable()
                         .scaledToFill())
@@ -36,9 +37,9 @@ public struct WordPlayView: View {
     }
 }
 
-struct WordPlayView_Previews: PreviewProvider {
+struct ImageToTextQustionView_Previews: PreviewProvider {
     static var previews: some View {
-        WordPlayView()
+        ImageToTextQustionView()
     }
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 import AVFoundation
 struct CategoryViewPicturePlay: View {
     var speaker = AVSpeechSynthesizer()
+    @State var Viewindex = 2
     @State  var correctAnswer = Int.random(in: 0...3)
     @State var show = false
     @Namespace var namespace
@@ -73,9 +74,18 @@ struct CategoryViewPicturePlay: View {
                     
                     ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
                        
-                        PicturePlayView(course: selectedItem!)
-                            //.matchedGeometryEffect(id: selectedItem!.id, in: namespace)
-                            .frame(height:200)
+                       // FromTextToImageQustionView(course: selectedItem!)
+                        
+                        if Viewindex == 2 {
+                            ImageToTextQustionView(course: selectedItem!)
+                           .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
+                           .frame(height:400)
+                        }else{
+                            FromTextToImageQustionView(course: selectedItem!)
+                           .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
+                           .frame(height:200)
+                        }
+                         
                              CloseButton()
                                 .padding(.trailing, 16)
                                 .padding(.top, 40)
@@ -83,6 +93,7 @@ struct CategoryViewPicturePlay: View {
                                 withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                     show.toggle()
                                     selectedItem = nil
+                                    didSetFire = true
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                                         self.isDisable = false
                                     })
@@ -100,20 +111,25 @@ struct CategoryViewPicturePlay: View {
                                
                                 VStack {
                                    
-                                    CategoryItemPlay(item: selectedItem!.items[i])
-                                        .matchedGeometryEffect(id: selectedItem!.items[i].id, in: namespace, isSource: !show)
-                                        .frame(height: 200)
+                                    if Viewindex == 2 {
+                                        TextPlayItemView(item: selectedItem!.items[i])
+                                            .matchedGeometryEffect(id: selectedItem!.items[i].id, in: namespace, isSource: !show)
+                                          //  .frame(height: 100)
                                         .onTapGesture{
                                             print("Double tapped!")
                                             self.flagTapped(i)
-                                     
-//                                            withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
-////                                                show.toggle()
-////                                                //selectedItem = item
-////                                                isDisable = true
-//                                            }
                                         }
-                                        //.disabled(isDisable)
+                                    }else{
+                                        PicturePlayItemView(item: selectedItem!.items[i])
+                                            .matchedGeometryEffect(id: selectedItem!.items[i].id, in: namespace, isSource: !show)
+                                            .frame(height: 200)
+                                        .onTapGesture{
+                                            print("Double tapped!")
+                                            self.flagTapped(i)
+                                        }
+                                    }
+                                        
+                                   
                                 }.matchedGeometryEffect(id: "container\(selectedItem!.items[i].id)", in: namespace)
                             }
                         }
@@ -162,8 +178,9 @@ struct CategoryViewPicturePlay: View {
        print("we are working on it ")
         DispatchQueue.main.async {
             let name = selectedItem?.items[correctAnswer].name ?? ""
-            var qustion = "Which of these\nis,\(name)?".replacingOccurrences(of: ",", with: " ", options: NSString.CompareOptions.literal, range:nil)
+            let qustion = "Which one is,\n_____?".replacingOccurrences(of: ",", with: " ", options: NSString.CompareOptions.literal, range:nil)
             self.selectedItem?.title = qustion
+            self.selectedItem?.image = name
             self.textToSpeach(qustion)
             
         }
