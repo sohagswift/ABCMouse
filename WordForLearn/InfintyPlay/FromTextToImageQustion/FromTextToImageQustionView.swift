@@ -26,7 +26,8 @@ public struct FromTextToImageQustionView: View {
                     Text(course.title).fontWeight(.bold).font(.largeTitle).multilineTextAlignment(.center)
 //                  .frame(maxWidth: .infinity, alignment: .leading)
                   .frame(maxHeight: .infinity, alignment: .bottom)
-                        .padding(.all,23)
+                        .padding(.all,5)
+                        .padding(.bottom,15)
                 }
                 .frame(width: 380)
                // .background(Color.gray.opacity(0.1))

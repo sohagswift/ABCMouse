@@ -9,8 +9,9 @@ import SwiftUI
 import AVFoundation
 struct CategoryViewPicturePlay: View {
     var speaker = AVSpeechSynthesizer()
-    @State var Viewindex = 2
-    @State  var correctAnswer = Int.random(in: 0...3)
+    @State var Viewindex = 3
+    @State  var correctAnswer = 0
+    @State  var items : Item? = nil
     @State var show = false
     @Namespace var namespace
     @State var didSetFire = true // due to xcode bug
@@ -165,9 +166,14 @@ struct CategoryViewPicturePlay: View {
      func flagTapped(_ tag : Int){
         if tag == correctAnswer{
             textToSpeach("correct")
+            var answerIndex = Int.random(in: 0...3)
+            
+            var allItems = selectedItem?.items
+            var fromStart = allItems
+            
             selectedItem?.items.shuffle()
             correctAnswer = Int.random(in: 0...3)
-            askQustion()
+             askQustion()
         }else{
         
             textToSpeach("wrong")
@@ -178,7 +184,15 @@ struct CategoryViewPicturePlay: View {
        print("we are working on it ")
         DispatchQueue.main.async {
             let name = selectedItem?.items[correctAnswer].name ?? ""
-            let qustion = "Which one is,\n_____?".replacingOccurrences(of: ",", with: " ", options: NSString.CompareOptions.literal, range:nil)
+            var message = ""
+            if Viewindex == 1 {
+                message = "Which one\nis, \(name.capitalized)?"
+            }else if Viewindex == 2 {
+                message = "Which one is,\n_____?"
+            }else{
+                message = "Which one starts with\n the letter, \(name[0].capitalized)?"
+            }
+            let qustion = message.replacingOccurrences(of: ",", with: " ", options: NSString.CompareOptions.literal, range:nil)
             self.selectedItem?.title = qustion
             self.selectedItem?.image = name
             self.textToSpeach(qustion)
@@ -200,3 +214,5 @@ struct CategoryViewPicturePlay_Previews: PreviewProvider {
         CategoryViewPicturePlay()
     }
 }
+
+

@@ -34,6 +34,7 @@
 		CBA6367025C16F9300AC52D3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA6366F25C16F9300AC52D3 /* HomeView.swift */; };
 		CBEA692325D3C867004CD604 /* PicturePlayItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA692225D3C867004CD604 /* PicturePlayItemView.swift */; };
 		CBEA692A25D3F69B004CD604 /* TextPlayItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA692925D3F69B004CD604 /* TextPlayItemView.swift */; };
+		CBEA693025D50264004CD604 /* Extention+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA692F25D50264004CD604 /* Extention+String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		CBA6366F25C16F9300AC52D3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CBEA692225D3C867004CD604 /* PicturePlayItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePlayItemView.swift; sourceTree = "<group>"; };
 		CBEA692925D3F69B004CD604 /* TextPlayItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPlayItemView.swift; sourceTree = "<group>"; };
+		CBEA692F25D50264004CD604 /* Extention+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+String.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,14 +100,14 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
-		CB6634E925D25D860019BAFA /* Play */ = {
+		CB6634E925D25D860019BAFA /* InfintyPlay */ = {
 			isa = PBXGroup;
 			children = (
 				CB8168FC25D119BA0007F669 /* CategoryViewPicturePlay.swift */,
 				CBEA692825D3F66A004CD604 /* ImageToTextQustion */,
 				CBEA692625D3F614004CD604 /* FromTextToImageQustion */,
 			);
-			path = Play;
+			path = InfintyPlay;
 			sourceTree = "<group>";
 		};
 		CBA635C025B8333B00AC52D3 = {
@@ -138,12 +140,13 @@
 				CBA635DA25B8334100AC52D3 /* Info.plist */,
 				CBA635D425B8334000AC52D3 /* Preview Content */,
 				CBA635E425B9603400AC52D3 /* CategoryView.swift */,
+				CBEA692E25D50246004CD604 /* Util */,
 				CB6634E525D14EFA0019BAFA /* latterToWordView.swift */,
 				CB8168EE25CFF4590007F669 /* CategoryItemPlay.swift */,
 				CB8168F625CFFC5C0007F669 /* CategoryItemSection.swift */,
 				CBA6366F25C16F9300AC52D3 /* HomeView.swift */,
 				CBA6366125BD95E600AC52D3 /* CloseButton.swift */,
-				CB6634E925D25D860019BAFA /* Play */,
+				CB6634E925D25D860019BAFA /* InfintyPlay */,
 				CBA6365D25BD895100AC52D3 /* ItemPlayView.swift */,
 				CBA6366425BE9B4F00AC52D3 /* ItemPlayQuizView.swift */,
 				CBA6366725BE9EC800AC52D3 /* ItemPlayQuizDetails.swift */,
@@ -186,6 +189,14 @@
 				CBEA692925D3F69B004CD604 /* TextPlayItemView.swift */,
 			);
 			path = ImageToTextQustion;
+			sourceTree = "<group>";
+		};
+		CBEA692E25D50246004CD604 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				CBEA692F25D50264004CD604 /* Extention+String.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +292,7 @@
 				CBA6367025C16F9300AC52D3 /* HomeView.swift in Sources */,
 				CBEA692325D3C867004CD604 /* PicturePlayItemView.swift in Sources */,
 				CBA635E525B9603400AC52D3 /* CategoryView.swift in Sources */,
+				CBEA693025D50264004CD604 /* Extention+String.swift in Sources */,
 				38EC3ED225BADE1E0001B399 /* CategoryList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
