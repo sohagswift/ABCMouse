@@ -11,14 +11,15 @@ struct CategoryViewPicturePlay: View {
     var speaker = AVSpeechSynthesizer()
     @State var Viewindex = 3
     @State  var correctAnswer = 0
-    @State  var items : Item? = nil
+    @State  var items =  [Item]()
     @State var show = false
     @Namespace var namespace
     @State var didSetFire = true // due to xcode bug
     @State var selectedItem: CategorySectionContent? {
         didSet{
             if didSetFire {
-                print(selectedItem?.title)
+               
+                basedOnItem()
                 askQustion()
             }
            
@@ -108,31 +109,36 @@ struct CategoryViewPicturePlay: View {
                             columns: [GridItem(),GridItem()],
                             spacing: 16
                         ){
-                            ForEach(0..<4) { i in
-                               
-                                VStack {
+                            
+                           // if  items != nil {
+                                ForEach(items) { item in
                                    
-                                    if Viewindex == 2 {
-                                        TextPlayItemView(item: selectedItem!.items[i])
-                                            .matchedGeometryEffect(id: selectedItem!.items[i].id, in: namespace, isSource: !show)
-                                          //  .frame(height: 100)
-                                        .onTapGesture{
-                                            print("Double tapped!")
-                                            self.flagTapped(i)
+                                    VStack {
+                                       
+                                        if Viewindex == 2 {
+                                            TextPlayItemView(item: item)
+                                                .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
+                                              //  .frame(height: 100)
+                                            .onTapGesture{
+                                                print("Double tapped!")
+                                                self.flagTapped(item.name)
+                                            }
+                                        }else{
+                                            PicturePlayItemView(item: item)
+                                                .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
+                                                .frame(height: 200)
+                                            .onTapGesture{
+                                                print("Double tapped!")
+                                                self.flagTapped(item.name)
+                                            }
                                         }
-                                    }else{
-                                        PicturePlayItemView(item: selectedItem!.items[i])
-                                            .matchedGeometryEffect(id: selectedItem!.items[i].id, in: namespace, isSource: !show)
-                                            .frame(height: 200)
-                                        .onTapGesture{
-                                            print("Double tapped!")
-                                            self.flagTapped(i)
-                                        }
-                                    }
-                                        
-                                   
-                                }.matchedGeometryEffect(id: "container\(selectedItem!.items[i].id)", in: namespace)
-                            }
+                                            
+                                       
+                                    }.matchedGeometryEffect(id: "container\(item.id)", in: namespace)
+                                }
+                           // }
+                            
+                        
                         }
                         .padding(16)
                         .frame(maxWidth:.infinity)
@@ -163,16 +169,60 @@ struct CategoryViewPicturePlay: View {
        
         //  .animation(.spring())
     }
-     func flagTapped(_ tag : Int){
-        if tag == correctAnswer{
+    fileprivate func basedOnItem() {
+        var allItems =  selectedItem?.items
+        
+        if let index:Int = allItems!.firstIndex(where: {$0.id == selectedItem!.items[correctAnswer].id }) {
+            allItems!.remove(at: index)
+        }
+        
+        let answerIndex = Int.random(in: 0...3)
+        allItems!.shuffle()
+      
+        var _items = [Item]()
+        var correctName = selectedItem?.items[correctAnswer]
+        for i in 0...3 {
+            if answerIndex == i {
+                _items.append(correctName!)
+                continue
+            }
+            
+            var isItNotdone = true
+            while isItNotdone {
+                print("...............")
+                let optionname = allItems![Int.random(in: 0...allItems!.count)]
+                
+                if optionname.name[0].lowercased() != correctName!.name[0].lowercased() {
+                    _items.append(optionname)
+                    isItNotdone = false
+                }
+//                if
+//                _items.append(allItems![i])
+            }
+           
+        }
+        
+        
+        
+        if _items.count == 4 {
+            didSetFire = false
+           
+        }
+        
+        items.removeAll()
+        items = _items
+    }
+    
+    func flagTapped(_ tag : String){
+        if tag == selectedItem?.items[correctAnswer].name {
             textToSpeach("correct")
-            var answerIndex = Int.random(in: 0...3)
+          
+            correctAnswer = correctAnswer + 1
+             basedOnItem()
+           
             
-            var allItems = selectedItem?.items
-            var fromStart = allItems
-            
-            selectedItem?.items.shuffle()
-            correctAnswer = Int.random(in: 0...3)
+//            selectedItem?.items.shuffle()
+//            correctAnswer = Int.random(in: 0...3)
              askQustion()
         }else{
         
@@ -198,7 +248,7 @@ struct CategoryViewPicturePlay: View {
             self.textToSpeach(qustion)
             
         }
-        didSetFire = false 
+        //didSetFire = false
     }
     
     func textToSpeach(_ str : String){
