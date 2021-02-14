@@ -190,7 +190,7 @@ struct CategoryViewPicturePlay: View {
             var isItNotdone = true
             while isItNotdone {
                 print("...............")
-                let optionname = allItems![Int.random(in: 0...allItems!.count)]
+                let optionname = allItems![Int.random(in: 0...allItems!.count-1)]
                 
                 if optionname.name[0].lowercased() != correctName!.name[0].lowercased() {
                     _items.append(optionname)
