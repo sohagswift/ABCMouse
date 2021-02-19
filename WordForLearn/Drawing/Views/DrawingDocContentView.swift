@@ -9,7 +9,7 @@ COPYRIGHT (C) DEVTECHIE, DEVTECHIE INTERACTIVE, INC
 
 import SwiftUI
 
-struct ContentView: View {
+struct DrawingDocContentView: View {
     @ObservedObject var manager = DrawingManager()
     @State private var addNewShown = false
     
@@ -33,8 +33,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct DrawingDocContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        DrawingDocContentView()
     }
 }
