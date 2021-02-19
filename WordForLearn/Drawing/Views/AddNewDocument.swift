@@ -13,20 +13,34 @@ struct AddNewDocument: View {
     @ObservedObject var manager: DrawingManager
     @State private var documentName: String = ""
     @Binding var addShown: Bool
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
-        VStack {
-            Text("Enter document name:")
+        VStack(alignment: .leading)  {
             
-            TextField("Enter doc name here...", text: $documentName, onCommit: {
+            CloseButton()
+                .padding(.bottom, 16)
+                .onTapGesture{
+                                                 self.presentationMode.wrappedValue.dismiss()
+                                             }
+            
+            Text("Enter Drawing name:")
+            
+            TextField("Enter drawing name here...", text: $documentName, onCommit: {
                 save(fileName: documentName)
             })
-            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .frame(height: 44)
+            //           .textFieldStyle(PlainTextFieldStyle())
+           .textFieldStyle(RoundedBorderTextFieldStyle())
+            .padding(.all)
+            .background(Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0))
             
-            Button("Create") {
-                save(fileName: documentName)
-            }
-        }.padding()
+         
+            RoundedButton()
+                .padding(.trailing, 16)
+                .onTapGesture{
+                    save(fileName: documentName)
+                                             }
+        }.padding(.horizontal, 15)
     }
     
     private func save(fileName: String) {
@@ -34,3 +48,6 @@ struct AddNewDocument: View {
         addShown.toggle()
     }
 }
+
+
+
