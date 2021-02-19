@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct CategoryItemPlay: View {
+public struct CategoryItemPlay: View {
     var item : Item
     var color : Color =  Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1))
     
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: 0.4, content: {
             Spacer()
             HStack{

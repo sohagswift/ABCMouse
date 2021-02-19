@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		384E1EF125DA6E4E0014E4B1 /* PlayWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1EF025DA6E4E0014E4B1 /* PlayWordView.swift */; };
+		384E1EFC25DF402B0014E4B1 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1EF825DF402A0014E4B1 /* PlaceholderView.swift */; };
+		384E1EFD25DF402B0014E4B1 /* DrawingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1EF925DF402A0014E4B1 /* DrawingWrapper.swift */; };
+		384E1EFE25DF402B0014E4B1 /* AddNewDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1EFA25DF402A0014E4B1 /* AddNewDocument.swift */; };
+		384E1EFF25DF402B0014E4B1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1EFB25DF402A0014E4B1 /* ContentView.swift */; };
+		384E1F0325DF403D0014E4B1 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1F0225DF403D0014E4B1 /* DrawingViewController.swift */; };
+		384E1F0725DF407F0014E4B1 /* DrawingDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1F0625DF407F0014E4B1 /* DrawingDocument.swift */; };
+		384E1F0C25DF40A50014E4B1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1F0A25DF40A50014E4B1 /* CoreDataManager.swift */; };
+		384E1F0D25DF40A50014E4B1 /* DrawingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1F0B25DF40A50014E4B1 /* DrawingManager.swift */; };
 		38EC3ECB25BADA190001B399 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC3ECA25BADA190001B399 /* CategoryItem.swift */; };
 		38EC3ED225BADE1E0001B399 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC3ED125BADE1E0001B399 /* CategoryList.swift */; };
 		CB6634E625D14EFA0019BAFA /* latterToWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6634E525D14EFA0019BAFA /* latterToWordView.swift */; };
@@ -38,6 +47,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		384E1EF025DA6E4E0014E4B1 /* PlayWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWordView.swift; sourceTree = "<group>"; };
+		384E1EF825DF402A0014E4B1 /* PlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
+		384E1EF925DF402A0014E4B1 /* DrawingWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingWrapper.swift; sourceTree = "<group>"; };
+		384E1EFA25DF402A0014E4B1 /* AddNewDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewDocument.swift; sourceTree = "<group>"; };
+		384E1EFB25DF402A0014E4B1 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		384E1F0225DF403D0014E4B1 /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		384E1F0625DF407F0014E4B1 /* DrawingDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingDocument.swift; sourceTree = "<group>"; };
+		384E1F0A25DF40A50014E4B1 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		384E1F0B25DF40A50014E4B1 /* DrawingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingManager.swift; sourceTree = "<group>"; };
 		38EC3ECA25BADA190001B399 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		38EC3ED125BADE1E0001B399 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		CB6634E525D14EFA0019BAFA /* latterToWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = latterToWordView.swift; sourceTree = "<group>"; };
@@ -82,6 +100,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		384E1EE725D902210014E4B1 /* ViewUtil */ = {
+			isa = PBXGroup;
+			children = (
+				CBA6366125BD95E600AC52D3 /* CloseButton.swift */,
+				CB8168F625CFFC5C0007F669 /* CategoryItemSection.swift */,
+				CB8168EE25CFF4590007F669 /* CategoryItemPlay.swift */,
+			);
+			path = ViewUtil;
+			sourceTree = "<group>";
+		};
+		384E1EEF25DA6E340014E4B1 /* Learn */ = {
+			isa = PBXGroup;
+			children = (
+				384E1EF025DA6E4E0014E4B1 /* PlayWordView.swift */,
+			);
+			path = Learn;
+			sourceTree = "<group>";
+		};
+		384E1EF625DEC9E90014E4B1 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				384E1F0925DF40A50014E4B1 /* DataManager */,
+				384E1F0525DF407F0014E4B1 /* Models */,
+				384E1F0125DF403C0014E4B1 /* ViewControllers */,
+				384E1EF725DF402A0014E4B1 /* Views */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
+		384E1EF725DF402A0014E4B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				384E1EF825DF402A0014E4B1 /* PlaceholderView.swift */,
+				384E1EF925DF402A0014E4B1 /* DrawingWrapper.swift */,
+				384E1EFA25DF402A0014E4B1 /* AddNewDocument.swift */,
+				384E1EFB25DF402A0014E4B1 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		384E1F0125DF403C0014E4B1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				384E1F0225DF403D0014E4B1 /* DrawingViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		384E1F0525DF407F0014E4B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				384E1F0625DF407F0014E4B1 /* DrawingDocument.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		384E1F0925DF40A50014E4B1 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				384E1F0A25DF40A50014E4B1 /* CoreDataManager.swift */,
+				384E1F0B25DF40A50014E4B1 /* DrawingManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		38EC3ECE25BADCB30001B399 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,6 +212,7 @@
 		CBA635CB25B8333B00AC52D3 /* WordForLearn */ = {
 			isa = PBXGroup;
 			children = (
+				384E1EF625DEC9E90014E4B1 /* Drawing */,
 				CBA635EA25B96C1900AC52D3 /* WordForLearn.entitlements */,
 				CBA635CC25B8333B00AC52D3 /* AppDelegate.swift */,
 				CBA635CE25B8333B00AC52D3 /* SceneDelegate.swift */,
@@ -142,10 +226,9 @@
 				CBA635E425B9603400AC52D3 /* CategoryView.swift */,
 				CBEA692E25D50246004CD604 /* Util */,
 				CB6634E525D14EFA0019BAFA /* latterToWordView.swift */,
-				CB8168EE25CFF4590007F669 /* CategoryItemPlay.swift */,
-				CB8168F625CFFC5C0007F669 /* CategoryItemSection.swift */,
+				384E1EE725D902210014E4B1 /* ViewUtil */,
 				CBA6366F25C16F9300AC52D3 /* HomeView.swift */,
-				CBA6366125BD95E600AC52D3 /* CloseButton.swift */,
+				384E1EEF25DA6E340014E4B1 /* Learn */,
 				CB6634E925D25D860019BAFA /* Play */,
 				CBA6365D25BD895100AC52D3 /* ItemPlayView.swift */,
 				CBA6366425BE9B4F00AC52D3 /* ItemPlayQuizView.swift */,
@@ -269,14 +352,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				384E1F0D25DF40A50014E4B1 /* DrawingManager.swift in Sources */,
 				CBA635CD25B8333B00AC52D3 /* AppDelegate.swift in Sources */,
 				CB8168EF25CFF4590007F669 /* CategoryItemPlay.swift in Sources */,
 				CB8168FD25D119BA0007F669 /* CategoryViewPicturePlay.swift in Sources */,
 				CBA635CF25B8333B00AC52D3 /* SceneDelegate.swift in Sources */,
+				384E1EFD25DF402B0014E4B1 /* DrawingWrapper.swift in Sources */,
 				CBA6365825BD63A100AC52D3 /* Course.swift in Sources */,
 				38EC3ECB25BADA190001B399 /* CategoryItem.swift in Sources */,
 				CBA6365425B9A73B00AC52D3 /* CategoryDetails.swift in Sources */,
 				CBEA692A25D3F69B004CD604 /* TextPlayItemView.swift in Sources */,
+				384E1EFC25DF402B0014E4B1 /* PlaceholderView.swift in Sources */,
 				CBA635E225B9553C00AC52D3 /* CategoryRow.swift in Sources */,
 				CBA6366825BE9EC800AC52D3 /* ItemPlayQuizDetails.swift in Sources */,
 				CBA6366225BD95E600AC52D3 /* CloseButton.swift in Sources */,
@@ -288,10 +374,16 @@
 				CB6634EF25D268950019BAFA /* ImageToTextQustionView.swift in Sources */,
 				CB6634EC25D25E970019BAFA /* FromTextToImageQustionView.swift in Sources */,
 				CBA6366B25BEAA9D00AC52D3 /* CategorySection.swift in Sources */,
+				384E1F0C25DF40A50014E4B1 /* CoreDataManager.swift in Sources */,
+				384E1F0325DF403D0014E4B1 /* DrawingViewController.swift in Sources */,
 				CB6634E625D14EFA0019BAFA /* latterToWordView.swift in Sources */,
+				384E1EF125DA6E4E0014E4B1 /* PlayWordView.swift in Sources */,
 				CBA6367025C16F9300AC52D3 /* HomeView.swift in Sources */,
 				CBEA692325D3C867004CD604 /* PicturePlayItemView.swift in Sources */,
 				CBA635E525B9603400AC52D3 /* CategoryView.swift in Sources */,
+				384E1F0725DF407F0014E4B1 /* DrawingDocument.swift in Sources */,
+				384E1EFF25DF402B0014E4B1 /* ContentView.swift in Sources */,
+				384E1EFE25DF402B0014E4B1 /* AddNewDocument.swift in Sources */,
 				CBEA693025D50264004CD604 /* Extention+String.swift in Sources */,
 				38EC3ED225BADE1E0001B399 /* CategoryList.swift in Sources */,
 			);
@@ -437,14 +529,14 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WordForLearn/Preview Content\"";
-				DEVELOPMENT_TEAM = 7BX2D9PSSQ;
+				DEVELOPMENT_TEAM = QUWV5QS83Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WordForLearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn54;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
@@ -464,14 +556,14 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"WordForLearn/Preview Content\"";
-				DEVELOPMENT_TEAM = 7BX2D9PSSQ;
+				DEVELOPMENT_TEAM = QUWV5QS83Q;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WordForLearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.WordForLearn54;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";

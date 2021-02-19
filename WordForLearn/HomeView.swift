@@ -143,13 +143,6 @@ struct MoviesCarousel: View {
                                         .font(.system(size: 16, weight: .semibold))
                                         .multilineTextAlignment(.center)
                                         .foregroundColor(.black)
-//                                    HStack(spacing: 0) {
-//                                        ForEach(0..<5) { num in
-//                                            Image(systemName: "star.fill")
-//                                                .foregroundColor(.orange)
-//                                                .font(.system(size: 14))
-//                                        }
-//                                    }.padding(.top, -4)
                                 }
                             })
                         
@@ -162,11 +155,15 @@ struct MoviesCarousel: View {
                     .frame(width: 125, height: 380)
                     .padding(.horizontal, 32)
                     .padding(.vertical, 32)
+                  
                 }
                 Spacer()
                     .frame(width: 16)
             }
+          
         }
+       
+        //tod
     }
 }
 

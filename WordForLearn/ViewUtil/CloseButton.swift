@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct CloseButton: View {
-    var body: some View {
+public struct CloseButton: View {
+    public var body: some View {
         Image(systemName: "xmark")
             .font(.system(size: 17, weight: .bold))
             .foregroundColor(.white)

@@ -239,13 +239,21 @@ struct CategoryViewPicturePlay: View {
                 message = "Which one\nis, \(name.capitalized)?"
             }else if Viewindex == 2 {
                 message = "Which one is,\n_____?"
+            }else if Viewindex == 3 {
+                message = "Find it"
             }else{
                 message = "Which one starts with\n the letter, \(name[0].capitalized)?"
             }
             let qustion = message.replacingOccurrences(of: ",", with: " ", options: NSString.CompareOptions.literal, range:nil)
             self.selectedItem?.title = qustion
             self.selectedItem?.image = name
+            
+            
+           if Viewindex == 3 {
+            self.textToSpeach("find it, \(name)")
+           }else{
             self.textToSpeach(qustion)
+           }
             
         }
         //didSetFire = false
@@ -266,3 +274,13 @@ struct CategoryViewPicturePlay_Previews: PreviewProvider {
 }
 
 
+//struct Speaker{
+//    var speaker = AVSpeechSynthesizer()
+//    
+//   static func textToSpeach(_ str : String){
+//        let utterance = AVSpeechUtterance(string: str)
+//        utterance.pitchMultiplier = 1.5
+//        utterance.rate = 0.3
+//        self.speaker.speak(utterance)
+//    }
+//}
