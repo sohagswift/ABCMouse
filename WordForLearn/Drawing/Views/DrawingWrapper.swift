@@ -11,21 +11,30 @@ import SwiftUI
 
 struct DrawingWrapper: UIViewControllerRepresentable {
     typealias UIViewControllerType = DrawingViewController
-    
-    var manager: DrawingManager
-    var id: UUID
-    
+    var imageName : String?
+    var manager: DrawingManager?
+    var id: UUID?
+    @State var presentingModal = false
     func makeUIViewController(context: Context) -> DrawingViewController {
         let viewController = DrawingViewController()
-        viewController.drawingData = manager.getData(for: id)
-        viewController.drawingChanged = { data in
-            manager.update(data: data, for: id)
+        
+        if imageName != nil {
+             viewController.imageName = imageName
+        }else if let manager = manager, let id = id  {
+              viewController.drawingData = manager.getData(for: id)
+             viewController.drawingChanged = { data in
+                 manager.update(data: data, for: id)
+             }
         }
+     
         
         return viewController
     }
     
     func updateUIViewController(_ uiViewController: DrawingViewController, context: Context) {
-        uiViewController.drawingData = manager.getData(for: id)
+        if let manager = manager, let id = id  {
+            uiViewController.drawingData = manager.getData(for: id)
+        }
+       
     }
 }

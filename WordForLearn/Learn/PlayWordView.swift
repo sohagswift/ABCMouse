@@ -13,6 +13,7 @@ struct PlayWordView: View {
     @State private var isShowingNextButton = false
     @State private var word = "Aa"
     @State private var viewPort = 1
+    @State var presentingModal = false
     var speaker = AVSpeechSynthesizer()
     fileprivate func defultTopSecton() {
         self.word = "Aa"
@@ -216,6 +217,18 @@ struct PlayWordView: View {
                         self.textToSpeach("How to write the letter")
                         self.textToSpeach("a")
                         isShowingNextButton = false
+                    }else{
+//                        NavigationLink(destination: DrawingWrapper(manager: manager, id: doc.id),
+//                        label: { Text("A") })
+                        
+//                        NavigationView {
+//                         NavigationLink(destination: DrawingWrapper(imageName: "trace_ca"),
+//                        label: { Text("A") })
+//                        }
+                        self.presentingModal = true
+                        
+                          
+                      
                     }
                 }) {
                     Text("Next").font(.system(size: 44, weight: .bold))
@@ -235,6 +248,26 @@ struct PlayWordView: View {
                         .fill(Color.yellow)
                         .shadow(color: .orange, radius: 2, x: 0, y: 2)
                 )
+                .fullScreenCover(isPresented: $presentingModal) {
+                    NavigationView {
+                        DrawingWrapper(imageName: "trace_ca")
+                            .toolbar {
+                                ToolbarItem(placement: .navigationBarTrailing) {
+                                    Button(action: {
+                                        presentingModal = false
+                                    }, label: {
+                                        Text("Dismiss")
+                                    })
+                                }
+                            }
+                    }
+                }
+//                .sheet(isPresented: $presentingModal, onDismiss: {
+//                    print("Code executed when the sheet dismisses")
+//                }) {
+//                             DrawingWrapper(imageName: "trace_ca")
+//                        }
+                
             }
             
             
