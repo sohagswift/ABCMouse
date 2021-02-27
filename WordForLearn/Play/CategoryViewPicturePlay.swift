@@ -79,16 +79,16 @@ struct CategoryViewPicturePlay: View {
                        // FromTextToImageQustionView(course: selectedItem!)
                         
                         if Viewindex == 2 {
-                            ImageToTextQustionView(course: selectedItem!)
+                            ImageToTextQustionView(course: selectedItem!).id(UUID())
                            .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                            .frame(height:400)
                         }else{
-                            FromTextToImageQustionView(course: selectedItem!)
+                            FromTextToImageQustionView(course: selectedItem!).id(UUID())
                            .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                            .frame(height:200)
                         }
                          
-                             CloseButton()
+                             CloseButton().id(UUID())
                                 .padding(.trailing, 16)
                                 .padding(.top, 40)
                             .onTapGesture{
@@ -111,11 +111,13 @@ struct CategoryViewPicturePlay: View {
                         ){
                             
                            // if  items != nil {
-                                ForEach(items) { item in
-                                   
+                            ForEach(items.indices) { index in
+                                var item = items[index]
+                                  
                                     VStack {
                                        
                                         if Viewindex == 2 {
+                                           
                                             TextPlayItemView(item: item)
                                                 .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                                               //  .frame(height: 100)
@@ -124,6 +126,7 @@ struct CategoryViewPicturePlay: View {
                                                 self.flagTapped(item.name)
                                             }
                                         }else{
+                                            Text("\(index)")
                                             PicturePlayItemView(item: item)
                                                 .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                                                 .frame(height: 200)
@@ -170,6 +173,8 @@ struct CategoryViewPicturePlay: View {
         //  .animation(.spring())
     }
     fileprivate func basedOnItem() {
+        
+     
         var allItems =  selectedItem?.items
         
         if let index:Int = allItems!.firstIndex(where: {$0.id == selectedItem!.items[correctAnswer].id }) {
@@ -216,6 +221,11 @@ struct CategoryViewPicturePlay: View {
     func flagTapped(_ tag : String){
         if tag == selectedItem?.items[correctAnswer].name {
             textToSpeach("correct")
+            
+            
+            if selectedItem?.items.count == correctAnswer + 1 {
+                return
+            }
           
             correctAnswer = correctAnswer + 1
              basedOnItem()

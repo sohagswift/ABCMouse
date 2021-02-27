@@ -193,7 +193,16 @@ struct PlayWordView: View {
             if isShowingNextButton {
                 Spacer()
                 Button(action: {
-                    self.viewPort =  self.viewPort + 3
+                    
+                    
+                    if self.viewPort == 11   {
+                        textToSpeach("this, is the latter, A")
+                        self.viewPort = 1
+                        isShowingNextButton = false
+                    }else{
+                        self.viewPort =  self.viewPort + 3
+                    }
+                   
                     if self.viewPort == 4 {
                         self.textToSpeach("A, is for, apple")
                         isShowingNextButton = false
@@ -225,9 +234,9 @@ struct PlayWordView: View {
 //                         NavigationLink(destination: DrawingWrapper(imageName: "trace_ca"),
 //                        label: { Text("A") })
 //                        }
-                        self.presentingModal = true
+                      //  self.presentingModal = true
                         
-                          
+                       
                       
                     }
                 }) {
@@ -248,20 +257,20 @@ struct PlayWordView: View {
                         .fill(Color.yellow)
                         .shadow(color: .orange, radius: 2, x: 0, y: 2)
                 )
-                .fullScreenCover(isPresented: $presentingModal) {
-                    NavigationView {
-                        DrawingWrapper(imageName: "trace_ca")
-                            .toolbar {
-                                ToolbarItem(placement: .navigationBarTrailing) {
-                                    Button(action: {
-                                        presentingModal = false
-                                    }, label: {
-                                        Text("Dismiss")
-                                    })
-                                }
-                            }
-                    }
-                }
+//                .fullScreenCover(isPresented: $presentingModal) {
+//                    NavigationView {
+//                        DrawingWrapper(imageName: "trace_ca")
+//                            .toolbar {
+//                                ToolbarItem(placement: .navigationBarTrailing) {
+//                                    Button(action: {
+//                                        presentingModal = false
+//                                    }, label: {
+//                                        Text("Dismiss")
+//                                    })
+//                                }
+//                            }
+//                    }
+//                }
 //                .sheet(isPresented: $presentingModal, onDismiss: {
 //                    print("Code executed when the sheet dismisses")
 //                }) {
