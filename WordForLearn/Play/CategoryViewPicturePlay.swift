@@ -87,7 +87,22 @@ struct CategoryViewPicturePlay: View {
                            .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                            .frame(height:200)
                         }
+                        
+                        
+                      
                          
+                          soundButton().id(UUID())
+                                .padding(.trailing, 70)
+                               .padding(.top, 40)
+                           .onTapGesture{
+                               withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
+                                   
+                                   DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                    self.textToSpeach("find it, \(selectedItem?.items[correctAnswer].name ?? "")")
+                                   })
+                               }
+                           }
+                        
                              CloseButton().id(UUID())
                                 .padding(.trailing, 16)
                                 .padding(.top, 40)
@@ -101,7 +116,8 @@ struct CategoryViewPicturePlay: View {
                                     })
                                 }
                             }
-                    }
+                        }
+                    
                    
                   
                      VStack{
@@ -250,7 +266,7 @@ struct CategoryViewPicturePlay: View {
             }else if Viewindex == 2 {
                 message = "Which one is,\n_____?"
             }else if Viewindex == 3 {
-                message = "Find it"
+                message = "Find it _____"
             }else{
                 message = "Which one starts with\n the letter, \(name[0].capitalized)?"
             }
