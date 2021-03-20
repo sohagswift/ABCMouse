@@ -11,13 +11,38 @@ import AVFoundation
 struct PlayWordView: View {
    // @State private var isSowingRed = false
     @State private var isShowingNextButton = false
-    @State private var word = "Aa"
+    @State private var word = ""
+    @State private var wordCap = ""
+    @State private var wordLower = ""
+    @State private var wordElement = ""
     @State private var viewPort = 1
+    @State private var Alphabetscounter = 0
     @State var presentingModal = false
+    
     var speaker = AVSpeechSynthesizer()
     fileprivate func defultTopSecton() {
-        self.word = "Aa"
-        self.textToSpeach("a")
+        self.wordCap = WordData.typeWordAlphabets[Alphabetscounter]
+        self.wordLower = wordCap.lowercased()
+        self.wordElement = ""
+        self.word = "\(wordCap)\(wordLower)"
+        
+        let missingElement = ["gold","umbrella","van","zebra","xerus"]
+        for item in  WordData.fruits + missingElement  {
+            if item.first?.lowercased() == self.wordLower {
+                self.wordElement = item
+                break
+            }
+        }
+        
+        if self.wordElement.isEmpty{
+            for item in  WordData.foods {
+                if item.first?.lowercased() == self.wordLower {
+                    self.wordElement = item
+                    break
+                }
+            }
+        }
+        self.textToSpeach(wordLower)
     }
     
     var body: some View {
@@ -29,8 +54,8 @@ struct PlayWordView: View {
                     withAnimation{
                        // self.isSowingRed.toggle()
                         if  viewPort == 1  {
-                            self.textToSpeach("A")
-                            self.word = "a"
+                            self.textToSpeach(wordCap)
+                            self.word = wordLower
                             viewPort = viewPort + 1
                             self.isShowingNextButton = false
                         }else if viewPort == 2 {
@@ -38,7 +63,7 @@ struct PlayWordView: View {
                             self.isShowingNextButton = true
                             viewPort = viewPort - 1
                         }else if viewPort == 3 {
-                            self.textToSpeach("A, is for, apple")
+                            self.textToSpeach("\(wordCap), is for, \(wordElement)")
                             isShowingNextButton = false
                             viewPort = viewPort + 1
                         }else if viewPort == 4 {
@@ -47,8 +72,8 @@ struct PlayWordView: View {
                             isShowingNextButton = true
                         }else if viewPort == 5 {
                             self.textToSpeach("say,")
-                            self.textToSpeach("A")
-                            self.textToSpeach("a, a")
+                            self.textToSpeach("\(wordCap)")
+                            self.textToSpeach("\(wordLower), \(wordLower)")
                            // self.textToSpeach("a")
                             isShowingNextButton = false
                             viewPort = viewPort + 1
@@ -58,7 +83,7 @@ struct PlayWordView: View {
                             isShowingNextButton = true
                         }else if viewPort == 7 {
                             //self.textToSpeach("say, a")
-                            self.textToSpeach("this is, an, apple")
+                            self.textToSpeach("this is, an, \(wordElement)")
                            
                             isShowingNextButton = false
                             viewPort = viewPort + 1
@@ -68,8 +93,8 @@ struct PlayWordView: View {
                             isShowingNextButton = true
                         }else if viewPort == 9 {
                             //self.textToSpeach("say, a")
-                            self.textToSpeach("How to write the letter, A")
-                            self.textToSpeach("A")
+                            self.textToSpeach("How to write the letter, \(wordCap)")
+                            self.textToSpeach("\(wordCap)")
                             isShowingNextButton = false
                             viewPort = viewPort + 1
                         }else if viewPort == 10 {
@@ -79,7 +104,7 @@ struct PlayWordView: View {
                         }else if viewPort == 11 {
                             //self.textToSpeach("say, a")
                             self.textToSpeach("How to write the letter")
-                            self.textToSpeach("a")
+                            self.textToSpeach("\(wordLower)")
                             isShowingNextButton = false
                             viewPort = viewPort + 1
                         }else if viewPort == 12 {
@@ -107,7 +132,7 @@ struct PlayWordView: View {
                 .padding(.top,30)
                 
              if  viewPort == 2 {
-                Image("a").resizable().aspectRatio(contentMode: .fit)
+                Image("\(wordLower)").resizable().aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 220, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .transition(.scale)
                     .padding(.top,20)
@@ -116,24 +141,24 @@ struct PlayWordView: View {
                     Text("is for").font(.system(size: 50, weight: .bold))
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
-                    Image("apple").resizable().aspectRatio(contentMode: .fit)
+                Image(wordElement.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
                         
                         .frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                         .transition(.scale)
                         .padding(.all,20)
-                    Text("Apple").font(.system(size: 50, weight: .bold))
+                Text(wordElement.capitalized).font(.system(size: 50, weight: .bold))
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
             }else if viewPort == 6 {
-                Text("A A A A").font(.system(size: 70, weight: .bold))
+                Text("\(wordCap) \(wordCap) \(wordCap) \(wordCap)").font(.system(size: 70, weight: .bold))
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
                
-                Text("a a a ").font(.system(size: 90, weight: .bold))
+                Text("\(wordLower) \(wordLower) \(wordLower) ").font(.system(size: 90, weight: .bold))
                     .foregroundColor(.red)
                     .padding()
                     .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
-                Text("a a a")
+                Text("\(wordLower) \(wordLower) \(wordLower)")
                          .foregroundColor(.blue)
                          .font(Font.custom("SavoyeLetPlain", size: 160))
 //                Text("a a a").font(UIFont(name: "SavoyeLetPlain", size: 50))
@@ -144,13 +169,13 @@ struct PlayWordView: View {
                 Text("an")
                          .foregroundColor(.blue)
                          .font(Font.custom("SavoyeLetPlain", size: 160))
-                Image("apple").resizable().aspectRatio(contentMode: .fit)
+                Image(wordElement.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
                     
                     .frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .transition(.scale)
                     .padding(.all,20)
                 
-                Text("apple")
+                Text(wordElement)
                          .foregroundColor(.blue)
                          .font(Font.custom("SavoyeLetPlain", size: 160))
 
@@ -161,7 +186,7 @@ struct PlayWordView: View {
                     .font(.system(size: 40, weight: .bold))
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
-                Image("trace_ca").resizable().aspectRatio(contentMode: .fit)
+                Image("trace_c\(wordLower)").resizable().aspectRatio(contentMode: .fit)
                     
                     .frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .transition(.scale)
@@ -175,7 +200,7 @@ struct PlayWordView: View {
                     .font(.system(size: 40, weight: .bold))
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
-                Image("trace_a").resizable().aspectRatio(contentMode: .fit)
+                Image("trace_\(wordLower)").resizable().aspectRatio(contentMode: .fit)
                     
                     .frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .transition(.scale)
@@ -196,7 +221,9 @@ struct PlayWordView: View {
                     
                     
                     if self.viewPort == 11   {
-                        textToSpeach("this, is the latter, A")
+                        Alphabetscounter = Alphabetscounter + 1
+                        defultTopSecton()
+                        textToSpeach("this, is the latter, \(wordCap)")
                         self.viewPort = 1
                         isShowingNextButton = false
                     }else{
@@ -204,37 +231,37 @@ struct PlayWordView: View {
                     }
                    
                     if self.viewPort == 4 {
-                        self.textToSpeach("A, is for, apple")
+                        self.textToSpeach("\(wordCap), is for, \(wordElement)")
                         isShowingNextButton = false
                     }else if self.viewPort == 6 {
                         self.textToSpeach("say,")
-                        self.textToSpeach("A")
-                        self.textToSpeach("a, a")
+                        self.textToSpeach("\(wordCap)")
+                        self.textToSpeach("\(wordLower), \(wordLower)")
                        
                         isShowingNextButton = false
                     }else if self.viewPort == 8 {
-                        self.textToSpeach("a")
-                        self.textToSpeach("this is, an, apple")
+                        self.textToSpeach("\(wordLower)")
+                        self.textToSpeach("this is, an, \(wordElement)")
                         
                         isShowingNextButton = false
                     }else if self.viewPort == 10 {
                         self.textToSpeach("How to write the letter")
-                        self.textToSpeach("A")
+                        self.textToSpeach("\(wordCap)")
                         isShowingNextButton = false
                     }
                     else if self.viewPort == 12 {
                         self.textToSpeach("How to write the letter")
-                        self.textToSpeach("a")
+                        self.textToSpeach("\(wordLower)")
                         isShowingNextButton = false
                     }else{
 //                        NavigationLink(destination: DrawingWrapper(manager: manager, id: doc.id),
 //                        label: { Text("A") })
-                        
+//
 //                        NavigationView {
 //                         NavigationLink(destination: DrawingWrapper(imageName: "trace_ca"),
 //                        label: { Text("A") })
 //                        }
-                      //  self.presentingModal = true
+                    //    self.presentingModal = true
                         
                        
                       
@@ -281,7 +308,8 @@ struct PlayWordView: View {
             
             
         }.onAppear {
-            textToSpeach("this, is the latter, A")
+            defultTopSecton()
+            textToSpeach("this, is the latter, \(wordCap)")
         }
         
     }

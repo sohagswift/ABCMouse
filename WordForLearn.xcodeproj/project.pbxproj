@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3833A493260653CF004F775A /* individualView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3833A492260653CF004F775A /* individualView.swift */; };
 		384E1EF125DA6E4E0014E4B1 /* PlayWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1EF025DA6E4E0014E4B1 /* PlayWordView.swift */; };
 		384E1EFC25DF402B0014E4B1 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1EF825DF402A0014E4B1 /* PlaceholderView.swift */; };
 		384E1EFD25DF402B0014E4B1 /* DrawingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1EF925DF402A0014E4B1 /* DrawingWrapper.swift */; };
@@ -18,6 +19,7 @@
 		384E1F0D25DF40A50014E4B1 /* DrawingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1F0B25DF40A50014E4B1 /* DrawingManager.swift */; };
 		384E1F1125DF43950014E4B1 /* DrawingDocModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 384E1F0F25DF43950014E4B1 /* DrawingDocModel.xcdatamodeld */; };
 		384E1F1625DF49400014E4B1 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1F1525DF49400014E4B1 /* RoundedButton.swift */; };
+		38C99D1426065D2200A55178 /* TryWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C99D1326065D2200A55178 /* TryWriteView.swift */; };
 		38EC3ECB25BADA190001B399 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC3ECA25BADA190001B399 /* CategoryItem.swift */; };
 		38EC3ED225BADE1E0001B399 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC3ED125BADE1E0001B399 /* CategoryList.swift */; };
 		CB6634E625D14EFA0019BAFA /* latterToWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6634E525D14EFA0019BAFA /* latterToWordView.swift */; };
@@ -49,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3833A492260653CF004F775A /* individualView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = individualView.swift; sourceTree = "<group>"; };
 		384E1EF025DA6E4E0014E4B1 /* PlayWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayWordView.swift; sourceTree = "<group>"; };
 		384E1EF825DF402A0014E4B1 /* PlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		384E1EF925DF402A0014E4B1 /* DrawingWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingWrapper.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		384E1F0B25DF40A50014E4B1 /* DrawingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingManager.swift; sourceTree = "<group>"; };
 		384E1F1025DF43950014E4B1 /* DrawingDocModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DrawingDocModel.xcdatamodel; sourceTree = "<group>"; };
 		384E1F1525DF49400014E4B1 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		38C99D1326065D2200A55178 /* TryWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryWriteView.swift; sourceTree = "<group>"; };
 		38EC3ECA25BADA190001B399 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		38EC3ED125BADE1E0001B399 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		CB6634E525D14EFA0019BAFA /* latterToWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = latterToWordView.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				384E1EF025DA6E4E0014E4B1 /* PlayWordView.swift */,
+				3833A492260653CF004F775A /* individualView.swift */,
+				38C99D1326065D2200A55178 /* TryWriteView.swift */,
 			);
 			path = Learn;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				384E1F1125DF43950014E4B1 /* DrawingDocModel.xcdatamodeld in Sources */,
+				3833A493260653CF004F775A /* individualView.swift in Sources */,
 				384E1F0D25DF40A50014E4B1 /* DrawingManager.swift in Sources */,
 				CBA635CD25B8333B00AC52D3 /* AppDelegate.swift in Sources */,
 				CB8168EF25CFF4590007F669 /* CategoryItemPlay.swift in Sources */,
@@ -375,6 +382,7 @@
 				384E1EFD25DF402B0014E4B1 /* DrawingWrapper.swift in Sources */,
 				CBA6365825BD63A100AC52D3 /* Course.swift in Sources */,
 				38EC3ECB25BADA190001B399 /* CategoryItem.swift in Sources */,
+				38C99D1426065D2200A55178 /* TryWriteView.swift in Sources */,
 				CBA6365425B9A73B00AC52D3 /* CategoryDetails.swift in Sources */,
 				CBEA692A25D3F69B004CD604 /* TextPlayItemView.swift in Sources */,
 				384E1EFC25DF402B0014E4B1 /* PlaceholderView.swift in Sources */,

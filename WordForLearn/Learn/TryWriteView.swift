@@ -1,13 +1,14 @@
 //
-//  CategoryViewPicturePlay.swift
+//  TryWriteView.swift
 //  WordForLearn
 //
-//  Created by Nazmul Hasan on 21/1/21.
+//  Created by Nazmul on 20/3/21.
 //
+
 
 import SwiftUI
 import AVFoundation
-struct CategoryViewPicturePlay: View {
+struct TryWriteView: View {
     var speaker = AVSpeechSynthesizer()
     @State var Viewindex = 3
     @State  var correctAnswer = 0
@@ -294,16 +295,16 @@ struct CategoryViewPicturePlay: View {
     }
 }
 
-struct CategoryViewPicturePlay_Previews: PreviewProvider {
+struct TryWriteView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryViewPicturePlay()
+        TryWriteView()
     }
 }
 
 
 //struct Speaker{
 //    var speaker = AVSpeechSynthesizer()
-//    
+//
 //   static func textToSpeach(_ str : String){
 //        let utterance = AVSpeechUtterance(string: str)
 //        utterance.pitchMultiplier = 1.5

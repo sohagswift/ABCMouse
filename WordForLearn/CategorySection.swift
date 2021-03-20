@@ -141,7 +141,9 @@ struct WordData{
                                    ]
     
         // ok
-    static let animals = ["ant","bat", "bear", "bee", "bird", "butterfly", "camel", "cat", "cheetah","chick", "chicken", "cow","crab" ,"crocodile", "deer", "dog", "dolphin", "duck", "eagle", "elephant", "fish", "fly", "fox", "frog", "giraffe", "goat", "gorilla", "horse", "kangaroo", "lion", "lobster", "monkey", "mosquito", "ostrich","owl", "panda", "parrot","pigeon", "polar_bear", "rabbit", "rat","rooster", "shark", "sheep", "shrimp","snail", "snake","spider", "squirrel", "tiger","turkey", "turtle", "wolf","whale","zebra","ant"]
+      
+    
+    static let animals = ["ant","bat", "bear", "bee", "bird", "butterfly", "camel", "cat", "cheetah","chick", "chicken", "cow","crab" ,"crocodile", "deer", "dog", "dolphin", "duck", "eagle", "elephant", "fish", "fly", "fox", "frog", "giraffe", "goat", "gorilla", "horse", "kangaroo", "lion", "lobster", "monkey", "mosquito", "ostrich","owl", "panda", "parrot","pigeon", "polar_bear", "rabbit", "rat","rooster", "shark", "sheep", "shrimp","snail", "snake","spider", "squirrel", "tiger","turkey", "turtle", "wolf","whale","xerus","zebra","ant"]
     
     // image and text is ok
     static let bathroom = ["bath mat","bathtub", "bucket","clothespin","comb","hairbrush","hairdryer","hanger","mirror","mop","hand soap","hand towel","plunger","razor","scissors","shampoo","shower curtain","shower","sink","soap","toilet","toilet cleaner","toilet brush","toilet paper","toothbrush","toothpaste","towel","trash can","water tap","bath mat",]
@@ -160,8 +162,10 @@ struct WordData{
     
     static let flowers = ["anemone","aster","bird of paradise","carnation","cherry blossom","chrysanthemums","daffodil","dahlia","daisy","gerbera","hyacinth","iris","jasmine","lilac","lily","lotus","magnolia","orchid","pansy","rose","sunflower","tulip","water_lily","anemone"]
     
+    var imgage = ["gold","umbrella","van","zebra","xerus"]
+    // q,u,v,x,y,z
     static let foods = ["apple pie","beef","biscuit","bread","butter","cake","cheese","cheeseburger","chicken chop","chocolate_chip_cookie","chocolate","cracker","curry","delmonico's steak","egg","fish","french_fries","hamburger","hot dog","ice cream","ice","jelly","lamb","loaf","milk","nachos","noodles","oil","pizza","rice","salad","salmon","salt","sandwich","sausage","soup","spaguetti","steak","thanksgiving dinner","wheat","apple pie"]
-    
+    //e,f,i,n,q,u,v,x,y,z
     static let fruits = ["apple","apricot","avocado","banana","black berry","black cherry","blueberry","Boysenberry","cherimoyas","cherry","Coconut","Common fig","Durian","grape","grapefruit","green apple","green grape","Horned melon","Jackfruit","kiwi","lemon","lime","Longan","Loquat","Lychee","mango","melon","Olive","orange","papaya","peach","pear","pineapple","Pitaya","plum","pomegranate","Purple mangosteen","raspberry","red cherry","red grape","star fruit","strawberry","tomato","watermelon","apple"]
     
     static let kitchen = ["blender","bottle","can opener","coffee pot","colander","cup","drawer","fork","frying_pan","glass of water","grater","grill pan","juicer","kettle","kitchen board","kitchen Scale","knife sharpener","knife","ladle","measure cup","measuring spoons","microwave oven","mixer","mixing bowl","oven mitt","peeler","plate","pot","potato masher","refrigerator","rice cooker","saucepan","shears","soup spoon","spatula","sponge","spoon","stove","tea_pot","thermometer","toaster","tongs","water_glass","whisk","blender"]

@@ -32,12 +32,12 @@ struct HomeView: View {
         .init(title: "Tenet", imageName: "life5"),
         .init(title: "Avengers: Endgame", imageName: "life6"),
     ]
-    
+  
     let animationMovies: [Movie] = [
-        .init(title: "Soul", imageName: "life4"),
-        .init(title: "Tenet", imageName: "life5"),
-        .init(title: "Avengers: Endgame", imageName: "life6"),
-        .init(title: "Captain Marvel", imageName: "life1")
+        .init(title: "Picture Game", imageName: "life4"),
+        .init(title: "Word Game", imageName: "life5"),
+        .init(title: "Find Game", imageName: "life6"),
+        .init(title: "Letter Game", imageName: "life1")
     ]
     
     var body: some View {
@@ -106,6 +106,55 @@ struct MoviesCarousel: View {
         return scale
     }
     
+    
+
+    
+    func getDestination(itemText: String) -> AnyView {
+        
+      
+//        if movies[0].title == itemText {
+//                return AnyView(CategoryViewPicturePlay())
+//
+//            }else{
+//                return AnyView(CategoryViewPicturePlay())
+//            }
+        //
+        
+        // var mainItem = ["Picture Game","Word Game","Find Game","Letter Game"]
+        switch itemText.lowercased() {
+        case "Picture Game".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:1))
+        case "Word Game".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:2))
+        case "Find Game".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:3))
+        case "Letter Game".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:0))
+        case "Fun Education".lowercased():
+            return AnyView(PlayWordView())
+        default:
+            return AnyView(CategoryViewPicturePlay())
+        }
+        
+        
+        
+        print(itemText)
+
+//          let value = MenuItem(rawValue: itemText)
+//
+//          switch value {
+//
+//          case .some(.firstCase):
+//              return AnyView(InvoicesDetail())
+//          case.some(.secondCase):
+//              return AnyView(ProjectsDetail())
+//          case .none:
+//              return AnyView(Text("a"))
+//          case .some(.thirdCase):
+//              return AnyView(StaffDetail())
+         // }
+      }
+    
     var body: some View {
 //        HStack {
 //            Text(categoryName)
@@ -125,7 +174,7 @@ struct MoviesCarousel: View {
                     GeometryReader { proxy in
                         let scale = getScale(proxy: proxy)
                         NavigationLink(
-                            destination: CategoryViewPicturePlay() /*MovieDetailsView(movie: num)*/.navigationBarHidden(true),
+                            destination: getDestination(itemText: num.title) /*MovieDetailsView(movie: num)*/.navigationBarHidden(true),
                             label: {
                                 VStack(spacing: 8) {
                                     Image(num.imageName)
