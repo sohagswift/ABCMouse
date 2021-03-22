@@ -65,7 +65,7 @@ class DrawingViewController: UIViewController {
             contentView.sendSubviewToBack(imageView)
             imageView.center = CGPoint(
                 x:  self.view.frame.size.width  / 2,
-                y: self.view.frame.size.height / 2 -  (self.view.frame.size.height/10)
+                y: self.view.frame.size.height / 2.5 -  (self.view.frame.size.height/10)
             ) //self.view.center
         }else if let drawing = try? PKDrawing(data: drawingData) {
             canvas.drawing = drawing
