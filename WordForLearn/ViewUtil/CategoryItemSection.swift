@@ -31,12 +31,20 @@ public struct CategoryItemSection: View {
             }
             Text(course.title).fontWeight(.bold)
             Text(course.subtitle).font(.footnote)
-        }).background(Image("kidsbackground")
+            
+            HStack{
+                Image(course.items[0].name.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
+                    .padding(.leading,32)
+                    .padding(.bottom,16)
+                Spacer()
+            }
+            
+        }).background(Image("indivudule")
                         .resizable()
                         .scaledToFill())
        
         .padding(.all)
-        .background(Color(#colorLiteral(red: 0.6941176471, green: 0.8039215686, blue: 0.8392156863, alpha: 1)))
+        .background(Color.orange)
         
         .cornerRadius(20.0)
         .shadow(color: course.color.opacity(0.3), radius: 20, x: 0.0, y: 10.0)
