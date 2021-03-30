@@ -45,82 +45,139 @@ struct PlayWordView: View {
         self.textToSpeach(wordLower)
     }
     
+    fileprivate func primaryButtonAction() {
+        // self.isSowingRed.toggle()
+        if  viewPort == 1  {
+            self.textToSpeach(wordCap)
+            self.word = wordLower
+            viewPort = viewPort + 1
+            self.isShowingNextButton = false
+        }else if viewPort == 2 {
+            defultTopSecton()
+            self.isShowingNextButton = true
+            viewPort = viewPort - 1
+        }else if viewPort == 3 {
+            self.textToSpeach("\(wordCap), is for, \(wordElement)")
+            isShowingNextButton = false
+            viewPort = viewPort + 1
+        }else if viewPort == 4 {
+            defultTopSecton()
+            viewPort = viewPort - 1
+            isShowingNextButton = true
+        }else if viewPort == 5 {
+            self.textToSpeach("say,")
+            self.textToSpeach("\(wordCap)")
+            self.textToSpeach("\(wordLower), \(wordLower)")
+            // self.textToSpeach("a")
+            isShowingNextButton = false
+            viewPort = viewPort + 1
+        }else if viewPort == 6 {
+            defultTopSecton()
+            viewPort = viewPort - 1
+            isShowingNextButton = true
+        }else if viewPort == 7 {
+            //self.textToSpeach("say, a")
+            self.textToSpeach("this is, an, \(wordElement)")
+            
+            isShowingNextButton = false
+            viewPort = viewPort + 1
+        }else if viewPort == 8 {
+            defultTopSecton()
+            viewPort = viewPort - 1
+            isShowingNextButton = true
+        }else if viewPort == 9 {
+            //self.textToSpeach("say, a")
+            self.textToSpeach("How to write the letter, \(wordCap)")
+            self.textToSpeach("\(wordCap)")
+            isShowingNextButton = false
+            viewPort = viewPort + 1
+        }else if viewPort == 10 {
+            defultTopSecton()
+            viewPort = viewPort - 1
+            isShowingNextButton = true
+        }else if viewPort == 11 {
+            //self.textToSpeach("say, a")
+            self.textToSpeach("How to write the letter")
+            self.textToSpeach("\(wordLower)")
+            isShowingNextButton = false
+            viewPort = viewPort + 1
+        }else if viewPort == 12 {
+            defultTopSecton()
+            viewPort = viewPort - 1
+            isShowingNextButton = true
+        }
+    }
+    
+    fileprivate func nextbuttonOnclickAction() {
+        if self.viewPort == 11   {
+            Alphabetscounter = Alphabetscounter + 1
+            defultTopSecton()
+            textToSpeach("this, is the latter, \(wordCap)")
+            self.viewPort = 1
+            isShowingNextButton = false
+        }else{
+            self.viewPort =  self.viewPort + 3
+        }
+        
+        if self.viewPort == 4 {
+            self.textToSpeach("\(wordCap), is for, \(wordElement)")
+            isShowingNextButton = false
+        }else if self.viewPort == 6 {
+            self.textToSpeach("say,")
+            self.textToSpeach("\(wordCap)")
+            self.textToSpeach("\(wordLower), \(wordLower)")
+            
+            isShowingNextButton = false
+        }else if self.viewPort == 8 {
+            self.textToSpeach("\(wordLower)")
+            self.textToSpeach("this is, an, \(wordElement)")
+            
+            isShowingNextButton = false
+        }else if self.viewPort == 10 {
+            self.textToSpeach("How to write the letter")
+            self.textToSpeach("\(wordCap)")
+            isShowingNextButton = false
+        }
+        else if self.viewPort == 12 {
+            self.textToSpeach("How to write the letter")
+            self.textToSpeach("\(wordLower)")
+            isShowingNextButton = false
+        }else{
+            //                        NavigationLink(destination: DrawingWrapper(manager: manager, id: doc.id),
+            //                        label: { Text("A") })
+            //
+            //                        NavigationView {
+            //                         NavigationLink(destination: DrawingWrapper(imageName: "trace_ca"),
+            //                        label: { Text("A") })
+            //                        }
+            //    self.presentingModal = true
+            
+            
+            
+        }
+    }
+    
     var body: some View {
         
         VStack{
-            
-         //   if viewPort == 0 {
+            if isShowingNextButton {
+               CloseButton().id(UUID())
+                .padding(.trailing, 0)
+                .padding(.top, 40)
+                .onTapGesture{
+                   
+                }
+                
+            }
+    
                 Button(action: {
                     withAnimation{
-                       // self.isSowingRed.toggle()
-                        if  viewPort == 1  {
-                            self.textToSpeach(wordCap)
-                            self.word = wordLower
-                            viewPort = viewPort + 1
-                            self.isShowingNextButton = false
-                        }else if viewPort == 2 {
-                            defultTopSecton()
-                            self.isShowingNextButton = true
-                            viewPort = viewPort - 1
-                        }else if viewPort == 3 {
-                            self.textToSpeach("\(wordCap), is for, \(wordElement)")
-                            isShowingNextButton = false
-                            viewPort = viewPort + 1
-                        }else if viewPort == 4 {
-                            defultTopSecton()
-                            viewPort = viewPort - 1
-                            isShowingNextButton = true
-                        }else if viewPort == 5 {
-                            self.textToSpeach("say,")
-                            self.textToSpeach("\(wordCap)")
-                            self.textToSpeach("\(wordLower), \(wordLower)")
-                           // self.textToSpeach("a")
-                            isShowingNextButton = false
-                            viewPort = viewPort + 1
-                        }else if viewPort == 6 {
-                            defultTopSecton()
-                            viewPort = viewPort - 1
-                            isShowingNextButton = true
-                        }else if viewPort == 7 {
-                            //self.textToSpeach("say, a")
-                            self.textToSpeach("this is, an, \(wordElement)")
-                           
-                            isShowingNextButton = false
-                            viewPort = viewPort + 1
-                        }else if viewPort == 8 {
-                            defultTopSecton()
-                            viewPort = viewPort - 1
-                            isShowingNextButton = true
-                        }else if viewPort == 9 {
-                            //self.textToSpeach("say, a")
-                            self.textToSpeach("How to write the letter, \(wordCap)")
-                            self.textToSpeach("\(wordCap)")
-                            isShowingNextButton = false
-                            viewPort = viewPort + 1
-                        }else if viewPort == 10 {
-                            defultTopSecton()
-                            viewPort = viewPort - 1
-                            isShowingNextButton = true
-                        }else if viewPort == 11 {
-                            //self.textToSpeach("say, a")
-                            self.textToSpeach("How to write the letter")
-                            self.textToSpeach("\(wordLower)")
-                            isShowingNextButton = false
-                            viewPort = viewPort + 1
-                        }else if viewPort == 12 {
-                            defultTopSecton()
-                            viewPort = viewPort - 1
-                            isShowingNextButton = true
-                        }
+                        primaryButtonAction()
                     }
                 }) {
                     Text(word).font(.system(size: 100, weight: .bold))
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
-                    
-                    
-                    
-                    
                 }
                 .buttonStyle(PlainButtonStyle())
                 .frame(width: 200, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -177,7 +234,7 @@ struct PlayWordView: View {
                 
                 Text(wordElement)
                          .foregroundColor(.blue)
-                         .font(Font.custom("SavoyeLetPlain", size: 160))
+                         .font(Font.custom("SavoyeLetPlain", size: 120))
 
                 
             }else if viewPort == 10 {
@@ -218,54 +275,7 @@ struct PlayWordView: View {
             if isShowingNextButton {
                 Spacer()
                 Button(action: {
-                    
-                    
-                    if self.viewPort == 11   {
-                        Alphabetscounter = Alphabetscounter + 1
-                        defultTopSecton()
-                        textToSpeach("this, is the latter, \(wordCap)")
-                        self.viewPort = 1
-                        isShowingNextButton = false
-                    }else{
-                        self.viewPort =  self.viewPort + 3
-                    }
-                   
-                    if self.viewPort == 4 {
-                        self.textToSpeach("\(wordCap), is for, \(wordElement)")
-                        isShowingNextButton = false
-                    }else if self.viewPort == 6 {
-                        self.textToSpeach("say,")
-                        self.textToSpeach("\(wordCap)")
-                        self.textToSpeach("\(wordLower), \(wordLower)")
-                       
-                        isShowingNextButton = false
-                    }else if self.viewPort == 8 {
-                        self.textToSpeach("\(wordLower)")
-                        self.textToSpeach("this is, an, \(wordElement)")
-                        
-                        isShowingNextButton = false
-                    }else if self.viewPort == 10 {
-                        self.textToSpeach("How to write the letter")
-                        self.textToSpeach("\(wordCap)")
-                        isShowingNextButton = false
-                    }
-                    else if self.viewPort == 12 {
-                        self.textToSpeach("How to write the letter")
-                        self.textToSpeach("\(wordLower)")
-                        isShowingNextButton = false
-                    }else{
-//                        NavigationLink(destination: DrawingWrapper(manager: manager, id: doc.id),
-//                        label: { Text("A") })
-//
-//                        NavigationView {
-//                         NavigationLink(destination: DrawingWrapper(imageName: "trace_ca"),
-//                        label: { Text("A") })
-//                        }
-                    //    self.presentingModal = true
-                        
-                       
-                      
-                    }
+                    nextbuttonOnclickAction()
                 }) {
                     Text("Next").font(.system(size: 44, weight: .bold))
                         .padding()

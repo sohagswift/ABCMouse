@@ -1,22 +1,13 @@
 //
-//  CategoryItemSection.swift
+//  IndividualItemView.swift
 //  WordForLearn
 //
-//  Created by Nazmul Hasan on 7/2/21.
+//  Created by Nazmul on 26/3/21.
 //
 
 import SwiftUI
 
-//
-//  CategoryItem.swift
-//  WordForLearn
-//
-//  Created by Nazmul on 22/1/21.
-//
-
-import SwiftUI
-
-public struct CategoryItemSection: View {
+public struct IndividualItemView: View {
     var course : CategorySectionContent =  categorySectionContents[1]
    
     
@@ -36,7 +27,7 @@ public struct CategoryItemSection: View {
             
            
             
-        }).background(Image("kidsbackground")
+        }).background(Image("indivudule")
                         .resizable()
                         .scaledToFill())
        
@@ -48,12 +39,8 @@ public struct CategoryItemSection: View {
     }
 }
 
-struct CategoryItemSection_Previews: PreviewProvider {
+struct IndividualItemView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryItemSection()
+        IndividualItemView()
     }
 }
-
-
-
-

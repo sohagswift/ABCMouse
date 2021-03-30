@@ -16,7 +16,7 @@ import SwiftUI
 import AVFoundation
 struct IndividualView: View {
     var speaker = AVSpeechSynthesizer()
-    @State var Viewindex = 3
+    @State var Viewindex = 2
     @State  var correctAnswer = 0
     @State  var items =  [Item]()
     @State var show = false
@@ -25,7 +25,6 @@ struct IndividualView: View {
     @State var selectedItem: CategorySectionContent? {
         didSet{
             if didSetFire {
-                
                 basedOnItem()
                 askQustion()
             }
@@ -86,9 +85,23 @@ struct IndividualView: View {
                             // FromTextToImageQustionView(course: selectedItem!)
                             
                             if Viewindex == 2 {
-                                ImageToTextQustionView(course: selectedItem!).id(UUID())
+                                IndividualLearnItemView(course: selectedItem!).id(UUID())
+                                    .onTapGesture{
+                                        withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
+                                            
+                                            DispatchQueue.main.asyncAfter(deadline: .now(), execute: {
+                                                self.textToSpeach("\(selectedItem?.items[correctAnswer].name ?? "".lowercased())")
+                                            })
+                                        }
+                                    }
                                     .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
-                                    .frame(height:400)
+                                    .frame(height:UIScreen.screenHeight/1.5)
+                                   // .frame(minWidth: 0,
+//                                                    maxWidth: .infinity,
+//                                                    minHeight: 0,
+//                                                    maxHeight: .infinity,
+//                                                    alignment: .topLeading)
+                                
                             }else{
                                 FromTextToImageQustionView(course: selectedItem!).id(UUID())
                                     .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
@@ -105,7 +118,7 @@ struct IndividualView: View {
                                     withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                         
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                                            self.textToSpeach("find it, \(selectedItem?.items[correctAnswer].name ?? "")")
+                                            self.textToSpeach("\(selectedItem?.items[correctAnswer].name ?? "".lowercased())")
                                         })
                                     }
                                 }
@@ -125,52 +138,92 @@ struct IndividualView: View {
                                 }
                         }
                         
-                        
-                        
-                        VStack{
-                            LazyVGrid(
-                                columns: [GridItem(),GridItem()],
-                                spacing: 16
-                            ){
-                                
-                                // if  items != nil {
-                                ForEach(items.indices) { index in
-                                    var item = items[index]
-                                    
-                                    VStack {
-                                        
-                                        if Viewindex == 2 {
-                                            
-                                            TextPlayItemView(item: item)
-                                                .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
-                                                //  .frame(height: 100)
-                                                .onTapGesture{
-                                                    print("Double tapped!")
-                                                    self.flagTapped(item.name)
-                                                }
-                                        }else{
-                                            Text("\(index)")
-                                            PicturePlayItemView(item: item)
-                                                .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
-                                                .frame(height: 200)
-                                                .onTapGesture{
-                                                    print("Double tapped!")
-                                                    self.flagTapped(item.name)
-                                                }
-                                        }
-                                        
-                                        
-                                    }.matchedGeometryEffect(id: "container\(item.id)", in: namespace)
-                                }
-                                // }
-                                
-                                
-                            }
-                            .padding(16)
-                            .frame(maxWidth:.infinity)
-                            .animation(.some(.linear))
+                        Button(action: {
+                            print("live")
+                        }) {
+                            Text("Prev").font(.system(size: 44, weight: .bold))
+                                .padding()
+                                .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))   
+
                         }
-                        .zIndex(1)
+                        .buttonStyle(PlainButtonStyle())
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.leading,10)
+                        .padding(.trailing,10)
+                        .padding(.bottom,16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 25)
+                                .fill(Color.yellow)
+                                .shadow(color: .orange, radius: 2, x: 0, y: 2)
+                        )
+                        
+                        
+                        Button(action: {
+                            print("live")
+                            self.flagTapped("")
+                        }) {
+                            Text("Next").font(.system(size: 44, weight: .bold))
+                                .padding()
+                                .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
+                            
+                           
+                            
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.leading,10)
+                        .padding(.trailing,10)
+                        .padding(.bottom,16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 25)
+                                .fill(Color.yellow)
+                                .shadow(color: .orange, radius: 2, x: 0, y: 2)
+                        )
+                        
+//                        VStack{
+//                            LazyVGrid(
+//                                columns: [GridItem(),GridItem()],
+//                                spacing: 16
+//                            ){
+//
+//                                // if  items != nil {
+//                                ForEach(items.indices) { index in
+//                                    var item = items[index]
+//
+//                                    VStack {
+//
+//                                        if Viewindex == 2 {
+//
+//                                            TextPlayItemView(item: item)
+//                                                .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
+//                                                //  .frame(height: 100)
+//                                                .onTapGesture{
+//                                                    print("Double tapped!")
+//                                                    self.flagTapped(item.name)
+//                                                }
+//                                        }else{
+//                                            Text("\(index)")
+//                                            PicturePlayItemView(item: item)
+//                                                .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
+//                                                .frame(height: 200)
+//                                                .onTapGesture{
+//                                                    print("Double tapped!")
+//                                                    self.flagTapped(item.name)
+//                                                }
+//                                        }
+//
+//
+//                                    }.matchedGeometryEffect(id: "container\(item.id)", in: namespace)
+//                                }
+//                                // }
+//
+//
+//                            }
+//                            .padding(16)
+//                            .frame(maxWidth:.infinity)
+//                            .animation(.some(.linear))
+//                        }
+//                        .zIndex(1)
                         
                         
                     }
@@ -242,8 +295,8 @@ struct IndividualView: View {
     }
     
     func flagTapped(_ tag : String){
-        if tag == selectedItem?.items[correctAnswer].name {
-            textToSpeach("correct")
+       // if tag == selectedItem?.items[correctAnswer].name {
+           // textToSpeach("correct")
             
             
             if selectedItem?.items.count == correctAnswer + 1 {
@@ -257,26 +310,26 @@ struct IndividualView: View {
             //            selectedItem?.items.shuffle()
             //            correctAnswer = Int.random(in: 0...3)
             askQustion()
-        }else{
-            
-            textToSpeach("wrong")
-        }
+//        }else{
+//
+//            textToSpeach("wrong")
+//        }
     }
     
     func askQustion(){
         print("we are working on it ")
         DispatchQueue.main.async {
             let name = selectedItem?.items[correctAnswer].name ?? ""
-            var message = ""
-            if Viewindex == 1 {
-                message = "Which one\nis, \(name.capitalized)?"
-            }else if Viewindex == 2 {
-                message = "Which one is,\n_____?"
-            }else if Viewindex == 3 {
-                message = "Find it_____"
-            }else{
-                message = "Which one starts with\n the letter, \(name[0].capitalized)?"
-            }
+//            var message = ""
+//            if Viewindex == 1 {
+             let message = name.capitalized
+//            }else if Viewindex == 2 {
+//                message = "Which one is,\n_____?"
+//            }else if Viewindex == 3 {
+//                message = "Find it_____"
+//            }else{
+//                message = "Which one starts with\n the letter, \(name[0].capitalized)?"
+//            }
             let qustion = message.replacingOccurrences(of: ",", with: " ", options: NSString.CompareOptions.literal, range:nil)
             self.selectedItem?.title = qustion
             self.selectedItem?.image = name
@@ -318,3 +371,11 @@ struct IndividualView_Previews: PreviewProvider {
 //        self.speaker.speak(utterance)
 //    }
 //}
+
+
+
+extension UIScreen{
+   static let screenWidth = UIScreen.main.bounds.size.width
+   static let screenHeight = UIScreen.main.bounds.size.height
+   static let screenSize = UIScreen.main.bounds.size
+}

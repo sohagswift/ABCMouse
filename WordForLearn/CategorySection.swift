@@ -108,7 +108,7 @@ var categorySectionContents = [
                            image: "greaterthan.circle.fill",
                            color: Color(#colorLiteral(red: 0.6941176471, green: 0.8039215686, blue: 0.8392156863, alpha: 1)),
                            items: ["apple pie","beef","biscuit","bread","butter","cake","cheese","cheeseburger","chicken chop","chocolate_chip_cookie","chocolate","cracker","curry","delmonico's steak","egg","fish","french_fries","hamburger","hot dog","ice cream","ice","jelly","lamb","loaf","milk","nachos","noodles","oil","pizza","rice","salad","salmon","salt","sandwich","sausage","soup","spaguetti","steak","thanksgiving dinner","wheat"]),
-    
+
 ]
 
 import Foundation
