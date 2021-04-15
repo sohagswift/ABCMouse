@@ -25,19 +25,20 @@ struct HomeView: View {
     }
     
     let topMovies: [Movie] = [
-        .init(title: "Fun Education", imageName: "life1"),
-        .init(title: "Easy to learn", imageName: "life2"),
-        .init(title: "Easy Word", imageName: "life3"),
-        .init(title: "Soul", imageName: "life4"),
-        .init(title: "Tenet", imageName: "life5"),
-        .init(title: "Avengers: Endgame", imageName: "life6"),
+        .init(title: "Level 1", imageName: "life1"),
+        .init(title: "Level 2", imageName: "life2"),
+        .init(title: "Level 3", imageName: "life3"),
+        .init(title: "Level 4", imageName: "life5"),
+        .init(title: "Level 5", imageName: "life6"),
+       // .init(title: "Level 6", imageName: "life6"),
     ]
   
     let animationMovies: [Movie] = [
-        .init(title: "Picture Game", imageName: "life4"),
-        .init(title: "Word Game", imageName: "life5"),
-        .init(title: "Find Game", imageName: "life6"),
-        .init(title: "Letter Game", imageName: "life1")
+        .init(title: "Level 6", imageName: "life4"),
+        .init(title: "Level 7", imageName: "life5"),
+        .init(title: "Level 8", imageName: "life3"),
+        .init(title: "Level 9", imageName: "life6"),
+        .init(title: "Level 10", imageName: "life2")
     ]
     
     var body: some View {
@@ -122,19 +123,31 @@ struct MoviesCarousel: View {
         
         // var mainItem = ["Picture Game","Word Game","Find Game","Letter Game"]
         switch itemText.lowercased() {
-        case "Picture Game".lowercased():
-            return AnyView(CategoryViewPicturePlay(Viewindex:1))
-        case "Word Game".lowercased():
-            return AnyView(CategoryViewPicturePlay(Viewindex:2))
-        case "Find Game".lowercased():
-            return AnyView(CategoryViewPicturePlay(Viewindex:3))
-        case "Letter Game".lowercased():
-            return AnyView(CategoryViewPicturePlay(Viewindex:0))
-        case "Fun Education".lowercased():
+        case "Level 10".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
+        case "Level 9".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
+        case "Level 8".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
+        case "Level 7".lowercased():
+            return AnyView(TryWriteView())
+        case "Level 6".lowercased():
+            return AnyView(latterToWordView())
+        case "Level 5".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:1,title:itemText))
+        case "Level 4".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:2,title:itemText))
+        case "Level 3".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:3,title:itemText))
+        case "Level 2".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
+        case "Level 1".lowercased():
             return AnyView(PlayWordView())
         default:
             return AnyView(CategoryViewPicturePlay())
         }
+        
+       
         
         
         

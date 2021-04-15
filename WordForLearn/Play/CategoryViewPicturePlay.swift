@@ -10,6 +10,7 @@ import AVFoundation
 struct CategoryViewPicturePlay: View {
     var speaker = AVSpeechSynthesizer()
     @State var Viewindex = 3
+    var title = "KidS WOrLd"
     @State  var correctAnswer = 0
     @State  var items =  [Item]()
     @State var show = false
@@ -37,7 +38,7 @@ struct CategoryViewPicturePlay: View {
                 VStack(alignment: .leading, spacing:18){
                     
                     HStack {
-                        Text("KidS WOrLd").font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
+                        Text(title).font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
                             .shadow(color: .gray, radius: 2, x: 0, y: 5)
                         CloseButton()
                             .padding(.trailing, 16)
