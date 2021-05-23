@@ -18,6 +18,7 @@ struct PlayWordView: View {
     @State private var viewPort = 1
     @State private var Alphabetscounter = 0
     @State var presentingModal = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var speaker = AVSpeechSynthesizer()
     fileprivate func defultTopSecton() {
@@ -165,7 +166,7 @@ struct PlayWordView: View {
                 .padding(.trailing, 0)
                 .padding(.top, 40)
                 .onTapGesture{
-                   
+                    self.presentationMode.wrappedValue.dismiss()
                 }
                 
             }
