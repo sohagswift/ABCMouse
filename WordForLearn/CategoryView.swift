@@ -79,6 +79,7 @@ struct CategoryView: View {
                                     selectedItem = nil
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                                         self.isDisable = false
+                                        speaker.stopSpeaking(at: .immediate)
                                     })
                                 }
                             }

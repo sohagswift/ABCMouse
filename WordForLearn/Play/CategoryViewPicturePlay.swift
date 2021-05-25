@@ -60,6 +60,7 @@ struct CategoryViewPicturePlay: View {
                             .onTapGesture{
                                 withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                     show.toggle()
+                                    correctAnswer = 0
                                     selectedItem = item
                                     isDisable = true
                                 }
@@ -114,6 +115,7 @@ struct CategoryViewPicturePlay: View {
                                     didSetFire = true
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                                         self.isDisable = false
+                                        speaker.stopSpeaking(at: .immediate)
                                     })
                                 }
                             }
@@ -288,6 +290,7 @@ struct CategoryViewPicturePlay: View {
     }
     
     func textToSpeach(_ str : String){
+        speaker.stopSpeaking(at: .immediate)
         let utterance = AVSpeechUtterance(string: str)
         utterance.pitchMultiplier = 1.5
         utterance.rate = 0.3
@@ -302,13 +305,4 @@ struct CategoryViewPicturePlay_Previews: PreviewProvider {
 }
 
 
-//struct Speaker{
-//    var speaker = AVSpeechSynthesizer()
-//    
-//   static func textToSpeach(_ str : String){
-//        let utterance = AVSpeechUtterance(string: str)
-//        utterance.pitchMultiplier = 1.5
-//        utterance.rate = 0.3
-//        self.speaker.speak(utterance)
-//    }
-//}
+

@@ -18,7 +18,7 @@ struct PlayWordView: View {
     @State private var viewPort = 1
     @State private var Alphabetscounter = 0
     @State var presentingModal = false
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode> 
     
     var speaker = AVSpeechSynthesizer()
     fileprivate func defultTopSecton() {
@@ -326,6 +326,7 @@ struct PlayWordView: View {
     }
     
     func textToSpeach(_ str : String){
+        speaker.stopSpeaking(at: .immediate)
         let utterance = AVSpeechUtterance(string: str)
         utterance.pitchMultiplier = 1.3
         utterance.rate = 0.4

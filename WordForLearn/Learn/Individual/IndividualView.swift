@@ -64,6 +64,7 @@ struct IndividualView: View {
                             .padding(.leading, 16)
                             .onTapGesture{
                                 withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
+                                    correctAnswer = 0
                                     show.toggle()
                                     selectedItem = item
                                     isDisable = true
@@ -347,7 +348,10 @@ struct IndividualView: View {
     }
     
     func textToSpeach(_ str : String){
+        
+        speaker.stopSpeaking(at: .immediate)
         let utterance = AVSpeechUtterance(string: str)
+        
         utterance.pitchMultiplier = 1.5
         utterance.rate = 0.3
         self.speaker.speak(utterance)
@@ -361,16 +365,7 @@ struct IndividualView_Previews: PreviewProvider {
 }
 
 
-//struct Speaker{
-//    var speaker = AVSpeechSynthesizer()
-//
-//   static func textToSpeach(_ str : String){
-//        let utterance = AVSpeechUtterance(string: str)
-//        utterance.pitchMultiplier = 1.5
-//        utterance.rate = 0.3
-//        self.speaker.speak(utterance)
-//    }
-//}
+
 
 
 

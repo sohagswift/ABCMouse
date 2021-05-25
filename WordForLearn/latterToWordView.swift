@@ -50,6 +50,7 @@ struct latterToWordView: View {
                             .padding(.leading, 16)
                             .onTapGesture{
                                 withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
+                                   
                                     show.toggle()
                                     selectedItem = item
                                     isDisable = true
@@ -76,9 +77,11 @@ struct latterToWordView: View {
                             .onTapGesture{
                                 withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                     show.toggle()
+                                    
                                     selectedItem = nil
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                                         self.isDisable = false
+                                        speaker.stopSpeaking(at: .immediate)
                                     })
                                 }
                             }
