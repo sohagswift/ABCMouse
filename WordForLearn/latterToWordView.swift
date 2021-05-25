@@ -69,11 +69,13 @@ struct latterToWordView: View {
                     
                     ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
                         CategoryItemSection(course: selectedItem!)
+                            .padding(.top,44)
+                         
                             //.matchedGeometryEffect(id: selectedItem!.id, in: namespace)
-                            .frame(height:200)
+                            .frame(height:230)
                              CloseButton()
                                 .padding(.trailing, 16)
-                                .padding(.top, 16)
+                                .padding(.top, 50)
                             .onTapGesture{
                                 withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                     show.toggle()

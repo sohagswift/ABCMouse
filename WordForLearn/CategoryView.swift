@@ -68,6 +68,7 @@ struct CategoryView: View {
                     
                     ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)){
                         CategoryItemSection(course: selectedItem!)
+                           
                             //.matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                             .frame(height:200)
                              CloseButton()
