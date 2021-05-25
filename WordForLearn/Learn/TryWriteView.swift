@@ -19,10 +19,24 @@ struct TryWriteView: View {
     @Namespace var namespace
     @State var presentingModal = false
    // @State var seletedItem = ""
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         ZStack{
             
-            
+            VStack(alignment: .leading, spacing:18){
+                
+                HStack {
+                    Text("Tracing").font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
+                        .shadow(color: .gray, radius: 2, x: 0, y: 5)
+                    CloseButton()
+                        .padding(.trailing, 16)
+                        .onTapGesture{
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    
+                }.background(Image("Certificate3")
+                                .resizable()
+                                .scaledToFill())
             ScrollView{
                 LazyVGrid(
                     columns: [GridItem(),GridItem()],
@@ -64,7 +78,7 @@ struct TryWriteView: View {
             }
             .zIndex(1)
             
-
+            }
             
         }
         
