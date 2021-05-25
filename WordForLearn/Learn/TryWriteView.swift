@@ -21,6 +21,8 @@ struct TryWriteView: View {
    // @State var seletedItem = ""
     var body: some View {
         ZStack{
+            
+            
             ScrollView{
                 LazyVGrid(
                     columns: [GridItem(),GridItem()],
