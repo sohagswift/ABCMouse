@@ -42,13 +42,13 @@ struct TryWriteView: View {
                     columns: [GridItem(),GridItem()],
                     spacing: 16
                 ){
-                    ForEach(WordData.typeWordAlphabets.indices) { item in
+                    ForEach(WordData.getTrytoWirte().indices) { index in
                         VStack {
-                            TryWriteItemView(course: "a")
+                            TryWriteItemView(course: WordData.getTrytoWirte()[index])
                                 .frame(height: 200)
                                 .onTapGesture{
                                     withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
-                                        UserDefaults.standard.setValue("trace_ca", forKey: "charaterHandwriten")
+                                        UserDefaults.standard.setValue("trace_\(WordData.getTrytoWirte()[index])", forKey: "charaterHandwriten")
                                        // print(seletedItem)
                                         self.presentingModal = true
                                    

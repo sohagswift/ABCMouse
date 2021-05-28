@@ -229,7 +229,7 @@ struct PlayWordView: View {
                          .font(Font.custom("SavoyeLetPlain", size: 160))
                 Image(wordElement.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
                     
-                    .frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(maxWidth: .infinity, alignment: .center)
                     .transition(.scale)
                     .padding(.all,20)
                 

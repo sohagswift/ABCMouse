@@ -36,11 +36,11 @@ struct HomeView: View {
     let animationMovies: [Movie] = [
         .init(title: "Level 6", imageName: "life4"),
         .init(title: "Level 7", imageName: "life5"),
-        .init(title: "Level 8", imageName: "life3"),
-        .init(title: "Level 9", imageName: "life6"),
-        .init(title: "Level 10", imageName: "life2")
+//        .init(title: "Level 8", imageName: "life3"),
+//        .init(title: "Level 9", imageName: "life6"),
+//        .init(title: "Level 10", imageName: "life2")
     ]
-    
+    @ViewBuilder
     var body: some View {
         
         NavigationView{
@@ -63,10 +63,10 @@ struct HomeView: View {
                         Divider().padding(.leading, 16)
                         MoviesCarousel(categoryName: "Animated Movies", movies: animationMovies)
                         Divider().padding(.leading, 16)
-                        MoviesCarousel(categoryName: "Top Movies of 2020", movies: topMovies)
-                        Divider().padding(.leading, 16)
-                        MoviesCarousel(categoryName: "Animated Movies", movies: animationMovies)
-                        Divider().padding(.leading, 16)
+//                        MoviesCarousel(categoryName: "Top Movies of 2020", movies: topMovies)
+//                        Divider().padding(.leading, 16)
+//                        MoviesCarousel(categoryName: "Animated Movies", movies: animationMovies)
+//                        Divider().padding(.leading, 16)
                     }
             }.background(Image("HomeBackground")
                             .resizable()
