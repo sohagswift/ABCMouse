@@ -36,9 +36,9 @@ struct HomeView: View {
     let animationMovies: [Movie] = [
         .init(title: "Level 6", imageName: "life4"),
         .init(title: "Level 7", imageName: "life5"),
-//        .init(title: "Level 8", imageName: "life3"),
-//        .init(title: "Level 9", imageName: "life6"),
-//        .init(title: "Level 10", imageName: "life2")
+        .init(title: "Level 8", imageName: "life3"),
+        .init(title: "Level 9", imageName: "life6"),
+        .init(title: "Level 10", imageName: "life2")
     ]
     @ViewBuilder
     var body: some View {
@@ -126,21 +126,21 @@ struct MoviesCarousel: View {
         case "Level 10".lowercased():
             return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
         case "Level 9".lowercased():
-            return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
+            return AnyView(CategoryViewPicturePlay(Viewindex:2,title:itemText))
         case "Level 8".lowercased():
-            return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
+            return AnyView(TryWriteView(items: WordData.typeWordNumbers))
         case "Level 7".lowercased():
-            return AnyView(TryWriteView())
+            return AnyView(TryWriteView(items: WordData.getTrytoWirte()))
         case "Level 6".lowercased():
             return AnyView(latterToWordView())
         case "Level 5".lowercased():
-            return AnyView(CategoryViewPicturePlay(Viewindex:1,title:itemText))
-        case "Level 4".lowercased():
-            return AnyView(CategoryViewPicturePlay(Viewindex:2,title:itemText))
-        case "Level 3".lowercased():
-            return AnyView(CategoryViewPicturePlay(Viewindex:3,title:itemText))
-        case "Level 2".lowercased():
             return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
+        case "Level 4".lowercased():
+            return AnyView(TapLaterView(Viewindex:0,title:itemText))
+        case "Level 3".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:1,title:itemText))
+        case "Level 2".lowercased():
+            return AnyView(CategoryViewPicturePlay(Viewindex:3,title:itemText))
         case "Level 1".lowercased():
             return AnyView(PlayWordView())
         default:

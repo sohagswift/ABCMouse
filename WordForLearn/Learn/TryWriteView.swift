@@ -18,6 +18,7 @@ import SwiftUI
 struct TryWriteView: View {
     @Namespace var namespace
     @State var presentingModal = false
+    var items : [String]
    // @State var seletedItem = ""
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
@@ -42,13 +43,13 @@ struct TryWriteView: View {
                     columns: [GridItem(),GridItem()],
                     spacing: 16
                 ){
-                    ForEach(WordData.getTrytoWirte().indices) { index in
+                    ForEach(items.indices) { index in
                         VStack {
-                            TryWriteItemView(course: WordData.getTrytoWirte()[index])
+                            TryWriteItemView(course: items[index])
                                 .frame(height: 200)
                                 .onTapGesture{
                                     withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
-                                        UserDefaults.standard.setValue("trace_\(WordData.getTrytoWirte()[index])", forKey: "charaterHandwriten")
+                                        UserDefaults.standard.setValue("trace_\(items[index])", forKey: "charaterHandwriten")
                                        // print(seletedItem)
                                         self.presentingModal = true
                                    
@@ -88,6 +89,6 @@ struct TryWriteView: View {
 
 struct TryWriteView_Previews: PreviewProvider {
     static var previews: some View {
-        TryWriteView()
+        TryWriteView(items: [""])
     }
 }
