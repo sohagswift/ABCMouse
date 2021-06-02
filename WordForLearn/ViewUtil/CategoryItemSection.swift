@@ -40,11 +40,16 @@ public struct CategoryItemSection: View {
                         .resizable()
                         .scaledToFill())
        
+//        .padding(.all)
+//        .background(Color.orange)
+//        
+//        .cornerRadius(20.0)
+//        .shadow(color: course.color.opacity(0.3), radius: 20, x: 0.0, y: 10.0)
+//        
         .padding(.all)
-        .background(Color.orange)
-        
+        .border(Color(#colorLiteral(red: 0.6941176471, green: 0.8039215686, blue: 0.8392156863, alpha: 1)), width: 1)
         .cornerRadius(20.0)
-        .shadow(color: course.color.opacity(0.3), radius: 20, x: 0.0, y: 10.0)
+        .shadow(color: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)).opacity(0.3), radius: 20, x: 0.0, y: 10.0)
     }
 }
 
