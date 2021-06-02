@@ -10,18 +10,19 @@ import SwiftUI
 
 public struct TryWriteItemView: View {
     var course : String =  "A"
+    var imageName : String =  "trace_ca"
    
     
     public  var body: some View {
         VStack(alignment: .leading, spacing: 0.4, content: {
             Spacer()
             HStack{
-                Image("trace_\(course)".replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
+                Image("\(imageName)".replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
                     .padding(.leading,16)
                     .padding(.bottom,16)
                 Spacer()
             }
-            Text("\(course)\(course.lowercased())").fontWeight(.bold)
+            Text("\(course.uppercased())\(course.lowercased())").fontWeight(.bold)
             //Text(course.subtitle).font(.footnote)
         })
         

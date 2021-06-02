@@ -52,6 +52,7 @@
 		CBEA692325D3C867004CD604 /* PicturePlayItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA692225D3C867004CD604 /* PicturePlayItemView.swift */; };
 		CBEA692A25D3F69B004CD604 /* TextPlayItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA692925D3F69B004CD604 /* TextPlayItemView.swift */; };
 		CBEA693025D50264004CD604 /* Extention+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA692F25D50264004CD604 /* Extention+String.swift */; };
+		CBEE360E266767C0003E9951 /* TryColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE360D266767C0003E9951 /* TryColorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 		CBEA692225D3C867004CD604 /* PicturePlayItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturePlayItemView.swift; sourceTree = "<group>"; };
 		CBEA692925D3F69B004CD604 /* TextPlayItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPlayItemView.swift; sourceTree = "<group>"; };
 		CBEA692F25D50264004CD604 /* Extention+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+String.swift"; sourceTree = "<group>"; };
+		CBEE360D266767C0003E9951 /* TryColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryColorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				384E1EF025DA6E4E0014E4B1 /* PlayWordView.swift */,
 				38C99D1326065D2200A55178 /* TryWriteView.swift */,
 				38C99D162607B4C100A55178 /* TryWriteItemView.swift */,
+				CBEE360D266767C0003E9951 /* TryColorView.swift */,
 			);
 			path = Learn;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				CBA6365E25BD895100AC52D3 /* ItemPlayView.swift in Sources */,
 				CBA6366525BE9B4F00AC52D3 /* ItemPlayQuizView.swift in Sources */,
 				CBA635D125B8333B00AC52D3 /* ContentView.swift in Sources */,
+				CBEE360E266767C0003E9951 /* TryColorView.swift in Sources */,
 				CBA635E825B9662E00AC52D3 /* Sidebar.swift in Sources */,
 				CB6634EF25D268950019BAFA /* ImageToTextQustionView.swift in Sources */,
 				CB6634EC25D25E970019BAFA /* FromTextToImageQustionView.swift in Sources */,

@@ -1,11 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "alligator.png",
+      "filename" : "sound.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "sound@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

@@ -16,6 +16,7 @@ struct PlayWordView: View {
     @State private var wordLower = ""
     @State private var wordElement = ""
     @State private var viewPort = 1
+    @State private var answerIndex = -1
     @State private var Alphabetscounter = 0
     @State var presentingModal = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode> 
@@ -45,19 +46,38 @@ struct PlayWordView: View {
                 
             }
         }
-        
-//        if self.wordElement.isEmpty{
-//            for item in  WordData.foods {
-//                if item.first?.lowercased() == self.wordLower {
-//                    self.wordElement = item
-//                    items.append(Item(name: item))
-//                    if items.count == 4 {
-//                        break
-//                    }
-//                }
-//            }
-//        }
+
         self.textToSpeach(wordLower)
+    }
+    
+    
+    fileprivate func suffleLaterPosstion() {
+         answerIndex = Int.random(in: 0...3)
+        var allItems =  WordData.typeWordAlphabets
+        
+        if let index:Int = allItems.firstIndex(where: {$0 == wordCap }) {
+            allItems.remove(at: index)
+        }
+        
+        
+        allItems = allItems.shuffled()
+        
+        
+        items.removeAll()
+        for i in 0...3 {
+            if answerIndex == i {
+                items.append(Item(name: wordCap))
+                continue
+            }else{
+                items.append(Item(name:allItems[i]))
+            }
+        }
+    }
+    
+    fileprivate func actionForClose() {
+        defultTopSecton()
+        viewPort = viewPort - 1
+        isShowingNextButton = true
     }
     
     fileprivate func primaryButtonAction() {
@@ -94,8 +114,8 @@ struct PlayWordView: View {
             isShowingNextButton = true
         }else if viewPort == 7 {
             self.textToSpeach("say,")
-            self.textToSpeach("\(wordCap)")
-            self.textToSpeach("\(wordLower), \(wordLower)")
+            self.textToSpeach("\(wordCap)",stopSpeaking : false)
+            self.textToSpeach("\(wordLower), \(wordLower)",stopSpeaking : false)
             // self.textToSpeach("a")
             isShowingNextButton = false
             viewPort = viewPort + 1
@@ -116,7 +136,7 @@ struct PlayWordView: View {
         }else if viewPort == 11 {
             //self.textToSpeach("say, a")
             self.textToSpeach("How to write the letter, \(wordCap)")
-            self.textToSpeach("\(wordCap)")
+            self.textToSpeach("\(wordCap)",stopSpeaking : false)
             isShowingNextButton = false
             viewPort = viewPort + 1
         }else if viewPort == 12 {
@@ -126,7 +146,7 @@ struct PlayWordView: View {
         }else if viewPort == 13 {
             //self.textToSpeach("say, a")
             self.textToSpeach("How to write the letter")
-            self.textToSpeach("\(wordLower)")
+            self.textToSpeach("\(wordLower)",stopSpeaking : false)
             isShowingNextButton = false
             viewPort = viewPort + 1
         }else if viewPort == 14 {
@@ -142,33 +162,20 @@ struct PlayWordView: View {
             suffleLaterPosstion()
                 
         }else if viewPort == 16 {
-            defultTopSecton()
-            viewPort = viewPort - 1
-            isShowingNextButton = true
+            actionForClose()
+            if answerIndex != 16 {
+                isShowingNextButton = false
+            }
+           
         }
     }
     
-    fileprivate func suffleLaterPosstion() {
-        let answerIndex = Int.random(in: 0...3)
-        var allItems =  WordData.typeWordAlphabets
-        allItems = allItems.shuffled()
-        
-        items.removeAll()
-        for i in 0...3 {
-            if answerIndex == i {
-                items.append(Item(name: wordCap))
-                continue
-            }else{
-                items.append(Item(name:allItems[i]))
-            }
-        }
-    }
     
     fileprivate func nextbuttonOnclickAction() {
         if self.viewPort == 15   {
             Alphabetscounter = Alphabetscounter + 1
             defultTopSecton()
-            textToSpeach("this, is the latter, \(wordCap)")
+            textToSpeach("this, is the latter, \(wordCap)",stopSpeaking : false)
             self.viewPort = 1
             isShowingNextButton = false
         }else{
@@ -185,28 +192,28 @@ struct PlayWordView: View {
             isShowingNextButton = false
         }else if self.viewPort == 8 {
             self.textToSpeach("say,")
-            self.textToSpeach("\(wordCap)")
-            self.textToSpeach("\(wordLower), \(wordLower)")
+            self.textToSpeach("\(wordCap)",stopSpeaking : false)
+            self.textToSpeach("\(wordLower), \(wordLower)",stopSpeaking : false)
             
             isShowingNextButton = false
         }else if self.viewPort == 10 {
             self.textToSpeach("\(wordLower)")
-            self.textToSpeach("this is, an, \(wordElement)")
+            self.textToSpeach("this is, an, \(wordElement)",stopSpeaking : false)
             
             isShowingNextButton = false
         }else if self.viewPort == 12 {
             self.textToSpeach("How to write the letter")
-            self.textToSpeach("\(wordCap)")
+            self.textToSpeach("\(wordCap)",stopSpeaking : false)
             isShowingNextButton = false
         }
         else if self.viewPort == 14 {
             self.textToSpeach("How to write the letter")
-            self.textToSpeach("\(wordLower)")
+            self.textToSpeach("\(wordLower)",stopSpeaking : false)
             isShowingNextButton = false
         }
         else if self.viewPort == 16 {
             self.textToSpeach("which of this latter said")
-            self.textToSpeach("\(wordLower)")
+            self.textToSpeach("\(wordLower)",stopSpeaking : false)
             isShowingNextButton = false
             suffleLaterPosstion()
         }else{
@@ -244,12 +251,23 @@ struct PlayWordView: View {
                         primaryButtonAction()
                     }
                 }) {
-                    Text(word).font(.system(size: 100, weight: .bold))
-                        .padding()
+                    
+                    if viewPort == 16 {
+                        HStack{
+                            Spacer()
+                            Image("volume").resizable().aspectRatio(contentMode: .fit)
+                            Spacer()
+                        }.padding()
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
+                    }else{
+                        Text(word).font(.system(size: 100, weight: .bold))
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
+                    }
+                   
                 }
                 .buttonStyle(PlainButtonStyle())
-                .frame(width: 220, height: 220, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: 220, height: 220, alignment: .center)
                 .background(
                     RoundedRectangle(cornerRadius: 25)
                         .fill(Color.white)
@@ -261,7 +279,7 @@ struct PlayWordView: View {
                 
 
                 Image("\(wordLower)").resizable().aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 220, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .frame(width: 200, height: 220, alignment: .center)
                     .transition(.scale)
                     .padding(.top,20)
                 
@@ -381,7 +399,7 @@ struct PlayWordView: View {
                         
                         // if  items != nil {
                         ForEach(items.indices) { index in
-                            var item = items[index]
+                            let item = items[index]
                             
                             VStack {
                                 
@@ -393,6 +411,11 @@ struct PlayWordView: View {
                                         print("Double tapped!")
                                         // self.flagTapped(item.name)
                                         textToSpeach(item.name)
+                                        if  item.name == items[answerIndex].name {
+                                            answerIndex = 16
+                                            actionForClose()
+                                            
+                                        }
                                     }
                                 
                                 
@@ -466,8 +489,11 @@ struct PlayWordView: View {
         
     }
     
-    func textToSpeach(_ str : String){
-        //speaker.stopSpeaking(at: .immediate)
+    func textToSpeach(_ str : String, stopSpeaking : Bool = true ){
+        if stopSpeaking {
+            speaker.stopSpeaking(at: .immediate)
+        }
+       
         let utterance = AVSpeechUtterance(string: str)
         utterance.pitchMultiplier = 1.3
         utterance.rate = 0.4
