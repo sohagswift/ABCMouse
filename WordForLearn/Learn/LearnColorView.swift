@@ -29,7 +29,7 @@ struct LearnColorView: View {
     @Namespace var namespace
     @State var presentingModal = false
     var items : [String]
-   // @State var seletedItem = ""
+    // @State var seletedItem = ""
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         ZStack{
@@ -48,29 +48,32 @@ struct LearnColorView: View {
                 }.background(Image("Certificate3")
                                 .resizable()
                                 .scaledToFill())
-            ScrollView{
-                LazyVGrid(
-                    columns: [GridItem()],
-                    spacing: 16
-                ){
-                    ForEach(items.indices) { index in
-                        VStack {
-                            LeanColorItemView(course: items[index],imageName:colorReturn(name:  items[index]))
-                                .frame(height: 200)
-                                .onTapGesture{
-                                    textToSpeach( items[index])
-                                }
+                ScrollView{
+                    LazyVGrid(
+                        columns: [GridItem()],
+                        spacing: 16
+                    ){
+                        ForEach(items.indices) { index in
+                            VStack {
+                                LeanColorItemView(course: items[index],imageName:colorReturn(name:  items[index]))
+                                    .frame(height: 200)
+                                    .onTapGesture{
+                                        textToSpeach( items[index])
+                                    }
+                            }
                         }
                     }
+                    
+                    
+                    .padding(16)
+                    .frame(maxWidth:.infinity)
                 }
+                .zIndex(1)
                 
-
-                .padding(16)
-                .frame(maxWidth:.infinity)
-            }
-            .zIndex(1)
-            
-            }
+            }.onAppear {
+                
+                textToSpeach("Tap on color to learn")
+                }
             
         }
         
@@ -79,128 +82,128 @@ struct LearnColorView: View {
     
     
     func colorReturn(name: String) -> UIColor{
-         
-      var color = UIColor()
-         
-         
+        
+        var color = UIColor()
+        
+        
         switch name {
-     
+        
         case "magenta":
-             
+            
             color = .magenta
-             
+            
         case "yellow":
-             color = .yellow
-             
-             
+            color = .yellow
+            
+            
         case "blue":
             
-             color = .blue
-             
-             
+            color = .blue
+            
+            
         case "orange":
-             color = .orange
-             
-             
+            color = .orange
+            
+            
         case "green":
-             color = .green
-             
-             
+            color = .green
+            
+            
         case "white":
-             color = .white
-             
-     
+            color = .white
+            
+            
         case "red":
-             color = .red
-             
-             
+            color = .red
+            
+            
         case "purple":
-             color = .purple
-             
-             
+            color = .purple
+            
+            
         case "cyan":
-             color = .cyan
-             
-             
+            color = .cyan
+            
+            
         case "brown":
-             color = .brown
-             
-             
+            color = .brown
+            
+            
         case "peace":
-             // peace
-             color = UIColor.rgb(255, green: 229, blue: 180)
-             
+            // peace
+            color = UIColor.rgb(255, green: 229, blue: 180)
+            
         case "silver":
-             // silver
-             color = UIColor.rgb(192, green: 192, blue: 192)
-             
+            // silver
+            color = UIColor.rgb(192, green: 192, blue: 192)
+            
         case "gold":
-             // gold
-             color = UIColor.rgb(255, green: 215, blue: 0)
-             
+            // gold
+            color = UIColor.rgb(255, green: 215, blue: 0)
+            
         case "lime":
-             // lime
-             color = UIColor.rgb(192, green: 255, blue: 0)
-             
+            // lime
+            color = UIColor.rgb(192, green: 255, blue: 0)
+            
         case "pink":
-             // pink
-             
-             color = UIColor.rgb(255, green: 1, blue:128)
-             
+            // pink
+            
+            color = UIColor.rgb(255, green: 1, blue:128)
+            
         case "teal":
-             // teal
-             color = UIColor.rgb(0, green: 128, blue: 128)
-             
+            // teal
+            color = UIColor.rgb(0, green: 128, blue: 128)
+            
         case "lavender":
-             // lavender
-             color = UIColor.rgb(230, green: 230, blue: 250)
-             
+            // lavender
+            color = UIColor.rgb(230, green: 230, blue: 250)
+            
         case "navy":
-             // navy
-             color = UIColor.rgb(0, green: 0, blue: 128)
-             
+            // navy
+            color = UIColor.rgb(0, green: 0, blue: 128)
+            
         case "beige":
-             // beige
-             color = UIColor.rgb(245, green: 245, blue: 220)
-             
-             
+            // beige
+            color = UIColor.rgb(245, green: 245, blue: 220)
+            
+            
         case "maroon":
-             // maroon
-             color = UIColor.rgb(128, green: 0, blue: 0)
-             
+            // maroon
+            color = UIColor.rgb(128, green: 0, blue: 0)
+            
         case "mint":
-             // mint
-             color = UIColor.rgb(170, green: 255, blue: 195)
-             
+            // mint
+            color = UIColor.rgb(170, green: 255, blue: 195)
+            
         case "olive":
-             // olive
-             color = UIColor.rgb(128, green: 128, blue: 0)
-             
+            // olive
+            color = UIColor.rgb(128, green: 128, blue: 0)
+            
         case "coral":
-             // coral
-             color = UIColor.rgb(255, green: 127, blue: 80)
-             
+            // coral
+            color = UIColor.rgb(255, green: 127, blue: 80)
+            
         case "darkGray":
-             
-             color = .darkGray
-             
+            
+            color = .darkGray
+            
         case "gray":
-             
-             color = .gray
-             
+            
+            color = .gray
+            
         case "lightGray":
-             
-             color = .lightGray
-             
+            
+            color = .lightGray
+            
         case "black":
-             
-             color = .black
-        
+            
+            color = .black
+            
         default:
             color = UIColor.rgb(85, green: 169, blue: 248)
         }
-         return color
-     }
+        return color
+    }
     
     func textToSpeach(_ str : String){
         speaker.stopSpeaking(at: .immediate)
