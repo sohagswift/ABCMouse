@@ -24,31 +24,40 @@ struct HomeView: View {
         UINavigationBar.appearance().barTintColor = .systemBackground
     }
     
-    let topMovies: [Movie] = [
+    let topMovies: [Movie] = [//learing
         .init(title: "Level 1", imageName: "life1"),
         .init(title: "Level 2", imageName: "life2"),
         .init(title: "Level 3", imageName: "life3"),
-        .init(title: "Level 4", imageName: "life5"),
+       // .init(title: "Level 4", imageName: "life5"),
        // .init(title: "Level 5", imageName: "life6"),
        // .init(title: "Level 6", imageName: "life6"),
     ]
   
     let animationMovies: [Movie] = [
-        .init(title: "Level 5", imageName: "life4"),
-        .init(title: "Level 6", imageName: "life5"),
-        .init(title: "Level 7", imageName: "life3"),
-        .init(title: "Level 8", imageName: "life6"),
+        .init(title: "Level 4", imageName: "life4"),
+        .init(title: "Level 5", imageName: "life5"),
+        .init(title: "Level 6", imageName: "life3"),
+        //.init(title: "Level 8", imageName: "life6"),
         //.init(title: "Level 10", imageName: "life2")
     ]
     
     
     let dramaMovies: [Movie] = [
-        .init(title: "Level 12", imageName: "life4"),
-        .init(title: "Level 11", imageName: "life5"),
-        .init(title: "Level 10", imageName: "life3"),
-        .init(title: "Level 9", imageName: "life6"),
+        .init(title: "Level 7", imageName: "life4"),
+        .init(title: "Level 8", imageName: "life5"),
+        .init(title: "Level 9", imageName: "life3"),
+        //.init(title: "Level 12", imageName: "life6"),
         //.init(title: "Level 10", imageName: "life2")
     ]
+    
+    let sincMovies: [Movie] = [
+        .init(title: "Level 10", imageName: "life4"),
+        .init(title: "Level 11", imageName: "life5"),
+        .init(title: "Level 12", imageName: "life3"),
+        //.init(title: "Level 12", imageName: "life6"),
+        //.init(title: "Level 10", imageName: "life2")
+    ]
+    
     
     
     @ViewBuilder
@@ -74,9 +83,9 @@ struct HomeView: View {
                         Divider().padding(.leading, 16)
                         MoviesCarousel(categoryName: "Animated Movies", movies: animationMovies)
                         Divider().padding(.leading, 16)
-//                        MoviesCarousel(categoryName: "Top Movies of 2020", movies: topMovies)
-//                        Divider().padding(.leading, 16)
-//                        MoviesCarousel(categoryName: "Animated Movies", movies: animationMovies)
+                        MoviesCarousel(categoryName: "Top Movies of 2020", movies: dramaMovies)
+                        Divider().padding(.leading, 16)
+                        MoviesCarousel(categoryName: "Animated Movies", movies: sincMovies)
 //                        Divider().padding(.leading, 16)
                     }
             }.background(Image("HomeBackground")
@@ -134,24 +143,27 @@ struct MoviesCarousel: View {
         
         // var mainItem = ["Picture Game","Word Game","Find Game","Letter Game"]
         switch itemText.lowercased() {
-        case "Level 10".lowercased():
+        case "Level 12".lowercased(): //Find the missing latter _pple
+            return AnyView(CategoryViewPicturePlay(Viewindex:4,title:itemText))
+        case "Level 11".lowercased(): //start with the letter
             return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
-        case "Level 9".lowercased():
+        case "Level 10".lowercased(): //which on is ______
             return AnyView(CategoryViewPicturePlay(Viewindex:2,title:itemText))
-        case "Level 8".lowercased():
+        case "Level 9".lowercased(): //
             return AnyView(TryColorView(items: WordData.getTrytoWirte(color:true)))
-            
-        case "Level 7".lowercased():
+        case "Level 8".lowercased():  //color it charater
+            return AnyView(TryColorView(items: WordData.getTrytoWirte(color:true)))
+        case "Level 7".lowercased():  //drawing parctice
+            return AnyView(TryColorView(items: WordData.tryColor))
+        case "Level 6".lowercased(): //traching number
             return AnyView(TryWriteView(items: WordData.typeWordNumbers))
-        case "Level 6".lowercased():
+        case "Level 5".lowercased(): //traching latter
             return AnyView(TryWriteView(items: WordData.getTrytoWirte()))
-        case "Level 5".lowercased(): //number  / charater  learing
+        case "Level 4".lowercased(): //number  / charater  learing
             return AnyView(latterToWordView())
-        case "Level 4".lowercased(): //start with the letter
-            return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
 //        case "Level 4".lowercased():
 //            return AnyView(TapLaterView(Viewindex:0,title:itemText))
-        case "Level 3".lowercased()://which one
+        case "Level 3".lowercased()://which one is word
             return AnyView(CategoryViewPicturePlay(Viewindex:1,title:itemText))
         case "Level 2".lowercased(): //find it
             return AnyView(CategoryViewPicturePlay(Viewindex:3,title:itemText))

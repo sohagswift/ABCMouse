@@ -22,7 +22,12 @@ public struct TryWriteItemView: View {
                     .padding(.bottom,16)
                 Spacer()
             }
-            Text("\(course.uppercased())\(course.lowercased())").fontWeight(.bold)
+            if course.count > 1 {
+                Text("\(course.capitalized)").fontWeight(.bold)
+            }else{
+                Text("\(course.uppercased())\(course.lowercased())").fontWeight(.bold)
+            }
+           
             //Text(course.subtitle).font(.footnote)
         })
         
@@ -33,7 +38,7 @@ public struct TryWriteItemView: View {
         .padding(.all)
         .border(Color(#colorLiteral(red: 0.6941176471, green: 0.8039215686, blue: 0.8392156863, alpha: 1)), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
         .cornerRadius(20.0)
-        .shadow(color: Color(#colorLiteral(red: 0.6941176471, green: 0.8039215686, blue: 0.8392156863, alpha: 1)).opacity(0.3), radius: 20, x: 0.0, y: 10.0)
+        .shadow(color: Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)).opacity(0.3), radius: 20, x: 0.0, y: 10.0)
     }
 }
 
@@ -42,6 +47,8 @@ struct TryWriteItemView_Previews: PreviewProvider {
         TryWriteItemView()
     }
 }
+
+
 
 
 

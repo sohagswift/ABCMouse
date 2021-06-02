@@ -80,7 +80,7 @@ struct CategoryViewPicturePlay: View {
                        
                        // FromTextToImageQustionView(course: selectedItem!)
                         
-                        if Viewindex == 2 {
+                        if Viewindex == 2  {
                             ImageToTextQustionView(course: selectedItem!).id(UUID())
                            .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                            .frame(height:400)
@@ -135,7 +135,7 @@ struct CategoryViewPicturePlay: View {
                                   
                                     VStack {
                                        
-                                        if Viewindex == 2 {
+                                        if Viewindex == 2 || Viewindex == 4 {
                                            
                                             TextPlayItemView(item: item)
                                                 .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
@@ -262,7 +262,7 @@ struct CategoryViewPicturePlay: View {
      func askQustion(){
        print("we are working on it ")
         DispatchQueue.main.async {
-            let name = selectedItem?.items[correctAnswer].name ?? ""
+            var name = selectedItem?.items[correctAnswer].name ?? ""
             var message = ""
             if Viewindex == 1 {
                 message = "Which one\nis, \(name.capitalized)?"
@@ -270,7 +270,11 @@ struct CategoryViewPicturePlay: View {
                 message = "Which one is,\n_____?"
             }else if Viewindex == 3 {
                 message = "Find it_____"
-            }else{
+            }
+            else if Viewindex == 4 {
+                message = "Find the mising letter _\(String(name.dropFirst()))"
+            }
+            else{
                 message = "Which one starts with\n the letter, \(name[0].capitalized)?"
             }
             let qustion = message.replacingOccurrences(of: ",", with: " ", options: NSString.CompareOptions.literal, range:nil)
@@ -281,7 +285,9 @@ struct CategoryViewPicturePlay: View {
             
            if Viewindex == 3 {
             self.textToSpeach("find it, \(name)")
-           }else{
+           } else if Viewindex == 4{
+            self.textToSpeach("Find the mising letter")
+           }else {
             self.textToSpeach(qustion)
            }
             
