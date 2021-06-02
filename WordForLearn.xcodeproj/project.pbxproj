@@ -53,6 +53,8 @@
 		CBEA692A25D3F69B004CD604 /* TextPlayItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA692925D3F69B004CD604 /* TextPlayItemView.swift */; };
 		CBEA693025D50264004CD604 /* Extention+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEA692F25D50264004CD604 /* Extention+String.swift */; };
 		CBEE360E266767C0003E9951 /* TryColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE360D266767C0003E9951 /* TryColorView.swift */; };
+		CBEE361126678D96003E9951 /* LearnColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE361026678D96003E9951 /* LearnColorView.swift */; };
+		CBEE3614266791DC003E9951 /* LeanColorItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBEE3613266791DC003E9951 /* LeanColorItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +107,8 @@
 		CBEA692925D3F69B004CD604 /* TextPlayItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPlayItemView.swift; sourceTree = "<group>"; };
 		CBEA692F25D50264004CD604 /* Extention+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+String.swift"; sourceTree = "<group>"; };
 		CBEE360D266767C0003E9951 /* TryColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryColorView.swift; sourceTree = "<group>"; };
+		CBEE361026678D96003E9951 /* LearnColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnColorView.swift; sourceTree = "<group>"; };
+		CBEE3613266791DC003E9951 /* LeanColorItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanColorItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 				38C99D1326065D2200A55178 /* TryWriteView.swift */,
 				38C99D162607B4C100A55178 /* TryWriteItemView.swift */,
 				CBEE360D266767C0003E9951 /* TryColorView.swift */,
+				CBEE361026678D96003E9951 /* LearnColorView.swift */,
+				CBEE3613266791DC003E9951 /* LeanColorItemView.swift */,
 			);
 			path = Learn;
 			sourceTree = "<group>";
@@ -430,6 +436,7 @@
 				CBA635E825B9662E00AC52D3 /* Sidebar.swift in Sources */,
 				CB6634EF25D268950019BAFA /* ImageToTextQustionView.swift in Sources */,
 				CB6634EC25D25E970019BAFA /* FromTextToImageQustionView.swift in Sources */,
+				CBEE361126678D96003E9951 /* LearnColorView.swift in Sources */,
 				CBA6366B25BEAA9D00AC52D3 /* CategorySection.swift in Sources */,
 				384E1F0C25DF40A50014E4B1 /* CoreDataManager.swift in Sources */,
 				384E1F0325DF403D0014E4B1 /* DrawingViewController.swift in Sources */,
@@ -440,6 +447,7 @@
 				CBA635E525B9603400AC52D3 /* CategoryView.swift in Sources */,
 				384E1F0725DF407F0014E4B1 /* DrawingDocument.swift in Sources */,
 				38FAF0F6260F0B0700508C65 /* IndividualLearnItemView.swift in Sources */,
+				CBEE3614266791DC003E9951 /* LeanColorItemView.swift in Sources */,
 				384E1F1625DF49400014E4B1 /* RoundedButton.swift in Sources */,
 				384E1EFF25DF402B0014E4B1 /* DrawingDocContentView.swift in Sources */,
 				384E1EFE25DF402B0014E4B1 /* AddNewDocument.swift in Sources */,

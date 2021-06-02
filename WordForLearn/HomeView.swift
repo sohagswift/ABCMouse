@@ -149,8 +149,8 @@ struct MoviesCarousel: View {
             return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
         case "Level 10".lowercased(): //which on is ______
             return AnyView(CategoryViewPicturePlay(Viewindex:2,title:itemText))
-        case "Level 9".lowercased(): //
-            return AnyView(TryColorView(items: WordData.getTrytoWirte(color:true)))
+        case "Level 9".lowercased(): // learn color
+            return AnyView(LearnColorView(items: WordData.colors))
         case "Level 8".lowercased():  //color it charater
             return AnyView(TryColorView(items: WordData.getTrytoWirte(color:true)))
         case "Level 7".lowercased():  //drawing parctice
