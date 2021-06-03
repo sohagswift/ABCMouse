@@ -25,9 +25,11 @@ public struct ImageToTextQustionView: View {
             }
             Text(course.title).fontWeight(.bold).font(.largeTitle)
 //            Text(course.subtitle).font(.footnote)
-        }).background(Image("kidsbackground")
-                        .resizable()
-                        .scaledToFill())
+        })
+        
+        //.background(Image("kidsbackground")
+//                        .resizable()
+//                        .scaledToFill())
        
         .padding(.all)
         .border(Color(#colorLiteral(red: 0.6941176471, green: 0.8039215686, blue: 0.8392156863, alpha: 1)), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)

@@ -244,6 +244,8 @@ struct CategoryViewPicturePlay: View {
             for  i in _items {
                 items.append(Item(name:i.name[0]))
             }
+        }else{
+            items = _items
         }
         
        // items = _items
