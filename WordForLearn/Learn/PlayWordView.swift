@@ -247,9 +247,14 @@ struct PlayWordView: View {
             }
     
                 Button(action: {
-                    withAnimation{
+                
+                    withAnimation(.interpolatingSpring(
+                                    mass: 1,
+                                    stiffness: 80,
+                                    damping: 4,
+                                    initialVelocity: 0)) {
                         primaryButtonAction()
-                    }
+                                    }
                 }) {
                     
                     if viewPort == 16 {
@@ -295,8 +300,8 @@ struct PlayWordView: View {
                             var item = items[index]
                             
                             VStack {
-                                
-                                Text("\(index)")
+//                                
+//                                Text("\(index)")
                                 PicturePlayItemView(item: item)
                                     // .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                                     .frame(height: 200)
@@ -403,7 +408,7 @@ struct PlayWordView: View {
                             
                             VStack {
                                 
-                                Text("\(index)")
+                               // Text("\(index)")
                                 PicturePlayItemView(item: item)
                                     // .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                                     .frame(height: 200)
@@ -442,23 +447,27 @@ struct PlayWordView: View {
                 Button(action: {
                     nextbuttonOnclickAction()
                 }) {
-                    Text("Next").font(.system(size: 44, weight: .bold))
-                        .padding()
-                        .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
+                  
+                      Image("nextbutton")
+                        .resizable()
+                                    .scaledToFit()
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                            
                     
                    
                     
                 }
-                .buttonStyle(PlainButtonStyle())
-                .frame(maxWidth: .infinity, alignment: .center)
-                .padding(.leading,10)
-                .padding(.trailing,10)
-                //.padding(.bottom,16)
-                .background(
-                    RoundedRectangle(cornerRadius: 25)
-                        .fill(Color.yellow)
-                        .shadow(color: .orange, radius: 2, x: 0, y: 2)
-                )
+               // .frame(width: 100, height: 60, alignment: .center)
+//                .buttonStyle(PlainButtonStyle())
+//                .frame(minWidth: 0, maxWidth: .infinity)
+                .padding(.leading,15)
+                .padding(.trailing,15)
+//                //.padding(.bottom,16)
+//                .background(
+//                    RoundedRectangle(cornerRadius: 25)
+//                        .fill(Color.yellow)
+//                        .shadow(color: .orange, radius: 2, x: 0, y: 2)
+//                )
 //                .fullScreenCover(isPresented: $presentingModal) {
 //                    NavigationView {
 //                        DrawingWrapper(imageName: "trace_ca")

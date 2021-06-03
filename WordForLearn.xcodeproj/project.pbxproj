@@ -20,6 +20,9 @@
 		384E1F1625DF49400014E4B1 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1F1525DF49400014E4B1 /* RoundedButton.swift */; };
 		38669FCA2668DD0A00153731 /* LearnNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38669FC92668DD0A00153731 /* LearnNumberView.swift */; };
 		38669FD12668E0A900153731 /* LeanNumberItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38669FD02668E0A900153731 /* LeanNumberItemView.swift */; };
+		38669FD426692C6B00153731 /* PlaySoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38669FD326692C6B00153731 /* PlaySoundView.swift */; };
+		38669FDA26692EF200153731 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 38669FD926692EF200153731 /* correct.wav */; };
+		38669FDD26692F2600153731 /* correct2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 38669FDC26692F2600153731 /* correct2.wav */; };
 		38A1C754266206F100FE5FBC /* TapLaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A1C753266206F000FE5FBC /* TapLaterView.swift */; };
 		38C99D1426065D2200A55178 /* TryWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C99D1326065D2200A55178 /* TryWriteView.swift */; };
 		38C99D172607B4C100A55178 /* TryWriteItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C99D162607B4C100A55178 /* TryWriteItemView.swift */; };
@@ -73,6 +76,9 @@
 		384E1F1525DF49400014E4B1 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		38669FC92668DD0A00153731 /* LearnNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnNumberView.swift; sourceTree = "<group>"; };
 		38669FD02668E0A900153731 /* LeanNumberItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanNumberItemView.swift; sourceTree = "<group>"; };
+		38669FD326692C6B00153731 /* PlaySoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySoundView.swift; sourceTree = "<group>"; };
+		38669FD926692EF200153731 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
+		38669FDC26692F2600153731 /* correct2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct2.wav; sourceTree = "<group>"; };
 		38A1C753266206F000FE5FBC /* TapLaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapLaterView.swift; sourceTree = "<group>"; };
 		38C99D1326065D2200A55178 /* TryWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryWriteView.swift; sourceTree = "<group>"; };
 		38C99D162607B4C100A55178 /* TryWriteItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryWriteItemView.swift; sourceTree = "<group>"; };
@@ -282,6 +288,8 @@
 				38EC3ECF25BADD070001B399 /* Items */,
 				CBA6365A25BD7D7700AC52D3 /* Model */,
 				CBA635D225B8334000AC52D3 /* Assets.xcassets */,
+				38669FDC26692F2600153731 /* correct2.wav */,
+				38669FD926692EF200153731 /* correct.wav */,
 				CBA635D725B8334100AC52D3 /* LaunchScreen.storyboard */,
 				CBA635DA25B8334100AC52D3 /* Info.plist */,
 				CBA635D425B8334000AC52D3 /* Preview Content */,
@@ -341,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				CBEA692F25D50264004CD604 /* Extention+String.swift */,
+				38669FD326692C6B00153731 /* PlaySoundView.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -403,8 +412,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBA635D925B8334100AC52D3 /* LaunchScreen.storyboard in Resources */,
+				38669FDA26692EF200153731 /* correct.wav in Resources */,
 				CBA635D625B8334000AC52D3 /* Preview Assets.xcassets in Resources */,
 				CBA635D325B8334000AC52D3 /* Assets.xcassets in Resources */,
+				38669FDD26692F2600153731 /* correct2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +434,7 @@
 				CB8168EF25CFF4590007F669 /* CategoryItemPlay.swift in Sources */,
 				CB8168FD25D119BA0007F669 /* CategoryViewPicturePlay.swift in Sources */,
 				CBA635CF25B8333B00AC52D3 /* SceneDelegate.swift in Sources */,
+				38669FD426692C6B00153731 /* PlaySoundView.swift in Sources */,
 				384E1EFD25DF402B0014E4B1 /* DrawingWrapper.swift in Sources */,
 				CBA6365825BD63A100AC52D3 /* Course.swift in Sources */,
 				38EC3ECB25BADA190001B399 /* CategoryItem.swift in Sources */,

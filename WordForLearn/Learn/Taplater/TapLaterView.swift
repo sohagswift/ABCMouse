@@ -152,7 +152,7 @@ struct TapLaterView: View {
                                                 self.flagTapped(item.name)
                                             }
                                         }else{
-                                            Text("\(index)")
+                                           // Text("\(index)")
                                             PicturePlayItemView(item: item)
                                                 .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                                                 .frame(height: 200)

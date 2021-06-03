@@ -22,11 +22,12 @@ public struct TryWriteItemView: View {
                     .padding(.bottom,16)
                 Spacer()
             }
-            if course.count > 1 {
-                Text("\(course.capitalized)").fontWeight(.bold)
-            }else{
-                Text("\(course.uppercased())\(course.lowercased())").fontWeight(.bold)
-            }
+//            if course.count > 1 {
+//               // Text("\(course.lowercased())").fontWeight(.bold)
+//
+//            }else{
+                Text("\(course[0].capitalized)").fontWeight(.bold)
+           // }
            
             //Text(course.subtitle).font(.footnote)
         })

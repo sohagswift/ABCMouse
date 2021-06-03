@@ -136,23 +136,27 @@ struct CategoryViewPicturePlay: View {
                                     VStack {
                                        
                                         if Viewindex == 2 || Viewindex == 4 {
-                                           
                                             TextPlayItemView(item: item)
                                                 .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                                               //  .frame(height: 100)
+                                                .animation(.interpolatingSpring(stiffness: 1, damping: 1)) //animation
                                             .onTapGesture{
                                                 print("Double tapped!")
                                                 self.flagTapped(item.name)
                                             }
                                         }else{
-                                            Text("\(index)")
+                                           // Text("\(index)")
                                             PicturePlayItemView(item: item)
+                                                
                                                 .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                                                 .frame(height: 200)
+                                                .animation(.interpolatingSpring(stiffness: 1, damping: 1)) //animation
                                             .onTapGesture{
                                                 print("Double tapped!")
                                                 self.flagTapped(item.name)
+                                                    
                                             }
+                                        
                                         }
                                             
                                        
@@ -237,12 +241,31 @@ struct CategoryViewPicturePlay: View {
         items = _items
     }
     
+    
+    @State var sound: AVAudioPlayer!
+
+
+    func playSound(filename :String ) {
+
+            if let path = Bundle.main.path(forResource: filename, ofType: "wav") {
+                do {
+                    sound = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+                    print("Playing sound")
+                    sound.play()
+                } catch {
+                    print( "Could not find file")
+                }
+            }
+        }
+
     func flagTapped(_ tag : String){
         if tag == selectedItem?.items[correctAnswer].name {
-            textToSpeach("correct")
-            
+            //textToSpeach("correct")
+            playSound(filename:"correct" )
             
             if selectedItem?.items.count == correctAnswer + 1 {
+                playSound(filename:"correct2" )
+                self.presentationMode.wrappedValue.dismiss()
                 return
             }
           
