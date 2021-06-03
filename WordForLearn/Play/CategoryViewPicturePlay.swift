@@ -80,7 +80,7 @@ struct CategoryViewPicturePlay: View {
                        
                        // FromTextToImageQustionView(course: selectedItem!)
                         
-                        if Viewindex == 2  {
+                        if Viewindex == 2 || Viewindex == 4  {
                             ImageToTextQustionView(course: selectedItem!).id(UUID())
                            .matchedGeometryEffect(id: selectedItem!.id, in: namespace)
                            .frame(height:400)
@@ -135,7 +135,8 @@ struct CategoryViewPicturePlay: View {
                                   
                                     VStack {
                                        
-                                        if Viewindex == 2 || Viewindex == 4 {
+                                        if Viewindex == 2 || Viewindex == 4  {
+                                            
                                             TextPlayItemView(item: item)
                                                 .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                                               //  .frame(height: 100)
@@ -238,7 +239,14 @@ struct CategoryViewPicturePlay: View {
         }
         
         items.removeAll()
-        items = _items
+        
+        if Viewindex == 4 {
+            for  i in _items {
+                items.append(Item(name:i.name[0]))
+            }
+        }
+        
+       // items = _items
     }
     
     
@@ -278,7 +286,7 @@ struct CategoryViewPicturePlay: View {
              askQustion()
         }else{
         
-            if Viewindex == 0 || Viewindex == 4{
+            if Viewindex == 0 {
                 textToSpeach(tag + ", starts with , \(tag[0])")
             }else {
                 textToSpeach(tag)
