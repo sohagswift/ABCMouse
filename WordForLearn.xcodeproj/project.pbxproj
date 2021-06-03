@@ -18,6 +18,8 @@
 		384E1F0D25DF40A50014E4B1 /* DrawingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1F0B25DF40A50014E4B1 /* DrawingManager.swift */; };
 		384E1F1125DF43950014E4B1 /* DrawingDocModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 384E1F0F25DF43950014E4B1 /* DrawingDocModel.xcdatamodeld */; };
 		384E1F1625DF49400014E4B1 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384E1F1525DF49400014E4B1 /* RoundedButton.swift */; };
+		38669FCA2668DD0A00153731 /* LearnNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38669FC92668DD0A00153731 /* LearnNumberView.swift */; };
+		38669FD12668E0A900153731 /* LeanNumberItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38669FD02668E0A900153731 /* LeanNumberItemView.swift */; };
 		38A1C754266206F100FE5FBC /* TapLaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A1C753266206F000FE5FBC /* TapLaterView.swift */; };
 		38C99D1426065D2200A55178 /* TryWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C99D1326065D2200A55178 /* TryWriteView.swift */; };
 		38C99D172607B4C100A55178 /* TryWriteItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C99D162607B4C100A55178 /* TryWriteItemView.swift */; };
@@ -69,6 +71,8 @@
 		384E1F0B25DF40A50014E4B1 /* DrawingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingManager.swift; sourceTree = "<group>"; };
 		384E1F1025DF43950014E4B1 /* DrawingDocModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DrawingDocModel.xcdatamodel; sourceTree = "<group>"; };
 		384E1F1525DF49400014E4B1 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		38669FC92668DD0A00153731 /* LearnNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnNumberView.swift; sourceTree = "<group>"; };
+		38669FD02668E0A900153731 /* LeanNumberItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanNumberItemView.swift; sourceTree = "<group>"; };
 		38A1C753266206F000FE5FBC /* TapLaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapLaterView.swift; sourceTree = "<group>"; };
 		38C99D1326065D2200A55178 /* TryWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryWriteView.swift; sourceTree = "<group>"; };
 		38C99D162607B4C100A55178 /* TryWriteItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryWriteItemView.swift; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				CBEE360D266767C0003E9951 /* TryColorView.swift */,
 				CBEE361026678D96003E9951 /* LearnColorView.swift */,
 				CBEE3613266791DC003E9951 /* LeanColorItemView.swift */,
+				38669FC92668DD0A00153731 /* LearnNumberView.swift */,
+				38669FD02668E0A900153731 /* LeanNumberItemView.swift */,
 			);
 			path = Learn;
 			sourceTree = "<group>";
@@ -413,6 +419,7 @@
 				384E1F0D25DF40A50014E4B1 /* DrawingManager.swift in Sources */,
 				38FAF0F4260F0B0700508C65 /* IndividualView.swift in Sources */,
 				CBA635CD25B8333B00AC52D3 /* AppDelegate.swift in Sources */,
+				38669FCA2668DD0A00153731 /* LearnNumberView.swift in Sources */,
 				CB8168EF25CFF4590007F669 /* CategoryItemPlay.swift in Sources */,
 				CB8168FD25D119BA0007F669 /* CategoryViewPicturePlay.swift in Sources */,
 				CBA635CF25B8333B00AC52D3 /* SceneDelegate.swift in Sources */,
@@ -437,6 +444,7 @@
 				CB6634EF25D268950019BAFA /* ImageToTextQustionView.swift in Sources */,
 				CB6634EC25D25E970019BAFA /* FromTextToImageQustionView.swift in Sources */,
 				CBEE361126678D96003E9951 /* LearnColorView.swift in Sources */,
+				38669FD12668E0A900153731 /* LeanNumberItemView.swift in Sources */,
 				CBA6366B25BEAA9D00AC52D3 /* CategorySection.swift in Sources */,
 				384E1F0C25DF40A50014E4B1 /* CoreDataManager.swift in Sources */,
 				384E1F0325DF403D0014E4B1 /* DrawingViewController.swift in Sources */,

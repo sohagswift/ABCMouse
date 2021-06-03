@@ -28,6 +28,7 @@ struct HomeView: View {
         .init(title: "Level 1", imageName: "life1"),
         .init(title: "Level 2", imageName: "life2"),
         .init(title: "Level 3", imageName: "life3"),
+        .init(title: "Art", imageName: "life5"),
        // .init(title: "Level 4", imageName: "life5"),
        // .init(title: "Level 5", imageName: "life6"),
        // .init(title: "Level 6", imageName: "life6"),
@@ -37,6 +38,7 @@ struct HomeView: View {
         .init(title: "Level 4", imageName: "life4"),
         .init(title: "Level 5", imageName: "life5"),
         .init(title: "Level 6", imageName: "life3"),
+        .init(title: "Art", imageName: "life5"),
         //.init(title: "Level 8", imageName: "life6"),
         //.init(title: "Level 10", imageName: "life2")
     ]
@@ -46,6 +48,7 @@ struct HomeView: View {
         .init(title: "Level 7", imageName: "life4"),
         .init(title: "Level 8", imageName: "life5"),
         .init(title: "Level 9", imageName: "life3"),
+        .init(title: "Art", imageName: "life5"),
         //.init(title: "Level 12", imageName: "life6"),
         //.init(title: "Level 10", imageName: "life2")
     ]
@@ -54,6 +57,7 @@ struct HomeView: View {
         .init(title: "Level 10", imageName: "life4"),
         .init(title: "Level 11", imageName: "life5"),
         .init(title: "Level 12", imageName: "life3"),
+        .init(title: "Art", imageName: "life5"),
         //.init(title: "Level 12", imageName: "life6"),
         //.init(title: "Level 10", imageName: "life2")
     ]
@@ -143,7 +147,7 @@ struct MoviesCarousel: View {
         
         // var mainItem = ["Picture Game","Word Game","Find Game","Letter Game"]
         switch itemText.lowercased() {
-        case "Level 12".lowercased(): //Find the missing latter _pple
+        case "Level 12".lowercased(): //Find the missing la tter _pple
             return AnyView(CategoryViewPicturePlay(Viewindex:4,title:itemText))
         case "Level 11".lowercased(): //start with the letter
             return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
@@ -153,8 +157,8 @@ struct MoviesCarousel: View {
             return AnyView(LearnColorView(items: WordData.colors))
         case "Level 8".lowercased():  //color it charater
             return AnyView(TryColorView(items: WordData.getTrytoWirte(color:true)))
-        case "Level 7".lowercased():  //drawing parctice
-            return AnyView(TryColorView(items: WordData.tryColor))
+        case "Level 7".lowercased():  //learn number
+            return AnyView(LearnNumberView(items: WordData.numberWithTextBottom))
         case "Level 6".lowercased(): //traching number
             return AnyView(TryWriteView(items: WordData.typeWordNumbers))
         case "Level 5".lowercased(): //traching latter
@@ -170,7 +174,7 @@ struct MoviesCarousel: View {
         case "Level 1".lowercased():
             return AnyView(PlayWordView())
         default:
-            return AnyView(CategoryViewPicturePlay())
+            return AnyView(TryColorView(items: WordData.tryColor))
         }
         
        

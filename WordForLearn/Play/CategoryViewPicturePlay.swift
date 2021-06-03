@@ -51,7 +51,7 @@ struct CategoryViewPicturePlay: View {
                                     .scaledToFill())
                     
                   
-                    ForEach(categorySectionContents) { item in
+                    ForEach(WordData.getCategorItem(Viewindex:Viewindex)) { item in
                         CategoryItemSection(course: item)
                             .matchedGeometryEffect(id: item.id, in: namespace, isSource: !show)
                             .frame(height: 230)
