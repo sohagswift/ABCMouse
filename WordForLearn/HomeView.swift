@@ -26,38 +26,38 @@ struct HomeView: View {
     
     let topMovies: [Movie] = [//learing
         .init(title: "Level 1", imageName: "life1"),
-        .init(title: "Level 2", imageName: "life2"),
-        .init(title: "Level 3", imageName: "life3"),
-        .init(title: "Art", imageName: "life5"),
+        .init(title: "Level 2", imageName: "findit"),
+        .init(title: "Level 3", imageName: "learnObject"),
+        .init(title: "Art", imageName: "drawing"),
        // .init(title: "Level 4", imageName: "life5"),
        // .init(title: "Level 5", imageName: "life6"),
        // .init(title: "Level 6", imageName: "life6"),
     ]
   
     let animationMovies: [Movie] = [
-        .init(title: "Level 4", imageName: "life4"),
-        .init(title: "Level 5", imageName: "life5"),
-        .init(title: "Level 6", imageName: "life3"),
-        .init(title: "Art", imageName: "life5"),
+        .init(title: "Level 4", imageName: "backtotheschool"),
+        .init(title: "Level 5", imageName: "traceabc"),
+        .init(title: "Level 6", imageName: "tracenumber"),
+        .init(title: "Art", imageName: "drawing"),
         //.init(title: "Level 8", imageName: "life6"),
         //.init(title: "Level 10", imageName: "life2")
     ]
     
     
     let dramaMovies: [Movie] = [
-        .init(title: "Level 7", imageName: "life4"),
-        .init(title: "Level 8", imageName: "life5"),
-        .init(title: "Level 9", imageName: "life3"),
-        .init(title: "Art", imageName: "life5"),
+        .init(title: "Level 7", imageName: "LearnNumber"),
+        .init(title: "Level 8", imageName: "colorletter"),
+        .init(title: "Level 9", imageName: "learnColor"),
+        .init(title: "Art", imageName: "drawing"),
         //.init(title: "Level 12", imageName: "life6"),
         //.init(title: "Level 10", imageName: "life2")
     ]
     
     let sincMovies: [Movie] = [
-        .init(title: "Level 10", imageName: "life4"),
-        .init(title: "Level 11", imageName: "life5"),
-        .init(title: "Level 12", imageName: "life3"),
-        .init(title: "Art", imageName: "life5"),
+        .init(title: "Level 10", imageName: "whichone"),
+        .init(title: "Level 11", imageName: "startwith"),
+        .init(title: "Level 12", imageName: "missingletter"),
+        .init(title: "Art", imageName: "drawing"),
         //.init(title: "Level 12", imageName: "life6"),
         //.init(title: "Level 10", imageName: "life2")
     ]
