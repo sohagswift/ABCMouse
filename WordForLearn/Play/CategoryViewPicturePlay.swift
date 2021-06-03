@@ -100,7 +100,7 @@ struct CategoryViewPicturePlay: View {
                                withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                    
                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                                    self.textToSpeach("find it, \(selectedItem?.items[correctAnswer].name ?? "")")
+                                    self.textToSpeach(speckingMessgae)
                                    })
                                }
                            }
@@ -255,14 +255,20 @@ struct CategoryViewPicturePlay: View {
              askQustion()
         }else{
         
-            textToSpeach("wrong")
+            if Viewindex == 0 || Viewindex == 4{
+                textToSpeach(tag + ", starts with , \(tag[0])")
+            }else {
+                textToSpeach(tag)
+            }
+           
         }
     }
     
+    @State var speckingMessgae = ""
      func askQustion(){
        print("we are working on it ")
         DispatchQueue.main.async {
-            var name = selectedItem?.items[correctAnswer].name ?? ""
+            let name = selectedItem?.items[correctAnswer].name ?? ""
             var message = ""
             if Viewindex == 1 {
                 message = "Which one\nis, \(name.capitalized)?"
@@ -277,25 +283,26 @@ struct CategoryViewPicturePlay: View {
             else{
                 message = "Which one starts with\n the letter, \(name[0].capitalized)?"
             }
-            let qustion = message.replacingOccurrences(of: ",", with: " ", options: NSString.CompareOptions.literal, range:nil)
-            self.selectedItem?.title = qustion
+             speckingMessgae = message.replacingOccurrences(of: ",", with: " ", options: NSString.CompareOptions.literal, range:nil)
+            self.selectedItem?.title = speckingMessgae
             self.selectedItem?.image = name
             
             
             
            if Viewindex == 3 {
-            self.textToSpeach("find it, \(name)")
+            speckingMessgae = "find it, \(name)"
            } else if Viewindex == 4{
-            self.textToSpeach("Find the mising letter")
-           }else {
-            self.textToSpeach(qustion)
+            speckingMessgae = "Find the mising letter"
            }
+            
+            self.textToSpeach(speckingMessgae)
             
         }
         //didSetFire = false
     }
     
     func textToSpeach(_ str : String){
+      
         speaker.stopSpeaking(at: .immediate)
         let utterance = AVSpeechUtterance(string: str)
         utterance.pitchMultiplier = 1.5

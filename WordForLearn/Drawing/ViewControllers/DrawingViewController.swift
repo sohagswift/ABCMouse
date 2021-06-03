@@ -69,6 +69,7 @@ class DrawingViewController: UIViewController {
             ) //self.view.center
         }else if let drawing = try? PKDrawing(data: drawingData) {
             canvas.drawing = drawing
+           
         }
 
     }

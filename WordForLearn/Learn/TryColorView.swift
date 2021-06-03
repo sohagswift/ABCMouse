@@ -49,6 +49,7 @@ struct TryColorView: View {
                                 .frame(height: 200)
                                 .onTapGesture{
                                     withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
+                                        
                                         UserDefaults.standard.setValue("color_\(items[index])", forKey: "charaterHandwriten")
                                        // print(seletedItem)
                                         self.presentingModal = true
@@ -56,7 +57,10 @@ struct TryColorView: View {
                                     }
                                 }.fullScreenCover(isPresented: $presentingModal) {
                                     NavigationView {
-                                        DrawingWrapper(imageName:  UserDefaults.standard.string(forKey: "charaterHandwriten") ?? "color_ca")
+                                        
+                                        
+                                        DrawingWrapper(imageName:   UserDefaults.standard.string(forKey: "charaterHandwriten") ?? "color_ca" == "color_draw" ? nil : UserDefaults.standard.string(forKey: "charaterHandwriten") ?? "color_ca" )
+                                            .navigationBarTitle("", displayMode: .inline)
                                             .toolbar {
                                                 ToolbarItem(placement: .navigationBarTrailing) {
                                                     Button(action: {
@@ -67,7 +71,8 @@ struct TryColorView: View {
                                                     })
                                                 }
                                             }
-                                    }
+                                          
+                                    }.background(Color(UIColor.red))
                                 }
                         }
                     }
