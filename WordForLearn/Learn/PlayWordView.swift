@@ -19,7 +19,7 @@ struct PlayWordView: View {
     @State private var wordCap = ""
     @State private var wordLower = ""
     @State private var wordElement = ""
-    @State private var viewPort = 10
+    @State private var viewPort = 1
     @State private var answerIndex = -1
     @State private var Alphabetscounter = 0
     @State var presentingModal = false
@@ -158,6 +158,7 @@ struct PlayWordView: View {
             defultTopSecton()
             viewPort = viewPort - 1
             isShowingNextButton = true
+            canvasView2.drawing = PKDrawing()
         }else if viewPort == 15 {
 
             //self.textToSpeach("say, a")
@@ -549,7 +550,7 @@ struct PlayWordView: View {
 //            subView.sendSubviewToBack(imageView)
       
         var width = geometry.size.width //self.view.frame.width
-        var height = geometry.size.width + 120 //self.view.frame.height
+        var height = geometry.size.width + 150 //self.view.frame.height
        
             let imageView = UIImageView(image: UIImage(named: name)?.resizeImage(targetSize: CGSize(width: width - 40, height:  width - 40)))
 
