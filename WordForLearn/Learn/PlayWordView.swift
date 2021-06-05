@@ -7,15 +7,19 @@
 
 import SwiftUI
 import AVFoundation
+import PencilKit
 
 struct PlayWordView: View {
    // @State private var isSowingRed = false
+    private var canvasView = PKCanvasView()
+    private var canvasView2 = PKCanvasView()
+    @State var points: [CGPoint] = []
     @State private var isShowingNextButton = false
     @State private var word = ""
     @State private var wordCap = ""
     @State private var wordLower = ""
     @State private var wordElement = ""
-    @State private var viewPort = 1
+    @State private var viewPort = 10
     @State private var answerIndex = -1
     @State private var Alphabetscounter = 0
     @State var presentingModal = false
@@ -143,6 +147,7 @@ struct PlayWordView: View {
             defultTopSecton()
             viewPort = viewPort - 1
             isShowingNextButton = true
+            canvasView.drawing = PKDrawing()
         }else if viewPort == 13 {
             //self.textToSpeach("say, a")
             self.textToSpeach("How to write the letter")
@@ -373,11 +378,45 @@ struct PlayWordView: View {
                     .font(.system(size: 40, weight: .bold))
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
-                Image("trace_c\(wordLower)").resizable().aspectRatio(contentMode: .fit)
+                
+//                ZStack{
+              
+                
+//                let  name = "trace_c\(wordLower)"
+//                    let imageView = UIImageView(image: UIImage(named: name)?.resizeImage(targetSize: CGSize(width: 100, height:  100)))
+//                    let contentView = Tool.getContentViewFromPkCanvasView(canvasView)
+//                    contentView.addSubview(imageView)
+//                    contentView.sendSubviewToBack(imageView)
+//                    imageView.center = CGPoint(
+//                        x:  100  / 2,
+//                        y: 100 / 2.5 -  (100/10)
+//                    ) //self.view.center
+//
+                
+                  
+//                    Image("trace_c\(wordLower)").resizable().aspectRatio(contentMode: .fit)
+              
+                
+                        
+                    
+               // }
+                GeometryReader { (geometry) in
+                    self.traceTheWord(geometry,name:"trace_c\(wordLower)",_canvasView :canvasView)
+                        }
                     
                     .frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .transition(.scale)
-                    .padding(.all,20)
+                     .padding(.all,20)
+//                    .gesture(DragGesture().onChanged( { value in
+//                                        self.addNewPoint(value)
+//                    }) .onEnded( { value in
+//                        // here you perform what you need at the end
+//                        points.removeAll()
+//                    }))
+////
+//                DrawShape(points: points)
+//                               .stroke(lineWidth: 30) // here you put width of lines
+//                               .foregroundColor(.blue)
                 
                
                 
@@ -387,13 +426,17 @@ struct PlayWordView: View {
                     .font(.system(size: 40, weight: .bold))
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
-                Image("trace_\(wordLower)").resizable().aspectRatio(contentMode: .fit)
-                    
+                
+                GeometryReader { (geometry) in
+                    self.traceTheWord(geometry,name:"trace_\(wordLower)",_canvasView :canvasView2)
+                        }
                     .frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .transition(.scale)
                     .padding(.all,20)
 
-               
+//                DrawShape(points: points)
+//                               .stroke(lineWidth: 5) // here you put width of lines
+//                               .foregroundColor(.blue)
                 
             }else if viewPort == 16 {
                 VStack{
@@ -498,6 +541,36 @@ struct PlayWordView: View {
         
     }
     
+    func traceTheWord(_ geometry: GeometryProxy,name : String ,_canvasView : PKCanvasView )-> some View{
+       // let imageView = UIImageView(image: UIImage(named: "trace_c\(wordLower)"))
+        //let subView = self.canvasView.subviews[0]
+      
+//            subView.addSubview(imageView)
+//            subView.sendSubviewToBack(imageView)
+      
+        var width = geometry.size.width //self.view.frame.width
+        var height = geometry.size.width + 120 //self.view.frame.height
+       
+            let imageView = UIImageView(image: UIImage(named: name)?.resizeImage(targetSize: CGSize(width: width - 40, height:  width - 40)))
+
+            let contentView = Tool.getContentViewFromPkCanvasView(_canvasView)
+      
+            contentView.addSubview(imageView)
+            contentView.sendSubviewToBack(imageView)
+            imageView.center = CGPoint(
+                x:  width  / 2,
+                y: height / 2.5 -  (height/10)
+            ) //self.view.center
+            
+            
+        return MyCanvas(canvasView: _canvasView)
+    }
+    
+    private func addNewPoint(_ value: DragGesture.Value) {
+           // here you can make some calculations based on previous points
+           points.append(value.location)
+       }
+    
     func textToSpeach(_ str : String, stopSpeaking : Bool = true ){
         if stopSpeaking {
             speaker.stopSpeaking(at: .immediate)
@@ -515,4 +588,59 @@ struct PlayWordView_Previews: PreviewProvider {
     static var previews: some View {
         PlayWordView()
     }
+}
+
+struct DrawShape: Shape {
+
+    var points: [CGPoint]
+
+    // drawing is happening here
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        guard let firstPoint = points.first else { return path }
+
+        path.move(to: firstPoint)
+        for pointIndex in 1..<points.count {
+            path.addLine(to: points[pointIndex])
+
+        }
+        return path
+    }
+}
+
+
+//struct MyCanvas: UIViewRepresentable {
+//    var canvasView: PKCanvasView
+//
+//    let picker = PKToolPicker.init()
+//
+//
+//
+//    func makeUIView(context: Context) -> PKCanvasView {
+//       self.canvasView.tool = PKInkingTool(.pen, color: .black, width: 60)
+//        self.canvasView.becomeFirstResponder()
+//
+//        return canvasView
+//    }
+//
+//    func updateUIView(_ uiView: PKCanvasView, context: Context) {
+//        picker.addObserver(canvasView)
+//        picker.setVisible(true, forFirstResponder: uiView)
+//
+//        DispatchQueue.main.async {
+//            uiView.becomeFirstResponder()
+//        }
+//    }
+//
+//}
+struct MyCanvas : UIViewRepresentable {
+    var canvasView: PKCanvasView
+    
+    func makeUIView(context: Context) -> PKCanvasView {
+        canvasView.drawingPolicy = .anyInput
+        canvasView.tool = PKInkingTool(.marker, color: .blue, width: 50)
+        return canvasView
+    }
+
+    func updateUIView(_ canvasView: PKCanvasView, context: Context) { }
 }

@@ -242,7 +242,6 @@ struct WordData{
                                    "BATHROOM",
                                    "BODY PARTS",
                                    "VERBS",
-                                   
                                    "ALPHABET",
                                    "NUMBERS",
                                    ]

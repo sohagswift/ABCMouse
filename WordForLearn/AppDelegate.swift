@@ -34,3 +34,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+struct Kid {
+    private enum Keys {
+        static let level1Prograss = "level1Prograss"
+    }
+    
+    static var L1prograss: Int {
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.level1Prograss)
+            UserDefaults.standard.synchronize()
+        }
+        
+        get {
+            return UserDefaults.standard.integer(forKey: Keys.level1Prograss)
+        }
+    }
+}
