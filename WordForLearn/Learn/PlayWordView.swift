@@ -10,7 +10,6 @@ import AVFoundation
 import PencilKit
 
 struct PlayWordView: View {
-   // @State private var isSowingRed = false
     private var canvasView = PKCanvasView()
     private var canvasView2 = PKCanvasView()
     @State var points: [CGPoint] = []
