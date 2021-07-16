@@ -1,0 +1,55 @@
+//HomeView.swift
+"KidS_WOrLd" = "أطفال العالم";
+"Level" = "مستوى";
+"Review_Us" = "مراجعة لنا ";
+ 
+ 
+//PlayWordView.swift
+"This_things_all_start_with_later" = "كل هذه الأشياء تبدأ لاحقًا ";
+"is_for" = "هو ل ";
+"say" = "قل";
+"this_is,_a" = "هذا ال";//a_or_an
+"a," = "أ";
+"How_to_write_the_letter" = "كيف تكتب الرسالة ";//two_lavel
+"which_of_this_latter_said" = "أي من هذا الأخير قال ";
+"this,_is_the_latter" = "هذا هو الأخير ";
+"Trace_the_Letter" = "تتبع الرسالة ";
+ 
+ 
+//CategoryViewPicturePlay.swift
+"correct" = "صيح";
+"starts_with" = "ابدا ب ";
+"wrong" = "خاطئ ";
+"Which_one_is" = "أيهما";
+"Find_it" = "ابحث عنه ";
+"Find_the_mising_letter" = "ابحث عن الحرف المفقود ";
+"Which_one_starts_with" = "الذي يبدأ به ";
+"the_letter" = "الرسالة";
+"find_it" = "ابحث عنه ";
+ 
+ 
+ 
+ 
+//latterToWordView.swift
+ 
+ 
+//TryWriteView.swift
+"Tracing" = "";
+ 
+ 
+//LearnNumberView.swift
+"Number" = "";
+"Tap_on_number_to_learn" = "";
+ 
+//TryColorView.swift
+"Color_it" = "";
+ 
+//LearnColorView.swift
+"Color" = "";
+"Tap_on_color_to_learn" = "";
+ 
+//CategoryViewPicturePlay.swift
+ 
+//new
+ 
+"Remaining_time" = "Remaining time";

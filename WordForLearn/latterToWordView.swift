@@ -13,6 +13,7 @@ struct latterToWordView: View {
     @Namespace var namespace
     @State var selectedItem: CategorySectionContent? = nil
     @State var isDisable = false
+    @Binding var fromHome : Bool
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var speaker = AVSpeechSynthesizer()
@@ -20,6 +21,26 @@ struct latterToWordView: View {
     
     
     var body: some View {
+        
+        VStack{
+            
+            if !show {
+            
+            HStack {
+                Text("KidS WOrLd").font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
+                    .shadow(color: .gray, radius: 2, x: 0, y: 5)
+                Spacer()
+                CloseButton()
+                    .padding(.trailing, 16)
+                    .onTapGesture{
+                        fromHome = false
+//                                                     self.presentationMode.wrappedValue.dismiss()
+                                                 }
+                
+            }.background(Image("Certificate3")
+                            .resizable()
+                            .scaledToFill())
+            }
         ZStack{
            
             ScrollView{
@@ -28,18 +49,7 @@ struct latterToWordView: View {
                 
                 VStack(alignment: .leading, spacing:18){
                     
-                    HStack {
-                        Text("KidS WOrLd").font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
-                            .shadow(color: .gray, radius: 2, x: 0, y: 5)
-                        CloseButton()
-                            .padding(.trailing, 16)
-                            .onTapGesture{
-                                                             self.presentationMode.wrappedValue.dismiss()
-                                                         }
-                        
-                    }.background(Image("Certificate3")
-                                    .resizable()
-                                    .scaledToFill())
+                 
                     
                   
                     ForEach(categorySectionContents) { item in
@@ -148,12 +158,13 @@ struct latterToWordView: View {
             
           }
         }
+        }
         //  .animation(.spring())
     }
 }
 
-struct latterToWordView_Previews: PreviewProvider {
-    static var previews: some View {
-        latterToWordView()
-    }
-}
+//struct latterToWordView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        latterToWordView()
+//    }
+//}

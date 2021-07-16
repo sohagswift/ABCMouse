@@ -1,0 +1,60 @@
+
+//HomeView.swift
+"KidS_WOrLd" = "Kids World";
+"Level" = "Level";
+"Review_Us" = "Review Us";
+
+
+//PlayWordView.swift
+"This_things_all_start_with_later" = "This things all start with later";
+"is_for" = "is for";
+"say" = "say";
+"this_is,_a" = "this is, a";//a_or_an
+"a," = "a,";
+"How_to_write_the_letter" = "How to write the letter";//two_lavel
+"which_of_this_latter_said" = "which of this latter said";
+"this,_is_the_latter" = "this, is the latter";
+"Trace_the_Letter" = "Trace the Letter";
+
+
+//CategoryViewPicturePlay.swift
+"correct" = "correct";
+"starts_with" = "starts with";
+"wrong" = "wrong";
+"Which_one_is" = "Which one is";
+"Find_it" = "Find it";
+"Find_the_mising_letter" = "Find the mising letter";
+"Which_one_starts_with" = "Which one starts with";
+"the_letter" = "the letter";
+"find_it" = "find it";
+
+
+
+
+//latterToWordView.swift
+
+
+//TryWriteView.swift
+"Tracing" = "";
+
+
+//LearnNumberView.swift
+"Number" = "";
+"Tap_on_number_to_learn" = "";
+
+//TryColorView.swift
+"Color_it" = "";
+
+//LearnColorView.swift
+"Color" = "";
+"Tap_on_color_to_learn" = "";
+
+//CategoryViewPicturePlay.swift
+
+
+
+
+
+
+
+

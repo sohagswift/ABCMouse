@@ -307,11 +307,11 @@ struct TapLaterView: View {
     }
 }
 
-struct TapLaterView_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryViewPicturePlay()
-    }
-}
+//struct TapLaterView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryViewPicturePlay()
+//    }
+//}
 
 
 

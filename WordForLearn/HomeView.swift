@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 extension UIView {
     var globalFrame: CGRect? {
@@ -20,9 +21,14 @@ struct Movie: Hashable {
 
 struct HomeView: View {
     
-    init() {
-        UINavigationBar.appearance().barTintColor = .systemBackground
-    }
+    @StateObject var storeManager: StoreManager
+    @State var openInAppParcace = false
+    @State var isForReview  = false
+    
+    
+//    init() {
+//        UINavigationBar.appearance().barTintColor = .systemBackground
+//    }
     
     let topMovies: [Movie] = [//learing
         .init(title: "Level 1", imageName: "life1"),
@@ -71,32 +77,87 @@ struct HomeView: View {
             VStack(alignment: .leading){
                 
                 VStack{
-                    Text("KidS WOrLd").font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
+                    HStack{
+                        VStack{
+                            Text("KidS_WOrLd".localizedStringForKey()).font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
                         .shadow(color: .gray, radius: 2, x: 0, y: 5)
-                }.background(Image("Certificate3")
-                                .resizable()
-                                .scaledToFill())
+                        }.background(Image("Certificate3")
+                                        .resizable()
+                                        .scaledToFill())
+                        Spacer()
+                        refreshdButton(imageName: "lock.shield")
+                        .padding([.trailing,.top], 20)
+                        .onTapGesture{
+                            openInAppParcace = true
+                        }
+                    }
+                }
                 
-               
+                          
               
                   
                     ScrollView {
+                        
                  
                       //  Divider().padding(.leading, 16)
-                        MoviesCarousel(categoryName: "Top Movies of 2020", movies: topMovies)
+                        MoviesCarousel(storeManager: storeManager, categoryName: "Top Movies of 2020", movies: topMovies)
                         Divider().padding(.leading, 16)
-                        MoviesCarousel(categoryName: "Animated Movies", movies: animationMovies)
+                        MoviesCarousel(storeManager: storeManager,categoryName: "Animated Movies", movies: animationMovies)
                         Divider().padding(.leading, 16)
-                        MoviesCarousel(categoryName: "Top Movies of 2020", movies: dramaMovies)
+                        MoviesCarousel(storeManager: storeManager,categoryName: "Top Movies of 2020", movies: dramaMovies)
                         Divider().padding(.leading, 16)
-                        MoviesCarousel(categoryName: "Animated Movies", movies: sincMovies)
+                        MoviesCarousel(storeManager: storeManager,categoryName: "Animated Movies", movies: sincMovies)
 //                        Divider().padding(.leading, 16)
+//                        HStack(spacing: 12) {
+//                            Spacer()
+//                            Button(action: {
+//                                withAnimation {
+//                                    isForReview = true
+//                                    openInAppParcace = true
+//                                   
+//                                }
+//                            }, label: {
+//                                ZStack (alignment: .trailing) {
+//
+//                                    Text("Review Us")
+//                                        .font(.system(size: 20, weight: .regular))
+//                                        .foregroundColor(.black)
+//
+//                                }
+//                            })
+//                            Button(action: {
+//                                withAnimation {
+//                                    isForReview = true
+//                                    openInAppParcace = true
+//                                    
+//                                }
+//                            }, label: {
+//                                ZStack {
+//                                    RoundedRectangle(cornerRadius: 10)
+//                                        .fill(Color.black)
+//                                        .frame(width: 50, height: 50)
+//                                        .rotationEffect(.degrees(45))
+//
+//                                    Image(systemName: "app")
+//                                        .font(.system(size: 20, weight: .bold))
+//                                        .foregroundColor(.white)
+//                                }
+//                            })
+//                        }.padding(.all,20)
                     }
             }.background(Image("HomeBackground")
                             .resizable()
                             .scaledToFill())
+            .fullScreenCover(isPresented: self.$openInAppParcace) {
+             
+                ParentPermisionView(isForReview: $isForReview, isPresented: $openInAppParcace,storeManager: storeManager)
+
+            }
             .navigationBarHidden(true)
-        }
+            .navigationBarTitle("") //this must be empty
+            .navigationBarBackButtonHidden(true)
+            
+        }.navigationViewStyle(StackNavigationViewStyle())
        
         
        // .edgesIgnoringSafeArea(.all)
@@ -109,9 +170,27 @@ struct HomeView: View {
     }
 }
 
+class ListViewModel: ObservableObject {
+
+   @Published var title = String()
+
+   func addItem(content : String){
+    title = content
+   }
+    
+    
+}
+
+
+
+
 struct MoviesCarousel: View {
     
-    let categoryName: String
+    @StateObject var storeManager: StoreManager
+    @State private var outgoingCardPresent = false
+    
+       var categoryName : String = ""
+    @ObservedObject var title = ListViewModel()
     let movies: [Movie]
     
     func getScale(proxy: GeometryProxy) -> CGFloat {
@@ -131,10 +210,15 @@ struct MoviesCarousel: View {
         return scale
     }
     
-    
 
+   
     
     func getDestination(itemText: String) -> AnyView {
+        
+//
+    
+//
+        
         
       
 //        if movies[0].title == itemText {
@@ -148,33 +232,41 @@ struct MoviesCarousel: View {
         // var mainItem = ["Picture Game","Word Game","Find Game","Letter Game"]
         switch itemText.lowercased() {
         case "Level 12".lowercased(): //Find the missing la tter _pple
-            return AnyView(CategoryViewPicturePlay(Viewindex:4,title:itemText))
+            return AnyView(CategoryViewPicturePlay(Viewindex:4,title:itemText, fromHome: $outgoingCardPresent, storeManager: storeManager))
         case "Level 11".lowercased(): //start with the letter
-            return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText))
+            return AnyView(CategoryViewPicturePlay(Viewindex:0,title:itemText, fromHome: $outgoingCardPresent, storeManager: storeManager))
         case "Level 10".lowercased(): //which on is ______
-            return AnyView(CategoryViewPicturePlay(Viewindex:2,title:itemText))
-        case "Level 9".lowercased(): // learn color
-            return AnyView(LearnColorView(items: WordData.colors))
-        case "Level 8".lowercased():  //color it charater
-            return AnyView(TryColorView(items: WordData.getTrytoWirte(color:true)))
-        case "Level 7".lowercased():  //learn number
-            return AnyView(LearnNumberView(items: WordData.numberWithTextBottom))
-        case "Level 6".lowercased(): //traching number
-            return AnyView(TryWriteView(items: WordData.typeWordNumbers))
-        case "Level 5".lowercased(): //traching latter
-            return AnyView(TryWriteView(items: WordData.getTrytoWirte()))
-        case "Level 4".lowercased(): //number  / charater  learing
-            return AnyView(latterToWordView())
-//        case "Level 4".lowercased():
-//            return AnyView(TapLaterView(Viewindex:0,title:itemText))
+            return AnyView(CategoryViewPicturePlay(Viewindex:2,title:itemText, fromHome: $outgoingCardPresent, storeManager: storeManager))
         case "Level 3".lowercased()://which one is word
-            return AnyView(CategoryViewPicturePlay(Viewindex:1,title:itemText))
+            return AnyView(CategoryViewPicturePlay(Viewindex:1,title:itemText, fromHome: $outgoingCardPresent, storeManager: storeManager))
         case "Level 2".lowercased(): //find it
-            return AnyView(CategoryViewPicturePlay(Viewindex:3,title:itemText))
-        case "Level 1".lowercased():
-            return AnyView(PlayWordView())
+            return AnyView(CategoryViewPicturePlay(Viewindex:3,title:itemText, fromHome: $outgoingCardPresent, storeManager: storeManager))
         default:
-            return AnyView(TryColorView(items: WordData.tryColor))
+            //return AnyView(TryColorView(items: WordData.tryColor))
+            
+            if !storeManager.isPurchase(){
+               // outgoingCardPresent = true
+                return AnyView(ParentPermisionView(isForReview: .constant(false), isPresented: $outgoingCardPresent,storeManager: storeManager))
+            }
+        
+            switch itemText.lowercased() {
+            case "Level 9".lowercased(): // learn color
+                return AnyView(LearnColorView(items: WordData.colors))
+            case "Level 8".lowercased():  //color it charater
+                return AnyView(TryColorView(items: WordData.getTrytoWirte(color:true)))
+            case "Level 7".lowercased():  //learn number
+                return AnyView(LearnNumberView(items: WordData.numberWithTextBottom))
+            case "Level 6".lowercased(): //traching number
+                return AnyView(TryWriteView(items: WordData.typeWordNumbers))
+            case "Level 5".lowercased(): //traching latter
+                return AnyView(TryWriteView(items: WordData.getTrytoWirte()))
+            case "Level 4".lowercased(): //number  / charater  learing
+                return AnyView(latterToWordView(fromHome: $outgoingCardPresent))
+            case "Level 1".lowercased():
+                return AnyView(PlayWordView())
+            default:
+                return AnyView(TryColorView(items: WordData.tryColor))
+            }
         }
         
        
@@ -216,9 +308,9 @@ struct MoviesCarousel: View {
                 ForEach(movies, id: \.self) { num in
                     GeometryReader { proxy in
                         let scale = getScale(proxy: proxy)
-                        NavigationLink(
-                            destination: getDestination(itemText: num.title) /*MovieDetailsView(movie: num)*/.navigationBarHidden(true),
-                            label: {
+//                        NavigationLink(
+//                            destination: getDestination(itemText: num.title) /*MovieDetailsView(movie: num)*/.navigationBarHidden(true), isActive: $outgoingCardPresent,
+//                            label: {
                                 VStack(spacing: 8) {
                                     Image(num.imageName)
                                         .resizable()
@@ -231,12 +323,23 @@ struct MoviesCarousel: View {
                                                 .stroke(Color(white: 0.4))
                                         )
                                         .shadow(radius: 3)
-                                    Text(num.title)
+                                    Text(num.title.components(separatedBy: " ")[0].localizedStringForKey() + " \(num.title.components(separatedBy: " ").last ?? "1")")
                                         .font(.system(size: 16, weight: .semibold))
                                         .multilineTextAlignment(.center)
                                         .foregroundColor(.black)
+                                }.onTapGesture {
+//
+//                                            if !storeManager.isPurchase() {
+//                                               // outgoingCardPresent = true
+//                                                title.addItem(content:  "purchase_require")
+//                                            }else{
+                                                title.addItem(content:  num.title)
+                                           // }
+                                    
+                                   
+                                    outgoingCardPresent = true
                                 }
-                            })
+//                            })
                         
                             .scaleEffect(.init(width: scale, height: scale))
 //                            .animation(.spring(), value: 1)
@@ -247,11 +350,20 @@ struct MoviesCarousel: View {
                     .frame(width: 125, height: 380)
                     .padding(.horizontal, 32)
                     .padding(.vertical, 32)
+                    
+                  
                   
                 }
+
                 Spacer()
                     .frame(width: 16)
+                
+
             }
+                            .fullScreenCover(isPresented: self.$outgoingCardPresent) {
+                                getDestination(itemText: title.title)
+            
+                            }
           
         }
        
@@ -271,11 +383,11 @@ struct MovieDetailsView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()//.previewDevice(PreviewDevice(rawValue: "iPhone7"))
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()//.previewDevice(PreviewDevice(rawValue: "iPhone7"))
+//    }
+//}
 
 
 

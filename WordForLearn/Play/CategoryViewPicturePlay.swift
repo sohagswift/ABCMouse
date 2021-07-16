@@ -9,11 +9,15 @@ import SwiftUI
 import AVFoundation
 struct CategoryViewPicturePlay: View {
     var speaker = AVSpeechSynthesizer()
+    
     @State var Viewindex = 3
     var title = "KidS WOrLd"
     @State  var correctAnswer = 0
     @State  var items =  [Item]()
     @State var show = false
+    @State var showPurchase = false
+    @Binding var fromHome : Bool
+    @StateObject var storeManager: StoreManager
     @Namespace var namespace
     @State var didSetFire = true // due to xcode bug
     @State var selectedItem: CategorySectionContent? {
@@ -29,7 +33,31 @@ struct CategoryViewPicturePlay: View {
     @State var isDisable = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
+        
+        
+        VStack{
+            
+            if !show {
+            HStack {
+                Text(title).font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
+                    .shadow(color: .gray, radius: 2, x: 0, y: 5)
+                Spacer()
+                CloseButton()
+                    .padding(.trailing, 16)
+                    .onTapGesture{
+                        self.fromHome = false
+                                                    // self.presentationMode.wrappedValue.dismiss()
+                        }
+                
+            }.background(Image("Certificate3")
+                            .resizable()
+                            .scaledToFill())
+            }
+            
+            
         ZStack{
+            
+
            
             ScrollView{
                 
@@ -37,18 +65,7 @@ struct CategoryViewPicturePlay: View {
                 
                 VStack(alignment: .leading, spacing:18){
                     
-                    HStack {
-                        Text(title).font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
-                            .shadow(color: .gray, radius: 2, x: 0, y: 5)
-                        CloseButton()
-                            .padding(.trailing, 16)
-                            .onTapGesture{
-                                                             self.presentationMode.wrappedValue.dismiss()
-                                                         }
-                        
-                    }.background(Image("Certificate3")
-                                    .resizable()
-                                    .scaledToFill())
+            
                     
                   
                     ForEach(WordData.getCategorItem(Viewindex:Viewindex)) { item in
@@ -59,6 +76,13 @@ struct CategoryViewPicturePlay: View {
                             .padding(.leading, 16)
                             .onTapGesture{
                                 withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
+                                    
+                                    if !storeManager.isPurchase(){
+                                       // outgoingCardPresent = true
+                                        showPurchase = true
+                                        return
+                                        //return AnyView(StoreBuyView(isPresented: $outgoingCardPresent,storeManager: storeManager))
+                                    }
                                     show.toggle()
                                     correctAnswer = 0
                                     selectedItem = item
@@ -71,6 +95,12 @@ struct CategoryViewPicturePlay: View {
 //                        .frame(width: 280, height: 230)
                 }.frame(maxWidth:.infinity)
             }
+            .fullScreenCover(isPresented: self.$showPurchase) {
+             
+                ParentPermisionView(isForReview: .constant(false), isPresented: $showPurchase,storeManager: storeManager)
+
+            }
+
             
             if selectedItem != nil {
                 VStack(){
@@ -192,7 +222,7 @@ struct CategoryViewPicturePlay: View {
             
           }
         }
-        
+        }
        
         //  .animation(.spring())
     }
@@ -269,7 +299,7 @@ struct CategoryViewPicturePlay: View {
         }
 
     func flagTapped(_ tag : String){
-        if tag == selectedItem?.items[correctAnswer].name {
+        if tag == selectedItem?.items[correctAnswer].name || (Viewindex == 4 && tag == selectedItem?.items[correctAnswer].name[0..<1] )  {
             //textToSpeach("correct")
             playSound(filename:"correct" )
             
@@ -290,6 +320,8 @@ struct CategoryViewPicturePlay: View {
         
             if Viewindex == 0 {
                 textToSpeach(tag + ", starts with , \(tag[0])")
+            }else if Viewindex == 4 {
+                textToSpeach("wrong")
             }else {
                 textToSpeach(tag)
             }
@@ -344,11 +376,11 @@ struct CategoryViewPicturePlay: View {
     }
 }
 
-struct CategoryViewPicturePlay_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryViewPicturePlay()
-    }
-}
+//struct CategoryViewPicturePlay_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryViewPicturePlay()
+//    }
+//}
 
 
 

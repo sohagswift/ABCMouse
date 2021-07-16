@@ -128,7 +128,7 @@ struct PlayWordView: View {
             isShowingNextButton = true
         }else if viewPort == 9 {
             //self.textToSpeach("say, a")
-            self.textToSpeach("this is, an, \(wordElement)")
+            self.textToSpeach("this is, \(wordElement[0..<1] == "a" ? "an" : "a"), \(wordElement)") //an or a
             
             isShowingNextButton = false
             viewPort = viewPort + 1
@@ -203,7 +203,7 @@ struct PlayWordView: View {
             isShowingNextButton = false
         }else if self.viewPort == 10 {
             self.textToSpeach("\(wordLower)")
-            self.textToSpeach("this is, an, \(wordElement)",stopSpeaking : false)
+            self.textToSpeach("this is, \(wordElement[0..<1] == "a" ? "an" : "a"), \(wordElement)",stopSpeaking : false)
             
             isShowingNextButton = false
         }else if self.viewPort == 12 {
@@ -358,7 +358,7 @@ struct PlayWordView: View {
 //                    .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
             }else if viewPort == 10 {
               
-                Text("an")
+                Text("\(wordElement[0..<1] == "a" ? "an" : "a")")
                          .foregroundColor(.blue)
                          .font(Font.custom("SavoyeLetPlain", size: 160))
                 Image(wordElement.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
@@ -401,7 +401,7 @@ struct PlayWordView: View {
                     
                // }
                 GeometryReader { (geometry) in
-                    self.traceTheWord(geometry,name:"trace_c\(wordLower)",_canvasView :canvasView)
+                    self.traceTheWord(geometry,name:"trace_c\(wordLower)",_canvasView :PKCanvasView())
                         }
                     
                     .frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -428,7 +428,7 @@ struct PlayWordView: View {
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
                 
                 GeometryReader { (geometry) in
-                    self.traceTheWord(geometry,name:"trace_\(wordLower)",_canvasView :canvasView2)
+                    self.traceTheWord(geometry,name:"trace_\(wordLower)",_canvasView :PKCanvasView())
                         }
                     .frame(maxWidth: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .transition(.scale)
@@ -552,9 +552,9 @@ struct PlayWordView: View {
         var height = geometry.size.width + 150 //self.view.frame.height
        
             let imageView = UIImageView(image: UIImage(named: name)?.resizeImage(targetSize: CGSize(width: width - 40, height:  width - 40)))
-
+        
             let contentView = Tool.getContentViewFromPkCanvasView(_canvasView)
-      
+        contentView.clearsContextBeforeDrawing = true
             contentView.addSubview(imageView)
             contentView.sendSubviewToBack(imageView)
             imageView.center = CGPoint(
@@ -579,7 +579,7 @@ struct PlayWordView: View {
         let utterance = AVSpeechUtterance(string: str)
         utterance.pitchMultiplier = 1.3
         utterance.rate = 0.4
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         self.speaker.speak(utterance)
     }
 }

@@ -10,12 +10,9 @@ import SwiftUI
 public struct CloseButton: View {
     
     public var body: some View {
-        Image(systemName: "xmark")
-            .font(.system(size: 17, weight: .bold))
-            .foregroundColor(.white)
-            .padding(.all, 10)
-            .background(Color.black.opacity(0.6))
-            .clipShape(Circle())
+        refreshdButton(color: Color.black)
+            .padding([.trailing, .top], 20)
+         
     }
 }
 
