@@ -77,7 +77,7 @@ struct  StoreBuyView : View {
 
                             HStack{
                             VStack(alignment: .leading){
-                                Text("Unloack everythings".capitalized)
+                                Text("label0".localizedStringForKey())
                                     .font(.system(size: 21, weight: .heavy))
                                     .foregroundColor(.green)
                                     //.padding(.bottom,1)
@@ -85,26 +85,26 @@ struct  StoreBuyView : View {
                                 VStack(alignment: .leading){
                                     HStack{
                                         Image(systemName: "checkmark.circle").foregroundColor( .green ).font(.headline)
-                                    Text("Expanded libaray of 30+ categories".capitalized)
+                                        Text("label1".localizedStringForKey())
                                         .font(.system(size: 16, weight: .medium))
                                         .foregroundColor( .white )
                                     }
                                     HStack{
                                         Image(systemName: "checkmark.circle").foregroundColor( .green ).font(.headline)
-                                    Text("Trace and Identify A to Z Letters".capitalized)
+                                    Text("label2".localizedStringForKey())
                                         .font(.system(size: 16, weight: .medium))
                                         .foregroundColor( .white )
                                     }
                                     HStack{
                                         Image(systemName: "checkmark.circle").foregroundColor( .green ).font(.headline)
-                                    Text("Delightful 1000+ pictures to learn".capitalized)
+                                    Text("label3".localizedStringForKey())
                                         .font(.system(size: 16, weight: .medium))
                                         .foregroundColor( .white )
                                     }
 
                                     HStack{
                                         Image(systemName: "checkmark.circle").foregroundColor( .green ).font(.headline)
-                                    Text("Education game to Play and more".capitalized)
+                                    Text("label4".localizedStringForKey())
                                         .font(.system(size: 16, weight: .medium))
                                         .foregroundColor( .white )
                                     }
@@ -131,7 +131,7 @@ struct  StoreBuyView : View {
                         }
                         Spacer()
                         if UserDefaults.standard.bool(forKey: product.productIdentifier) {
-                            Text ("Purchased")
+                            Text ("label5".localizedStringForKey())
                                 .foregroundColor(.green)
                         } else {
                             Button(action: {
@@ -155,14 +155,14 @@ struct  StoreBuyView : View {
                             isPresented = false
                             storeManager.restoreProducts()
                         }) {
-                            Text("Restore Purchases ")
+                            Text("button1".localizedStringForKey())
                         }
                     }
                 })
                 
                 HStack{
                     Spacer()
-                    Button("Restore Purchases") {
+                    Button("button1".localizedStringForKey()) {
                                print("Button pressed!")
                                storeManager.restoreProducts()
                            }
@@ -184,7 +184,7 @@ struct  StoreBuyView : View {
                         transconditionPresent = true
                     }, label:{
 
-                            Text("Terms of Use")
+                            Text("button2".localizedStringForKey())
                                 .fontWeight(.regular)
                                 .foregroundColor(.blue)
                                 .padding(.all,4)
@@ -203,11 +203,12 @@ struct  StoreBuyView : View {
 
 
                     Button(action: {
-                        print("Button pressed!")
+                        print("button3".localizedStringForKey())
                        privacypolicyPresent = true
+                        
                     }, label:{
 
-                            Text("Privacy Policy")
+                            Text("button3".localizedStringForKey())
                                 .fontWeight(.regular)
                                 .foregroundColor(.blue)
                                 .padding(.all,4)
@@ -253,7 +254,7 @@ struct  StoreBuyView : View {
 
 struct StoreBuyView_Previews: PreviewProvider {
     static var previews: some View {
-        ParentPermisionView(isForReview: .constant(false), isPresented: .constant(true), storeManager: StoreManager())
+        ParentPermisionView( isPresented: .constant(true), storeManager: StoreManager())
     }
 }
 

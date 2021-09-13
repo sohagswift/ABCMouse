@@ -5,7 +5,7 @@ class StoreManager: NSObject, ObservableObject, SKProductsRequestDelegate, SKPay
     
     let productIDs = [
         //Use your product IDs instead
-        "com.WordForKids.ShohagStore.IAP.Weekly",
+       // "com.WordForKids.ShohagStore.IAP.Weekly",
         "com.WordForKids.ShohagStore.IAP.Monthly",
         "com.WordForKids.ShohagStore.IAP.Yearly",
         "com.WordForKids.ShohagStore.IAP.LifeTime"

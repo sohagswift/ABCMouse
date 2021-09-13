@@ -8,6 +8,7 @@
 import SwiftUI
 import AVFoundation
 import PencilKit
+import StoreKit
 
 struct PlayWordView: View {
     private var canvasView = PKCanvasView()
@@ -50,7 +51,7 @@ struct PlayWordView: View {
             }
         }
 
-        self.textToSpeach(wordLower)
+        self.textToSpeach2(wordLower)
     }
     
     
@@ -86,7 +87,7 @@ struct PlayWordView: View {
     fileprivate func primaryButtonAction() {
         // self.isSowingRed.toggle()
         if  viewPort == 1  {
-            self.textToSpeach(wordCap)
+            self.textToSpeach2(wordCap)
             self.word = wordLower
             viewPort = viewPort + 1
             self.isShowingNextButton = false
@@ -97,7 +98,8 @@ struct PlayWordView: View {
             viewPort = viewPort - 1
         }
         else if viewPort == 3 {
-            self.textToSpeach("This things all start with later, \(wordCap)")
+            self.textToSpeach("\("speach1".localizedStringForKey())")
+            self.textToSpeach2(wordCap)
             isShowingNextButton = false
             viewPort = viewPort + 1
         }
@@ -108,7 +110,8 @@ struct PlayWordView: View {
             viewPort = viewPort - 1
         }
         else if viewPort == 5 {
-            self.textToSpeach("\(wordCap), is for, \(wordElement)")
+            self.textToSpeach("\(wordCap), \("speach2".localizedStringForKey())")
+            self.textToSpeach2(wordElement)
             isShowingNextButton = false
             viewPort = viewPort + 1
         }else if viewPort == 6 {
@@ -116,9 +119,9 @@ struct PlayWordView: View {
             viewPort = viewPort - 1
             isShowingNextButton = true
         }else if viewPort == 7 {
-            self.textToSpeach("say,")
-            self.textToSpeach("\(wordCap)",stopSpeaking : false)
-            self.textToSpeach("\(wordLower), \(wordLower)",stopSpeaking : false)
+            self.textToSpeach("\("speach3".localizedStringForKey()),")
+            self.textToSpeach2("\(wordCap)",stopSpeaking : false)
+            self.textToSpeach2("\(wordLower), \(wordLower)",stopSpeaking : false)
             // self.textToSpeach("a")
             isShowingNextButton = false
             viewPort = viewPort + 1
@@ -128,7 +131,7 @@ struct PlayWordView: View {
             isShowingNextButton = true
         }else if viewPort == 9 {
             //self.textToSpeach("say, a")
-            self.textToSpeach("this is, \(wordElement[0..<1] == "a" ? "an" : "a"), \(wordElement)") //an or a
+            self.textToSpeach("\("speach4".localizedStringForKey()), \(wordElement[0..<1] == "a" ? "\("speach5".localizedStringForKey())" : "\("speach5_1".localizedStringForKey())"), \(wordElement)") //an or a
             
             isShowingNextButton = false
             viewPort = viewPort + 1
@@ -138,8 +141,8 @@ struct PlayWordView: View {
             isShowingNextButton = true
         }else if viewPort == 11 {
             //self.textToSpeach("say, a")
-            self.textToSpeach("How to write the letter, \(wordCap)")
-            self.textToSpeach("\(wordCap)",stopSpeaking : false)
+            self.textToSpeach("\("speach6".localizedStringForKey())")
+            self.textToSpeach2("\(wordCap)",stopSpeaking : false)
             isShowingNextButton = false
             viewPort = viewPort + 1
         }else if viewPort == 12 {
@@ -149,8 +152,8 @@ struct PlayWordView: View {
             canvasView.drawing = PKDrawing()
         }else if viewPort == 13 {
             //self.textToSpeach("say, a")
-            self.textToSpeach("How to write the letter")
-            self.textToSpeach("\(wordLower)",stopSpeaking : false)
+            self.textToSpeach("\("speach7".localizedStringForKey())")
+            self.textToSpeach2("\(wordLower)",stopSpeaking : false)
             isShowingNextButton = false
             viewPort = viewPort + 1
         }else if viewPort == 14 {
@@ -161,7 +164,9 @@ struct PlayWordView: View {
         }else if viewPort == 15 {
 
             //self.textToSpeach("say, a")
-            self.textToSpeach("which of this latter said,\(wordCap)")
+//            self.textToSpeach("\("speach8".localizedStringForKey()),")
+//            self.textToSpeach2("\(wordCap)")
+            textToSpeach(index: 15)
             isShowingNextButton = false
             viewPort = viewPort + 1
             suffleLaterPosstion()
@@ -176,11 +181,22 @@ struct PlayWordView: View {
     }
     
     
+    func textToSpeach(index : Int)  {
+        switch index {
+        case 15:
+            textToSpeach("\("speach8".localizedStringForKey()),",stopSpeaking : false)
+            self.textToSpeach2("\(wordCap)",stopSpeaking : false)
+        default:
+            print("noting")
+        }
+    }
+    
+    
     fileprivate func nextbuttonOnclickAction() {
         if self.viewPort == 15   {
             Alphabetscounter = Alphabetscounter + 1
             defultTopSecton()
-            textToSpeach("this, is the latter, \(wordCap)",stopSpeaking : false)
+            textToSpeach(index: 15)
             self.viewPort = 1
             isShowingNextButton = false
         }else{
@@ -188,36 +204,39 @@ struct PlayWordView: View {
         }
         
         if self.viewPort == 4 {
-            self.textToSpeach("This things all start with later, \(wordCap)")
+            self.textToSpeach("\("speach1".localizedStringForKey()),")
+            self.textToSpeach2("\(wordCap)",stopSpeaking : false)
             isShowingNextButton = false
 
             
         }else if self.viewPort == 6 {
-            self.textToSpeach("\(wordCap), is for, \(wordElement)")
+            self.textToSpeach("\(wordCap), \("speach2".localizedStringForKey()),")
+            self.textToSpeach2("\(wordElement)",stopSpeaking : false)
             isShowingNextButton = false
         }else if self.viewPort == 8 {
-            self.textToSpeach("say,")
-            self.textToSpeach("\(wordCap)",stopSpeaking : false)
-            self.textToSpeach("\(wordLower), \(wordLower)",stopSpeaking : false)
+            self.textToSpeach("\("speach3".localizedStringForKey()),")
+            self.textToSpeach2("\(wordCap)",stopSpeaking : false)
+            self.textToSpeach2("\(wordLower), \(wordLower)",stopSpeaking : false)
             
             isShowingNextButton = false
         }else if self.viewPort == 10 {
-            self.textToSpeach("\(wordLower)")
-            self.textToSpeach("this is, \(wordElement[0..<1] == "a" ? "an" : "a"), \(wordElement)",stopSpeaking : false)
-            
+            self.textToSpeach2("\(wordLower)")
+            self.textToSpeach("\("speach4".localizedStringForKey())",stopSpeaking : false)
+            self.textToSpeach2(" \(wordElement[0..<1] == "a" ? "\("speach5_1".localizedStringForKey())" : "\("speach5".localizedStringForKey())")")
+            self.textToSpeach2("\(wordElement)")
             isShowingNextButton = false
         }else if self.viewPort == 12 {
-            self.textToSpeach("How to write the letter")
+            self.textToSpeach("\("speach6".localizedStringForKey())")
             self.textToSpeach("\(wordCap)",stopSpeaking : false)
             isShowingNextButton = false
         }
         else if self.viewPort == 14 {
-            self.textToSpeach("How to write the letter")
+            self.textToSpeach("\("speach6".localizedStringForKey())")
             self.textToSpeach("\(wordLower)",stopSpeaking : false)
             isShowingNextButton = false
         }
         else if self.viewPort == 16 {
-            self.textToSpeach("which of this latter said")
+            self.textToSpeach("\("speach7".localizedStringForKey())")
             self.textToSpeach("\(wordLower)",stopSpeaking : false)
             isShowingNextButton = false
             suffleLaterPosstion()
@@ -236,18 +255,49 @@ struct PlayWordView: View {
         }
     }
     
+    
+    func rateApp() {
+
+        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                  SKStoreReviewController.requestReview(in: scene)
+              }
+    }
+
+    
   
     
     var body: some View {
         
         VStack{
             if isShowingNextButton {
-               CloseButton().id(UUID())
-                .padding(.trailing, 0)
-                .padding(.top, 40)
-                .onTapGesture{
-                    self.presentationMode.wrappedValue.dismiss()
+                
+                HStack{
+                    Button(action: {
+                        withAnimation {
+                            rateApp()
+                        }
+                    }, label: {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.green)
+                                .frame(width: 45, height: 45)
+                                .rotationEffect(.degrees(45))
+
+                            Image(systemName: "star")
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(.white)
+                        }
+                    })
+                    
+                    CloseButton().id(UUID())
+                     .padding(.trailing, 0)
+                     .padding(.top, 40)
+                     .onTapGesture{
+                         self.presentationMode.wrappedValue.dismiss()
+                     }
+
                 }
+                
                 
             }
     
@@ -313,7 +363,7 @@ struct PlayWordView: View {
                                     .onTapGesture{
                                         print("Double tapped!")
                                         // self.flagTapped(item.name)
-                                        textToSpeach(item.name)
+                                        textToSpeach2(item.name)
                                     }
                                 
                                 
@@ -330,7 +380,7 @@ struct PlayWordView: View {
                 }
              }
              else if viewPort == 6 {
-                    Text("is for").font(.system(size: 50, weight: .bold))
+                    Text("\("speach2".localizedStringForKey())").font(.system(size: 50, weight: .bold))
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
                 Image(wordElement.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
@@ -358,7 +408,7 @@ struct PlayWordView: View {
 //                    .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
             }else if viewPort == 10 {
               
-                Text("\(wordElement[0..<1] == "a" ? "an" : "a")")
+                Text("\(wordElement[0..<1] == "a" ? "\("speach5_1".localizedStringForKey())" : "\("speach5".localizedStringForKey())")")
                          .foregroundColor(.blue)
                          .font(Font.custom("SavoyeLetPlain", size: 160))
                 Image(wordElement.replacingOccurrences(of: " ", with: "_").lowercased()).resizable().aspectRatio(contentMode: .fit)
@@ -374,7 +424,7 @@ struct PlayWordView: View {
                 
             }else if viewPort == 12 {
                 
-                Text("Trace the Letter")
+                Text("\("speach9".localizedStringForKey())")
                     .font(.system(size: 40, weight: .bold))
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
@@ -422,7 +472,7 @@ struct PlayWordView: View {
                 
             }else if viewPort == 14 {
                 
-                Text("Trace the Letter")
+                Text("\("speach9".localizedStringForKey())")
                     .font(.system(size: 40, weight: .bold))
                         .padding()
                         .background(RoundedRectangle(cornerRadius: 8).fill(Color.clear))
@@ -536,7 +586,8 @@ struct PlayWordView: View {
             
         }.onAppear {
             defultTopSecton()
-            textToSpeach("this, is the latter, \(wordCap)")
+            textToSpeach("\("speach8".localizedStringForKey())")
+            self.textToSpeach2(wordCap)
         }
         
     }
@@ -572,16 +623,15 @@ struct PlayWordView: View {
        }
     
     func textToSpeach(_ str : String, stopSpeaking : Bool = true ){
-        if stopSpeaking {
-            speaker.stopSpeaking(at: .immediate)
-        }
-       
-        let utterance = AVSpeechUtterance(string: str)
-        utterance.pitchMultiplier = 1.3
-        utterance.rate = 0.4
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
-        self.speaker.speak(utterance)
+        
+        SpeckLife.textToSpeach(str, stopSpeaking: stopSpeaking, speaker: speaker)
     }
+    
+    func textToSpeach2(_ str : String, stopSpeaking : Bool = true ){
+        
+        SpeckLife.textToSpeach(str, stopSpeaking: stopSpeaking , en: true, speaker: speaker)
+    }
+    
 }
 
 struct PlayWordView_Previews: PreviewProvider {
@@ -643,4 +693,28 @@ struct MyCanvas : UIViewRepresentable {
     }
 
     func updateUIView(_ canvasView: PKCanvasView, context: Context) { }
+}
+
+struct SpeckLife {
+    static func textToSpeach(_ str : String, stopSpeaking : Bool = true , en : Bool = false , speaker : AVSpeechSynthesizer){
+        
+        print(str)
+        if stopSpeaking {
+            speaker.stopSpeaking(at: .immediate)
+        }
+       
+        let utterance = AVSpeechUtterance(string: str)
+        utterance.pitchMultiplier = 1.3
+        utterance.rate = 0.4
+        
+    if  en || (categorySectionContents[0].items.filter({$0.name.lowercased() == str.lowercased()}).first != nil) {
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-uk")
+    }else{
+       
+        utterance.voice = AVSpeechSynthesisVoice(language: TStorage.wordFocus )
+    }
+    
+       
+        speaker.speak(utterance)
+    }
 }

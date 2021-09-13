@@ -38,6 +38,7 @@
 		6DC7536A2695E6E50099A4EC /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC753672695E6E50099A4EC /* StoreManager.swift */; };
 		6DC7536D2695EC990099A4EC /* WebSideLodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC7536C2695EC990099A4EC /* WebSideLodeView.swift */; };
 		6DEB6BEA269DDAC8004E6DD3 /* LocalizationSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DEB6BE9269DDAC8004E6DD3 /* LocalizationSystem.swift */; };
+		6DF6AD7026A30A7700A68504 /* LanguageSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF6AD6F26A30A7700A68504 /* LanguageSetting.swift */; };
 		CB6634E625D14EFA0019BAFA /* latterToWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6634E525D14EFA0019BAFA /* latterToWordView.swift */; };
 		CB6634EC25D25E970019BAFA /* FromTextToImageQustionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6634EB25D25E970019BAFA /* FromTextToImageQustionView.swift */; };
 		CB6634EF25D268950019BAFA /* ImageToTextQustionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6634EE25D268950019BAFA /* ImageToTextQustionView.swift */; };
@@ -103,6 +104,7 @@
 		6DC753672695E6E50099A4EC /* StoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		6DC7536C2695EC990099A4EC /* WebSideLodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSideLodeView.swift; sourceTree = "<group>"; };
 		6DEB6BE9269DDAC8004E6DD3 /* LocalizationSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationSystem.swift; sourceTree = "<group>"; };
+		6DF6AD6F26A30A7700A68504 /* LanguageSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSetting.swift; sourceTree = "<group>"; };
 		CB6634E525D14EFA0019BAFA /* latterToWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = latterToWordView.swift; sourceTree = "<group>"; };
 		CB6634EB25D25E970019BAFA /* FromTextToImageQustionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromTextToImageQustionView.swift; sourceTree = "<group>"; };
 		CB6634EE25D268950019BAFA /* ImageToTextQustionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageToTextQustionView.swift; sourceTree = "<group>"; };
@@ -304,9 +306,18 @@
 		6DEB6BE8269DDAA8004E6DD3 /* LanguageSupport */ = {
 			isa = PBXGroup;
 			children = (
+				6DF6AD6E26A30A5800A68504 /* LanguageView */,
 				6DEB6BE9269DDAC8004E6DD3 /* LocalizationSystem.swift */,
 			);
 			path = LanguageSupport;
+			sourceTree = "<group>";
+		};
+		6DF6AD6E26A30A5800A68504 /* LanguageView */ = {
+			isa = PBXGroup;
+			children = (
+				6DF6AD6F26A30A7700A68504 /* LanguageSetting.swift */,
+			);
+			path = LanguageView;
 			sourceTree = "<group>";
 		};
 		CB6634E925D25D860019BAFA /* Play */ = {
@@ -451,7 +462,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CBA635C425B8333B00AC52D3 /* Build configuration list for PBXProject "WordForLearn" */;
+			buildConfigurationList = CBA635C425B8333B00AC52D3 /* Build configuration list for PBXProject "WordForKids" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -527,6 +538,7 @@
 				6DEB6BEA269DDAC8004E6DD3 /* LocalizationSystem.swift in Sources */,
 				CBA6366B25BEAA9D00AC52D3 /* CategorySection.swift in Sources */,
 				6DC7536D2695EC990099A4EC /* WebSideLodeView.swift in Sources */,
+				6DF6AD7026A30A7700A68504 /* LanguageSetting.swift in Sources */,
 				6DC753692695E6E50099A4EC /* StoreBuyView.swift in Sources */,
 				384E1F0C25DF40A50014E4B1 /* CoreDataManager.swift in Sources */,
 				384E1F0325DF403D0014E4B1 /* DrawingViewController.swift in Sources */,
@@ -707,7 +719,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.kidsWord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -735,7 +747,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.5;
+				MARKETING_VERSION = 1.2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shohagh.kidsWord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -749,7 +761,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CBA635C425B8333B00AC52D3 /* Build configuration list for PBXProject "WordForLearn" */ = {
+		CBA635C425B8333B00AC52D3 /* Build configuration list for PBXProject "WordForKids" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CBA635DB25B8334100AC52D3 /* Debug */,

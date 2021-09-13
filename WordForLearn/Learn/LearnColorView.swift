@@ -37,7 +37,7 @@ struct LearnColorView: View {
             VStack(alignment: .leading, spacing:18){
                 
                 HStack {
-                    Text("Color").font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
+                    Text("speach201".localizedStringForKey()).font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
                         .shadow(color: .gray, radius: 2, x: 0, y: 5)
                     Spacer()
                     CloseButton()
@@ -73,7 +73,7 @@ struct LearnColorView: View {
                 
             }.onAppear {
                 
-                textToSpeach("Tap on color to learn")
+                textToSpeach("speach202".localizedStringForKey())
                 }
             
         }
@@ -207,11 +207,12 @@ struct LearnColorView: View {
     }
     
     func textToSpeach(_ str : String){
-        speaker.stopSpeaking(at: .immediate)
-        let utterance = AVSpeechUtterance(string: str)
-        utterance.pitchMultiplier = 1.5
-        utterance.rate = 0.3
-        self.speaker.speak(utterance)
+//        speaker.stopSpeaking(at: .immediate)
+//        let utterance = AVSpeechUtterance(string: str)
+//        utterance.pitchMultiplier = 1.5
+//        utterance.rate = 0.3
+//        self.speaker.speak(utterance)
+        SpeckLife.textToSpeach(str, stopSpeaking: true, speaker: speaker)
     }
 }
 

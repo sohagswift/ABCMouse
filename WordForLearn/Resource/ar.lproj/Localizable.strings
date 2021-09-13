@@ -5,16 +5,42 @@
  
  
 //PlayWordView.swift
-"This_things_all_start_with_later" = "كل هذه الأشياء تبدأ لاحقًا ";
-"is_for" = "هو ل ";
-"say" = "قل";
-"this_is,_a" = "هذا ال";//a_or_an
-"a," = "أ";
-"How_to_write_the_letter" = "كيف تكتب الرسالة ";//two_lavel
-"which_of_this_latter_said" = "أي من هذا الأخير قال ";
-"this,_is_the_latter" = "هذا هو الأخير ";
-"Trace_the_Letter" = "تتبع الرسالة ";
- 
+//PlayWordView.swift
+"speach1" = "كل هذه الأشياء تبدأ لاحقًا";
+"speach2" = "هو ل";
+"speach3" = "قل";
+"speach4" = "هذا هو";//a_or_an
+"speach5" = "أ"; //Todo fix
+"speach5_1" = "أ"; //Todo fix
+"speach6" = "كيف تكتب الرسالة";//two_lavel
+"speach7" = "أي من هذا الأخير قال";
+"speach8" = "هذا هو الأخير";
+"speach9" = "تتبع الرسالة";
+
+//CategoryViewPicturePlay
+
+"speach101" = "أيهما";
+"speach102" = "ابحث عنه";
+"speach103" = "ابحث عن الحرف المفقود";
+"speach104" = "الذي يبدأ به";
+"speach105" = "الرسالة";
+"speach106" = "خاطئ";
+"speach107" = "ابدا ب";
+"speach108" = "";
+"speach109" = "";
+
+
+//others viewcontroller
+
+"speach201" = "اللون";
+"speach202" = "اضغط على اللون للتعلم";
+"speach203" = "لونها";
+"speach204" = "اضغط على الرقم للتعلم";
+"speach205" = "عدد";
+"speach206" = "اختر لغة لتعلم اللغة الإنجليزية";
+"speach207" = "تقدم بطلب لتغيير اللغة. قم بإنهاء التطبيق وإعادة فتحه بنفسك";
+"Review_Us" = "مراجعة لنا ";
+
  
 //CategoryViewPicturePlay.swift
 "correct" = "صيح";
@@ -53,3 +79,24 @@
 //new
  
 "Remaining_time" = "Remaining time";
+
+
+"Ask_Your_Parents" = "اسأل والديك؟";
+"Only_for_parents." = "للآباء فقط.";
+"Okey" = "تمام";
+"To_continue_tap" = "للمتابعة ، اضغط على ؛";
+
+//premium page:
+"label0" = "افتح كل شيء";
+"label1" = "مكتبة موسعة تضم أكثر من 30 فئة";
+"label2" = "تتبع وحدد الحروف من الألف إلى الياء";
+"label3" = "1000+ صورة رائعة للتعلم";
+"label4" = "لعبة تعليمية للعب وأكثر";
+"label5" = "تم شراؤها";
+"button1" = "استعادة المشتريات";
+"button2" = "شروط الاستخدام";
+"button3" = "سياسة الخصوصية";
+"" = "";
+"" = "";
+"" = "";
+

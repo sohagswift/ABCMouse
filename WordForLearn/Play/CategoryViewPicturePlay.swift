@@ -11,7 +11,7 @@ struct CategoryViewPicturePlay: View {
     var speaker = AVSpeechSynthesizer()
     
     @State var Viewindex = 3
-    var title = "KidS WOrLd"
+    var title = "KidS_WOrLd".localizedStringForKey()
     @State  var correctAnswer = 0
     @State  var items =  [Item]()
     @State var show = false
@@ -97,7 +97,7 @@ struct CategoryViewPicturePlay: View {
             }
             .fullScreenCover(isPresented: self.$showPurchase) {
              
-                ParentPermisionView(isForReview: .constant(false), isPresented: $showPurchase,storeManager: storeManager)
+                ParentPermisionView( isPresented: $showPurchase,storeManager: storeManager)
 
             }
 
@@ -319,11 +319,13 @@ struct CategoryViewPicturePlay: View {
         }else{
         
             if Viewindex == 0 {
-                textToSpeach(tag + ", starts with , \(tag[0])")
+                textToSpeach2(tag)
+                textToSpeach(", \("speach107".localizedStringForKey()) ,")
+                textToSpeach2("\(tag[0])",stopSpeaking : false)
             }else if Viewindex == 4 {
-                textToSpeach("wrong")
+                textToSpeach("speach106".localizedStringForKey())
             }else {
-                textToSpeach(tag)
+                textToSpeach2(tag)
             }
            
         }
@@ -334,33 +336,54 @@ struct CategoryViewPicturePlay: View {
        print("we are working on it ")
         DispatchQueue.main.async {
             let name = selectedItem?.items[correctAnswer].name ?? ""
+            
             var message = ""
+            var mainLanguageText = ""
+            var englisht = ""
             if Viewindex == 1 {
-                message = "Which one\nis, \(name.capitalized)?"
+                message = "\("speach101".localizedStringForKey()), \(name.capitalized)?"
+                mainLanguageText =  "speach101".localizedStringForKey()
+                englisht = name.capitalized
             }else if Viewindex == 2 {
-                message = "Which one is,\n_____?"
+                message = "\("speach101".localizedStringForKey()),\n_____?"
+                mainLanguageText =  "speach101".localizedStringForKey()
+                
             }else if Viewindex == 3 {
-                message = "Find it_____"
+                message = "\("speach102".localizedStringForKey())_____"
+                mainLanguageText =  "speach102".localizedStringForKey()
             }
             else if Viewindex == 4 {
-                message = "Find the mising letter _\(String(name.dropFirst()))"
+                message = "Find the missing letter _\(String(name.dropFirst()))"
+                mainLanguageText =  "speach103".localizedStringForKey()
+               
             }
             else{
-                message = "Which one starts with\n the letter, \(name[0].capitalized)?"
+                message = "\("speach104".localizedStringForKey())\n \("speach105".localizedStringForKey()), \(name[0].capitalized)?"
+                mainLanguageText =  "speach104".localizedStringForKey()
+                englisht = "speach105".localizedStringForKey()
             }
              speckingMessgae = message.replacingOccurrences(of: ",", with: " ", options: NSString.CompareOptions.literal, range:nil)
+            
             self.selectedItem?.title = speckingMessgae
             self.selectedItem?.image = name
             
             
             
            if Viewindex == 3 {
-            speckingMessgae = "find it, \(name)"
+            speckingMessgae = "\("speach102".localizedStringForKey()), \(name)"
+            
+            mainLanguageText =  "speach102".localizedStringForKey()
+            englisht = name
+            
+            
            } else if Viewindex == 4{
-            speckingMessgae = "Find the mising letter"
+            speckingMessgae = "\("speach103".localizedStringForKey())"
+            mainLanguageText =  "speach103".localizedStringForKey()
+           
            }
             
-            self.textToSpeach(speckingMessgae)
+            self.textToSpeach(mainLanguageText)
+            self.textToSpeach2(englisht,stopSpeaking: false)
             
         }
         //didSetFire = false
@@ -368,11 +391,23 @@ struct CategoryViewPicturePlay: View {
     
     func textToSpeach(_ str : String){
       
-        speaker.stopSpeaking(at: .immediate)
-        let utterance = AVSpeechUtterance(string: str)
-        utterance.pitchMultiplier = 1.5
-        utterance.rate = 0.3
-        self.speaker.speak(utterance)
+//        speaker.stopSpeaking(at: .immediate)
+//        let utterance = AVSpeechUtterance(string: str)
+//        utterance.pitchMultiplier = 1.5
+//        utterance.rate = 0.3
+//        self.speaker.speak(utterance)
+        
+        SpeckLife.textToSpeach(str, stopSpeaking: true, speaker: speaker)
+    }
+    
+//    func textToSpeach(_ str : String, stopSpeaking : Bool = true ){
+//
+//
+//    }
+//
+    func textToSpeach2(_ str : String, stopSpeaking:Bool = true ){
+
+        SpeckLife.textToSpeach(str, stopSpeaking: stopSpeaking , en: true, speaker: speaker)
     }
 }
 

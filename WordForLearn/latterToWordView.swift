@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import StoreKit
 
 struct latterToWordView: View {
     @State var show = false
@@ -20,6 +21,13 @@ struct latterToWordView: View {
   
     
     
+    func rateApp() {
+
+        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+                  SKStoreReviewController.requestReview(in: scene)
+              }
+    }
+    
     var body: some View {
         
         VStack{
@@ -27,15 +35,43 @@ struct latterToWordView: View {
             if !show {
             
             HStack {
-                Text("KidS WOrLd").font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
+                Text("KidS_WOrLd".localizedStringForKey()).font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(#colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)))
                     .shadow(color: .gray, radius: 2, x: 0, y: 5)
                 Spacer()
-                CloseButton()
-                    .padding(.trailing, 16)
-                    .onTapGesture{
-                        fromHome = false
-//                                                     self.presentationMode.wrappedValue.dismiss()
-                                                 }
+                
+             
+                    
+                    HStack{
+                        Button(action: {
+                            withAnimation {
+                                rateApp()
+                            }
+                        }, label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(Color.green)
+                                    .frame(width: 45, height: 45)
+                                    .rotationEffect(.degrees(45))
+
+                                Image(systemName: "star")
+                                    .font(.system(size: 20, weight: .bold))
+                                    .foregroundColor(.white)
+                            }
+                        })
+                        
+                        CloseButton()
+                            .padding(.trailing, 16)
+                            .onTapGesture{
+                                fromHome = false
+
+                                                         }
+
+                    }
+                    
+                    
+                
+                
+
                 
             }.background(Image("Certificate3")
                             .resizable()

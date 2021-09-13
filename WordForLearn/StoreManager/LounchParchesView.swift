@@ -16,7 +16,7 @@ struct LounchParchesView: View {
     
     var body: some View {
         ZStack {
-            ParentPermisionView(isForReview: .constant(false), isPresented: $isShowingDetails, storeManager: storeManager)
+            ParentPermisionView(isPresented: $isShowingDetails, storeManager: storeManager)
                 .onAppear(perform: {
                     SKPaymentQueue.default().add(storeManager)
                     storeManager.getProducts()

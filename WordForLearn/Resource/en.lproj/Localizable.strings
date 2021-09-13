@@ -6,15 +6,40 @@
 
 
 //PlayWordView.swift
-"This_things_all_start_with_later" = "This things all start with later";
-"is_for" = "is for";
-"say" = "say";
-"this_is,_a" = "this is, a";//a_or_an
-"a," = "a,";
-"How_to_write_the_letter" = "How to write the letter";//two_lavel
-"which_of_this_latter_said" = "which of this latter said";
-"this,_is_the_latter" = "this, is the latter";
-"Trace_the_Letter" = "Trace the Letter";
+"speach1" = "This things all start with later";
+"speach2" = "is for";
+"speach3" = "say";
+"speach4" = "this is";//a_or_an
+"speach5" = "a"; //Todo fix
+"speach5_1" = "an"; //Todo fix
+"speach6" = "How to write the letter";//two_lavel
+"speach7" = "which of this latter said";
+"speach8" = "this, is the latter";
+"speach9" = "Trace the Letter";
+
+
+
+//CategoryViewPicturePlay
+
+"speach101" = "Which one is";
+"speach102" = "Find it";
+"speach103" = "Find the missing letter";
+"speach104" = "Which one starts with";
+"speach105" = "the letter";
+"speach106" = "wrong";
+"speach107" = "starts with";
+"speach108" = "";
+"speach109" = "";
+
+//others viewcontroller
+
+"speach201" = "Color";
+"speach202" = "Tap on color to learn";
+"speach203" = "Color it";
+"speach204" = "Tap on number to learn";
+"speach205" = "Number";
+"speach206" = "Choose a language to learn english";
+"speach207" = "Apply to change the language. Quit and reopen the app by yourself";
 
 
 //CategoryViewPicturePlay.swift
@@ -49,11 +74,33 @@
 "Color" = "";
 "Tap_on_color_to_learn" = "";
 
-//CategoryViewPicturePlay.swift
+//ParentViewModel.swift
+
+"Ask_Your_Parents" = "Ask Your Parents";
+"Only_for_parents." = "Only for parents";
+"Okey" = "Okey";
+
+"To_continue_tap" = "To continue, tap;";
 
 
 
 
+
+//premium page:
+"label0" = "Unlock everything";
+"label1" = "Expanded library of 30+ categories";
+"label2" = "Trace and Identify A to Z Letters";
+"label3" = "Delightful 1000+ pictures to learn";
+"label4" = "Education game to Play and more";
+"label5" = "Purchased";
+"button1" = "Restore Purchases";
+"button2" = "Terms of Use";
+"button3" = "Privacy Policy";
+"" = "";
+"" = "";
+"" = "";
+
+//
 
 
 
