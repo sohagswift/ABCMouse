@@ -104,6 +104,7 @@ struct ParentPermisionView: View {
                         }
                         
                         if isOk == 3 {
+                            isOk = 0
                            
                             if  TStorage.AcccessParent{
                                 isPresented = false
@@ -294,6 +295,7 @@ struct ParentPermisionView2: View {
     //to out going
     @State var openInAppParcace: Bool = false
  
+    @Environment(\.presentationMode) private var presentationMode
     
     
     @ObservedObject var pazzal = ParentViewModel()
@@ -316,6 +318,7 @@ struct ParentPermisionView2: View {
             .onTapGesture{
                 withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                    // isPresented = false
+                    
                
                     isPresented = false
                 }
@@ -369,7 +372,7 @@ struct ParentPermisionView2: View {
                         
                         if isOk == 3 {
                             
-                            NotificationCenter.default.post(name: NSNotification.ImageClick,
+                            NotificationCenter.default.post(name: NSNotification.PrentClick,
                                                                            object: nil, userInfo: ["info": "Test"])
                           
                             TStorage.VarifyParent = true
@@ -459,5 +462,5 @@ struct ParentPermisionView2: View {
 
 
 extension NSNotification {
-    static let ImageClick = Notification.Name.init("ImageClick")
+    static let PrentClick = Notification.Name.init("PrentClick")
 }

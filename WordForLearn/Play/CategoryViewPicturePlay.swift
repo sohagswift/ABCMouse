@@ -77,12 +77,12 @@ struct CategoryViewPicturePlay: View {
                             .onTapGesture{
                                 withAnimation(.spring(response:0.2,dampingFraction:0.5,blendDuration:0)){
                                     
-                                    if !storeManager.isPurchase(){
-                                       // outgoingCardPresent = true
-                                        showPurchase = true
-                                        return
-                                        //return AnyView(StoreBuyView(isPresented: $outgoingCardPresent,storeManager: storeManager))
-                                    }
+//                                    if !storeManager.isPurchase(){
+//                                       // outgoingCardPresent = true
+//                                        showPurchase = true
+//                                        return
+//                                        //return AnyView(StoreBuyView(isPresented: $outgoingCardPresent,storeManager: storeManager))
+//                                    }
                                     show.toggle()
                                     correctAnswer = 0
                                     selectedItem = item

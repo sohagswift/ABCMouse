@@ -7,6 +7,9 @@
 
 import SwiftUI
 import StoreKit
+import GoogleMobileAds
+import AppTrackingTransparency
+import AdSupport
 
 extension UIView {
     var globalFrame: CGRect? {
@@ -21,6 +24,12 @@ struct Movie: Hashable {
 
 struct HomeView: View {
     
+    @State private var showingActionSheet = false
+    var rewardAd = Rewarded()
+    @State private var alertItem : AlertItem?
+    
+    
+    
     @StateObject var storeManager: StoreManager
     @State var openInAppParcace = false
     @State var openLanguage = false
@@ -28,6 +37,13 @@ struct HomeView: View {
     @State private var outgoingCardPresent = false
     
     @ObservedObject var title = ListViewModel()
+    
+    // If you are getting the "can only present once" issue, add this here.
+     // Fixes the problem, but not sure why; feel free to edit/explain below.
+ //    @SwiftUI.Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    
+    @Environment(\.presentationMode) var presentationMode
+
     
 //    func rateApp() {
 //
@@ -98,6 +114,21 @@ struct HomeView: View {
                     HStack{
                         VStack{
                             Text("KidS_WOrLd".localizedStringForKey()).font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 0).padding(.leading, 16).foregroundColor(Color(.white))
+                                .actionSheet(isPresented: $showingActionSheet) {
+                                    ActionSheet(title: Text("Premiume Access"), message: Text("Upgrade premium or Watch a Reward video to access premium items"), buttons: [
+                                        
+                                        .default(Text("Watch Video Ads")) {
+                                  
+                                            isForReview.toggle()
+                                            
+                                        },
+                                        .default(Text("Upgrade Premium")) {
+                                            openInAppParcace = true
+
+                                        },
+                                        .cancel()
+                                    ])
+                                }
                         .shadow(color: .gray, radius: 2, x: 0, y: 5)
                         }.background(Image("Certificate3")
                                         .resizable()
@@ -105,9 +136,11 @@ struct HomeView: View {
                         Spacer()
                         refreshdButton(imageName: "lock.shield")
                         .padding([.trailing,.top], 10)
+
                         .onTapGesture{
                             openInAppParcace.toggle()
                         }
+                        
                         
                         refreshdButton(imageName: "flag")
                         .padding([.trailing,.top], 10)
@@ -193,12 +226,20 @@ struct HomeView: View {
 //
 //
 //                                                                              }else{
+                                                    
+                                                    title.addItem(content:  num.title)
+                                                    guard storeManager.isPurchase() else{
+                                                       showingActionSheet = true
+                                                        return
+                                                    }
+                                                  
+                                                    
 
-                                                                                isForReview.toggle()
+                                                                              
 //                                                                                return
 //                                                                              }
                                                     
-                                                                title.addItem(content:  num.title)
+                                                               
                                                            // }
                                                     
                                                    
@@ -252,6 +293,58 @@ struct HomeView: View {
                         print(info)
                        
                         outgoingCardPresent = true
+                     }
+                  }
+            .alert(item: $alertItem, content: { alertItemOk in
+                
+                Alert(title: alertItemOk.title, message: alertItemOk.message, primaryButton: .default(alertItemOk.buttonText, action:{
+                    
+                    
+                  if alertItemOk.alertIdnetiy == .noAdsFound{
+                         openInAppParcace = true
+                    }
+                    
+
+                    
+                }), secondaryButton: .cancel()
+                
+                
+              
+                )
+                
+                
+            })
+            .onReceive(NotificationCenter.default.publisher(for: NSNotification.PrentClick))
+                  { obj in
+                     // Change key as per your "userInfo"
+                
+              
+                      if let userInfo = obj.userInfo, let info = userInfo["info"] {
+                        print(info)
+                       
+                     
+                        
+                        
+                        
+                        if storeManager.isPurchase() {
+                            outgoingCardPresent = true
+                        }else{
+                            
+                          
+                      
+                            self.rewardAd.showAd(rewardFunction: { status in
+                                      print("Give Reward \(status)")
+                                if status < 10 {
+                                
+                                    alertItem = AlertContext.noAdsFound
+                                }
+                              
+                              
+                                    })
+                        }
+                        
+                        
+                        
                      }
                   }
             
