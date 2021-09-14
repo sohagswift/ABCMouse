@@ -409,6 +409,9 @@ struct CategoryViewPicturePlay: View {
 
         SpeckLife.textToSpeach(str, stopSpeaking: stopSpeaking , en: true, speaker: speaker)
     }
+    
+    
+    
 }
 
 //struct CategoryViewPicturePlay_Previews: PreviewProvider {

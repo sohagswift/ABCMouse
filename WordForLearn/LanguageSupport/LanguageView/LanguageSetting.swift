@@ -114,7 +114,7 @@ struct LanguageModalView : View {
                             restart = true
                            
                         }else{
-                            isPresented = false
+//                            isPresented = false
                             self.present.wrappedValue.dismiss()
                         }
                        

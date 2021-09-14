@@ -8,8 +8,7 @@
 import SwiftUI
 import StoreKit
 import GoogleMobileAds
-import AppTrackingTransparency
-import AdSupport
+
 
 extension UIView {
     var globalFrame: CGRect? {
@@ -360,6 +359,7 @@ struct HomeView: View {
 
             }
             
+           
             
             .navigationBarHidden(true)
             .navigationBarTitle("") //this must be empty
@@ -447,6 +447,7 @@ struct HomeView: View {
       }
 
         
+
     
         
 }

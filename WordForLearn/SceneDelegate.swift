@@ -26,11 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             
-            if (TStorage.isFastTimeRun == 0) {
-                window.rootViewController = UIHostingController(rootView: LanguageModalView(isPresented: .constant(true)))
-            }else{
+//            if (TStorage.isFastTimeRun == 0) {
+//                window.rootViewController = UIHostingController(rootView: LanguageModalView(isPresented: .constant(true)))
+//            }else{
                 window.rootViewController = UIHostingController(rootView: contentView)
-            }
+         //   }
            
             self.window = window
             window.makeKeyAndVisible()
